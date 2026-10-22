@@ -1,0 +1,601 @@
+AccountId,RFC,RazonSocial,Email,Telefono,Ciudad
+1000,DBA950215AB1,Distribuidora Bajio SA de CV,contacto@bajio.com,5553464097,Tijuana
+1001,DBA950215AB1,Distribuidora Bajío,ventas@bajio.com,5562992312,Toluca
+1002,BAJA850312KL5,Grupo Bajío SA de CV,contacto@grupobajio.mx,5516480894,Monterrey
+1003,BAJA850312KL5,GRUPO BAJIO S.A.,ventas@grupobajio.mx,5581924865,Puebla
+1004,MXIN760401AB2,Transportes del Norte SA de CV,admin@tdnorte.mx,5559081935,Aguascalientes
+1005,MXIN760401AB2,Trans. del Norte SC,ops@tdnorte.mx,5517784483,Chihuahua
+1006,COMS901115GH7,Comercializadora del Sur SA de CV,compras@comsur.mx,5538816302,Guadalajara
+1007,COMS901115GH7,Com. del Sur SA,gerencia@comsur.mx,5521535642,Ciudad Juárez
+1008,LGEX830228FD4,Logística Express SA de CV,info@logexpress.mx,5566126116,Monterrey
+1009,LGEX830228FD4,Log. Expres SA de CV,contacto@logexpress.mx,5542301241,Monterrey
+1010,PQXR910703JK8,Paquetería Rápida SC,ops@paqrapida.mx,5583960310,Ciudad Juárez
+1011,PQXR910703JK8,Paqueteria Rapida SA,ventas@paqrapida.mx,5517933677,Aguascalientes
+1012,AMXL740512PL3,Almacenes México SA de CV,almacenes@amxl.mx,5526616417,Culiacán
+1013,AMXL740512PL3,Almacenes MX SC,admin@amxl.mx,5594641177,Toluca
+1014,FDEX880629RV7,Fletes del Este SC,contacto@flesteste.mx,5588248519,Guadalajara
+1015,FDEX880629RV7,Fletes Este SA de CV,ventas@flesteste.mx,5587457446,Aguascalientes
+1016,SERV950310MK2,Servicios Integrales SA de CV,info@servint.mx,5563241552,Guadalajara
+1017,SERV950310MK2,Servicios Integrales SC,contacto@servint.mx,5539673100,Guadalajara
+1018,NRTX860415HL9,Norteña Textiles SA de CV,ventas@nortex.mx,5584714297,Tijuana
+1019,NRTX860415HL9,Nortena Textiles SA,admin@nortex.mx,5548870700,Ciudad Juárez
+1020,GUFU790927VF1,Plásticos Especializada Pérez SA,contacto@plásticosespec.mx,5523076910,Veracruz
+1021,DUCU730822RN5,Plásticos Jiménez y Cruz SA,admin@plásticosjimén.mx,5543343251,León
+1022,KAXI930811XO4,Grupo del Bajío Reyes S de RL de CV,operaciones@grupodelbajíor.mx,5532140838,Saltillo
+1023,GORA640919ZK5,Alimentos Eficiente Morales SAPI de CV,ventas@alimentosefici.mx,5571230843,Monterrey
+1024,DITA631223JU9,Automotriz Fronteriza Medina SA,logistica@automotrizfron.mx,5513028344,Cancún
+1025,PEYA910107YJ2,Manufactura Metropolitana Medina S de RL de CV,compras@manufacturamet.mx,5520815439,León
+1026,SOWI680728RI6,Consolidadora Medina y Sánchez SC,facturacion@consolidadoram.mx,5521138017,León
+1027,GEKA911006IJ0,Tecnología Global SA,gerencia@tecnologíaglob.mx,5591847639,Aguascalientes
+1028,NEVU630828YV8,Constructora Medina y Medina SA de CV,info@constructorame.mx,5574628898,Toluca
+1029,QAJA730806DK9,Comercializadora del Norte SAPI de CV,servicios@comercializado.mx,5530302435,Veracruz
+1030,FIYA640420ME4,Bebidas Cruz y Morales SA de CV,contacto@bebidascruzymo.mx,5525482486,Oaxaca
+1031,SOTI650304XK4,Internacional Hernández y Reyes SA de CV,admin@internacionalh.mx,5537543491,Chihuahua
+1032,PEWA930521CW4,Alimentos del Pacífico Cruz SC,operaciones@alimentosdelpa.mx,5581483341,Veracruz
+1033,VIZE990426HM3,Textiles Moderna SA,ventas@textilesmodern.mx,5513889649,CDMX
+1034,LOLE980615ZX5,Grupo Sánchez y Rodríguez SC,logistica@gruposánchezyr.mx,5573093067,Hermosillo
+1035,NETU990116UL1,Comercializadora Metropolitana Pérez S de RL de CV,compras@comercializado.mx,5533960779,Ciudad Juárez
+1036,ZIDO890724CX2,Transportes del Norte SC,facturacion@transportesdel.mx,5589297484,Cancún
+1037,ZEYU901112ER8,Distribuidora del Norte SA de CV,gerencia@distribuidorad.mx,5580676511,Mexicali
+1038,GOJE610507JQ3,Farmacéutica Norteña Ruiz S de RL de CV,info@farmacéuticano.mx,5527592411,Guadalajara
+1039,POXU860905RE8,Distribuidora Integral Hernández SAPI de CV,servicios@distribuidorai.mx,5510527808,Tijuana
+1040,HETU670902KV8,Agropecuaria Moderna Rodríguez SAPI de CV,contacto@agropecuariamo.mx,5517626596,Culiacán
+1041,JICA920818AY1,Farmacéutica Ávila y Reyes SAPI de CV,admin@farmacéuticaáv.mx,5578741149,Hermosillo
+1042,LOVU900908WQ4,Corporativo Integral González S de RL de CV,operaciones@corporativoint.mx,5526323822,Torreón
+1043,SIDE870207VJ1,Internacional Especializada SA,ventas@internacionale.mx,5529190316,Tampico
+1044,GOKA850806VH2,Tecnología Avanzada Medina SA,logistica@tecnologíaavan.mx,5566542771,Hermosillo
+1045,PIDI610618OO0,Farmacéutica Reyes y Ávila SA,compras@farmacéuticare.mx,5578754679,Monterrey
+1046,FEFA760502YF4,Tecnología Premier SA,facturacion@tecnologíaprem.mx,5564485395,Tijuana
+1047,WUXO800209BZ2,Grupo Ramírez y García SA de CV,gerencia@gruporamírezyg.mx,5544970682,Monterrey
+1048,YEDI670801KR6,Bebidas González y López SAPI de CV,info@bebidasgonzále.mx,5542002360,Puebla
+1049,HICE720521JQ3,Automotriz Reyes y Hernández SA,servicios@automotrizreye.mx,5556573688,CDMX
+1050,LABA920907QP3,Comercializadora Castillo y Vargas S de RL de CV,contacto@comercializado.mx,5583270296,Torreón
+1051,VIJE810427WX2,Alimentos López y González SA de CV,admin@alimentoslópez.mx,5519492255,Toluca
+1052,LOHA651127MQ4,Manufactura Plus Torres SA de CV,operaciones@manufacturaplu.mx,5571666730,León
+1053,HISA760611RK3,Retail del Centro SA,ventas@retaildelcentr.mx,5534556192,CDMX
+1054,NODO770921GH8,Grupo Norteña SA de CV,logistica@gruponorteñasa.mx,5529309252,Torreón
+1055,XAQA790521HC9,Empacadora del Golfo Ávila S de RL de CV,compras@empacadoradelg.mx,5553773065,Mexicali
+1056,TEMU690127WQ6,Internacional Avanzada González SAPI de CV,facturacion@internacionala.mx,5577695536,Aguascalientes
+1057,BUZE650102EU5,Constructora Integral SAPI de CV,gerencia@constructorain.mx,5516815618,Toluca
+1058,BUKO760115ZC8,Grupo Premier Reyes SA de CV,info@grupopremierre.mx,5573600201,Tampico
+1059,DIKE741221OP6,Química Premier SA,servicios@químicapremier.mx,5516274341,Morelia
+1060,ZEDU690609UX4,Plásticos del Golfo García S de RL de CV,contacto@plásticosdelgo.mx,5518141783,Oaxaca
+1061,LAJO781217JO7,Empacadora Rodríguez y Ruiz SC,admin@empacadorarodr.mx,5551832264,Monterrey
+1062,TAMO640915IM3,Grupo Express SA de CV,operaciones@grupoexpresssa.mx,5529024111,Mexicali
+1063,VIPE981117ID5,Química Moderna S de RL de CV,ventas@químicamoderna.mx,5513333217,León
+1064,BOSO791205NL6,Comercializadora Flores y García SA,logistica@comercializado.mx,5555402183,Torreón
+1065,FEBI760603MM9,Alimentos Regional SA,compras@alimentosregio.mx,5516478434,Tampico
+1066,FAME750514QK3,Tecnología García y Castillo S de RL de CV,facturacion@tecnologíagarc.mx,5584377153,Veracruz
+1067,JACO881025EU4,Logística Ruiz y González SC,gerencia@logísticaruizy.mx,5573375475,Ciudad Juárez
+1068,NIMI760721HJ7,Consolidadora Metropolitana Rodríguez SC,info@consolidadoram.mx,5596329518,León
+1069,DEVO950415KY7,Transportes Ruiz y Pérez SC,servicios@transportesrui.mx,5522175495,León
+1070,NUDI750609ZS3,Nacional Regional S de RL de CV,contacto@nacionalregion.mx,5565550512,Mexicali
+1071,VEQI810116IS5,Consolidadora Avanzada SAPI de CV,admin@consolidadoraa.mx,5594507092,Hermosillo
+1072,DIKO851115NJ0,Logística Regional S de RL de CV,operaciones@logísticaregio.mx,5588809494,Oaxaca
+1073,BAQU890808ZD3,Transportes Avanzada SA de CV,ventas@transportesava.mx,5596885593,Cancún
+1074,DUCA680419BU4,Electrónica Norteña SAPI de CV,logistica@electrónicanor.mx,5595401545,Ciudad Juárez
+1075,FADI931007MI3,Distribuidora del Norte Ruiz SA,compras@distribuidorad.mx,5571832849,Tampico
+1076,NETU750908AN4,Distribuidora del Centro S de RL de CV,facturacion@distribuidorad.mx,5596861466,Ciudad Juárez
+1077,DIKO830416BW5,Tecnología Comercial Medina SC,gerencia@tecnologíacome.mx,5510906434,Mérida
+1078,VAJO720525GH7,Servicios Fronteriza SA de CV,info@serviciosfront.mx,5593697774,Oaxaca
+1079,YEKO861102TE6,Corporativo del Norte SAPI de CV,servicios@corporativodel.mx,5529046982,Ciudad Juárez
+1080,CAHO881211XD1,Farmacéutica del Centro SC,contacto@farmacéuticade.mx,5597572805,Chihuahua
+1081,SAMO830615FD0,Servicios del Este SA,admin@serviciosdeles.mx,5566396028,Puebla
+1082,WEQI790703BW7,Alimentos Global S de RL de CV,operaciones@alimentosgloba.mx,5535907536,Saltillo
+1083,POBO751125MB6,Automotriz del Este SA de CV,ventas@automotrizdele.mx,5544496097,Hermosillo
+1084,DUNI770620BI5,Retail García y Ávila SA de CV,logistica@retailgarcíayá.mx,5513255679,Culiacán
+1085,FOSO760727PE7,Distribuidora Ágil SA,compras@distribuidoraá.mx,5530309186,Morelia
+1086,KINO831003QG6,Manufactura Regional SA de CV,facturacion@manufacturareg.mx,5597180588,Guadalajara
+1087,TUWI700704CI9,Corporativo del Bajío S de RL de CV,gerencia@corporativodel.mx,5576904217,Durango
+1088,SEKE860820VH8,Empacadora del Bajío Torres SA,info@empacadoradelb.mx,5547500018,Aguascalientes
+1089,LILI720808FH3,Retail Express SC,servicios@retailexpresss.mx,5553800334,Monterrey
+1090,QIKU930421ZD7,Comercializadora del Norte S de RL de CV,contacto@comercializado.mx,5541019536,Cancún
+1091,PAME670107TS3,Alimentos Avanzada SC,admin@alimentosavanz.mx,5570279041,Morelia
+1092,LAFU990607BL5,Logística del Centro SA,operaciones@logísticadelce.mx,5515131948,Morelia
+1093,ZEBI861112FT4,Corporativo del Sur S de RL de CV,ventas@corporativodel.mx,5583557332,Oaxaca
+1094,DOFO950321RC2,Internacional Ramírez y Vargas SA,logistica@internacionalr.mx,5599632067,Mérida
+1095,RAMU820714AY5,Corporativo Metropolitana Medina SC,compras@corporativomet.mx,5510788743,Ciudad Juárez
+1096,HOFA851012OY2,Distribuidora del Sur SAPI de CV,facturacion@distribuidorad.mx,5529125597,Toluca
+1097,QAXU831217FE5,Industrias Reyes y Hernández SA de CV,gerencia@industriasreye.mx,5524601928,Torreón
+1098,TEME620811BT6,Internacional Eficiente SC,info@internacionale.mx,5595942889,Culiacán
+1099,YOYE900319GB6,Industrias Metropolitana Cruz SA de CV,servicios@industriasmetr.mx,5530061140,Culiacán
+1100,JAWA800213TO8,Empacadora Fronteriza Castillo S de RL de CV,contacto@empacadorafron.mx,5551367463,Aguascalientes
+1101,KOQI880915FA0,Química Integral Sánchez S de RL de CV,admin@químicaintegra.mx,5593023765,Cancún
+1102,HOQA640312NL1,Textiles Reyes y López SA de CV,operaciones@textilesreyesy.mx,5595421131,Tijuana
+1103,DIVA630913UZ2,Grupo Eficiente SA de CV,ventas@grupoeficiente.mx,5535998954,Tijuana
+1104,TIHE640620YI2,Bebidas Ramírez y Jiménez SC,logistica@bebidasramírez.mx,5544112965,Chihuahua
+1105,TEXI990908KL0,Industrias Metropolitana SC,compras@industriasmetr.mx,5595439217,Tampico
+1106,NOHI670902UL7,Textiles Express Rodríguez SA,facturacion@textilesexpres.mx,5581900607,Toluca
+1107,QILO831005LK1,Manufactura Hernández y Ávila SA de CV,gerencia@manufacturaher.mx,5549779906,Chihuahua
+1108,LIZU801201XB3,Retail Eficiente S de RL de CV,info@retaileficient.mx,5566060995,Chihuahua
+1109,PAGO741021BA0,Plásticos Comercial SA,servicios@plásticoscomer.mx,5524275753,Chihuahua
+1110,PUKO970519EG5,Química del Pacífico González SA de CV,contacto@químicadelpací.mx,5542693863,Durango
+1111,GOFA691126IM4,Logística Especializada SAPI de CV,admin@logísticaespec.mx,5557020859,Morelia
+1112,ZUSU931216HF0,Logística Global SA de CV,operaciones@logísticagloba.mx,5564490884,León
+1113,KECA601018VG2,Corporativo Reyes y Ávila SAPI de CV,ventas@corporativorey.mx,5596918958,Toluca
+1114,RUHU790210UB7,Agropecuaria del Norte Medina S de RL de CV,logistica@agropecuariade.mx,5572446885,Monterrey
+1115,ZOHE660508UB1,Nacional Ramírez y López SA,compras@nacionalramíre.mx,5595344481,Veracruz
+1116,RULI730217AF4,Nacional del Centro SC,facturacion@nacionaldelcen.mx,5553871936,Hermosillo
+1117,QIYE841123VR7,Textiles García y García S de RL de CV,gerencia@textilesgarcía.mx,5541383927,Aguascalientes
+1118,MEQU970219FE0,Comercializadora del Bajío SAPI de CV,info@comercializado.mx,5531717938,Querétaro
+1119,GABA681221UB1,Logística del Este Gutiérrez SA,servicios@logísticadeles.mx,5536751229,Veracruz
+1120,DOFE730404BB1,Electrónica Fronteriza Morales SA de CV,contacto@electrónicafro.mx,5527804483,Puebla
+1121,ZEMI810709AL4,Logística Cruz y Flores SAPI de CV,admin@logísticacruzy.mx,5577610478,Oaxaca
+1122,MUBO610717YD5,Internacional López y Ruiz SAPI de CV,operaciones@internacionall.mx,5539068104,Durango
+1123,DUME870117GJ0,Alimentos Moderna SA de CV,ventas@alimentosmoder.mx,5575965878,Durango
+1124,HOXI920519FJ3,Manufactura Moderna Hernández SA de CV,logistica@manufacturamod.mx,5595433834,Monterrey
+1125,TUFI820213MX1,Electrónica García y Cruz SC,compras@electrónicagar.mx,5550686900,Tampico
+1126,RUVE841108OE8,Empacadora Plus Ávila SA de CV,facturacion@empacadoraplus.mx,5556772924,Aguascalientes
+1127,NUGO951211FO7,Empacadora Norteña Gutiérrez SC,gerencia@empacadoranort.mx,5526919090,Saltillo
+1128,SEVE770525WT2,Transportes de México Flores SAPI de CV,info@transportesdem.mx,5580085646,Querétaro
+1129,HENE761204FV1,Constructora del Golfo SC,servicios@constructorade.mx,5550547885,Mexicali
+1130,MOLE661104IG6,Logística García y Medina S de RL de CV,contacto@logísticagarcí.mx,5539857025,Chihuahua
+1131,ZISA690520XM0,Manufactura Regional Gutiérrez SAPI de CV,admin@manufacturareg.mx,5596865861,Ciudad Juárez
+1132,KUKE670814KI1,Manufactura Medina y Castillo SC,operaciones@manufacturamed.mx,5543562617,Ciudad Juárez
+1133,TOBU860922VF5,Constructora Moderna SA de CV,ventas@constructoramo.mx,5515119806,Tampico
+1134,WEHE930604SO8,Internacional Moderna SAPI de CV,logistica@internacionalm.mx,5512161771,Toluca
+1135,PUNO890422FM8,Nacional Eficiente SA,compras@nacionaleficie.mx,5595573037,Guadalajara
+1136,LIQO630103NN5,Servicios del Bajío Sánchez SA,facturacion@serviciosdelba.mx,5563751205,Chihuahua
+1137,KOSE700325CZ3,Electrónica Ruiz y Sánchez SC,gerencia@electrónicarui.mx,5557396536,Xalapa
+1138,ZOSI951105YP5,Servicios Plus S de RL de CV,info@serviciospluss.mx,5544030791,Ciudad Juárez
+1139,HOBI820421JK7,Tecnología Ávila y Castillo SA de CV,servicios@tecnologíaávil.mx,5598484973,Querétaro
+1140,GIQA651011ZE8,Electrónica Gutiérrez y García SA de CV,contacto@electrónicagut.mx,5538152097,Monterrey
+1141,ZILU661005HF7,Transportes Pérez y Medina SAPI de CV,admin@transportespér.mx,5532536869,Morelia
+1142,YAWI720823GQ1,Automotriz Premier Rodríguez SAPI de CV,operaciones@automotrizprem.mx,5525894409,Tampico
+1143,REGO910902PO2,Química de México Morales SC,ventas@químicademéxic.mx,5582416196,Morelia
+1144,BENO960822JO5,Tecnología Martínez y Hernández SA,logistica@tecnologíamart.mx,5595379403,Toluca
+1145,BAYA810217PP2,Corporativo Plus S de RL de CV,compras@corporativoplu.mx,5593923373,Tijuana
+1146,NAPI900918YG4,Farmacéutica Vargas y Ramírez SAPI de CV,facturacion@farmacéuticava.mx,5517075996,Mérida
+1147,MITO810909QL3,Química del Bajío Flores SC,gerencia@químicadelbají.mx,5552559635,Durango
+1148,MEXA620724RM8,Logística Metropolitana Torres SA de CV,info@logísticametro.mx,5510833583,Guadalajara
+1149,JOYA920920MT2,Consolidadora Plus Ávila SA de CV,servicios@consolidadorap.mx,5538521454,Guadalajara
+1150,ZOZE661106BN1,Distribuidora Comercial González SA,contacto@distribuidorac.mx,5585443981,Durango
+1151,LIHO620601NS9,Química Express SAPI de CV,admin@químicaexpress.mx,5515285419,Puebla
+1152,RUQO640122MT9,Transportes Moderna Vargas SAPI de CV,operaciones@transportesmod.mx,5523696006,Monterrey
+1153,ZOJE600701AV1,Corporativo del Bajío SC,ventas@corporativodel.mx,5573395297,CDMX
+1154,LUKO710112YX2,Empacadora del Este Torres SAPI de CV,logistica@empacadoradele.mx,5576853417,Cancún
+1155,LACA630121VT1,Retail Torres y Ávila SC,compras@retailtorresyá.mx,5575273902,Morelia
+1156,CIPU880822FE1,Electrónica Hernández y Castillo S de RL de CV,facturacion@electrónicaher.mx,5574016788,Torreón
+1157,SIXI780502TU9,Bebidas García y González SAPI de CV,gerencia@bebidasgarcíay.mx,5551419287,Aguascalientes
+1158,REQO841025HZ7,Internacional García y Flores SA,info@internacionalg.mx,5545973439,Ciudad Juárez
+1159,HUCI691005IZ8,Empacadora Moderna Cruz SAPI de CV,servicios@empacadoramode.mx,5521417037,Veracruz
+1160,WOQE740520BV6,Internacional Pérez y Ramírez SAPI de CV,contacto@internacionalp.mx,5511257568,Torreón
+1161,SUDU820208MS8,Textiles Flores y Morales SAPI de CV,admin@textilesflores.mx,5589098350,Hermosillo
+1162,JEJA711210LS9,Constructora Reyes y González SC,operaciones@constructorare.mx,5515985366,Oaxaca
+1163,PAPO650311TA5,Textiles Ávila y García SA de CV,ventas@textilesávilay.mx,5514506907,Hermosillo
+1164,XOXU730525IN1,Empacadora Gutiérrez y Ávila SC,logistica@empacadoraguti.mx,5544090703,Guadalajara
+1165,NEHO650102BR5,Automotriz Moderna Martínez SAPI de CV,compras@automotrizmode.mx,5595878149,Torreón
+1166,FALI960421CV8,Industrias Jiménez y Hernández SA,facturacion@industriasjimé.mx,5541558427,Mexicali
+1167,KECI820118AB4,Internacional Ágil Castillo S de RL de CV,gerencia@internacionalá.mx,5517485029,Puebla
+1168,GIBE791019OY1,Farmacéutica Cruz y Ramírez S de RL de CV,info@farmacéuticacr.mx,5526662267,Querétaro
+1169,TOHO750322AO3,Industrias de México SA de CV,servicios@industriasdemé.mx,5593034279,Querétaro
+1170,GOFO611103OK5,Química del Bajío SA,contacto@químicadelbají.mx,5529161981,Saltillo
+1171,KAHO950315EI6,Manufactura González y García SA,admin@manufacturagon.mx,5586637027,Mérida
+1172,NELO660615PD2,Logística Especializada Pérez SAPI de CV,operaciones@logísticaespec.mx,5574082972,Mérida
+1173,FIJI870508HD6,Tecnología Hernández y López SA,ventas@tecnologíahern.mx,5529374485,Toluca
+1174,BOVI920315AZ8,Industrias Cruz y Vargas SA de CV,logistica@industriascruz.mx,5564887071,Hermosillo
+1175,LUHE710925HW2,Bebidas del Este SA de CV,compras@bebidasdeleste.mx,5591678972,Mexicali
+1176,TIHE681022WU3,Retail del Centro García SA de CV,facturacion@retaildelcentr.mx,5579734429,Ciudad Juárez
+1177,CUPI781128PC0,Empacadora Morales y González SA,gerencia@empacadoramora.mx,5543331628,León
+1178,XICE831020AL8,Textiles Martínez y Rodríguez SA,info@textilesmartín.mx,5542846574,Saltillo
+1179,QUCI661216OQ0,Agropecuaria del Golfo García SC,servicios@agropecuariade.mx,5521889838,Culiacán
+1180,YEHA790518AA1,Nacional del Centro Ramírez SA de CV,contacto@nacionaldelcen.mx,5590449872,Toluca
+1181,XOVE880212DW2,Servicios del Bajío S de RL de CV,admin@serviciosdelba.mx,5576248784,Aguascalientes
+1182,VIFA670705RS3,Transportes Premier SAPI de CV,operaciones@transportespre.mx,5572015934,Mexicali
+1183,QEBO861027TQ0,Logística Cruz y Flores S de RL de CV,ventas@logísticacruzy.mx,5542262866,Saltillo
+1184,RUNO950111QE5,Tecnología Premier SA de CV,logistica@tecnologíaprem.mx,5558913231,Puebla
+1185,VEDI870417VA3,Tecnología Metropolitana S de RL de CV,compras@tecnologíametr.mx,5594988211,Guadalajara
+1186,CAZU771120IU8,Bebidas del Bajío SA,facturacion@bebidasdelbají.mx,5526334243,Chihuahua
+1187,BOKA780210LU2,Logística Eficiente SAPI de CV,gerencia@logísticaefici.mx,5546025585,Monterrey
+1188,SUWE880217EJ6,Retail Norteña Sánchez SA de CV,info@retailnorteñas.mx,5583325104,Mérida
+1189,SUXE840418WL7,Retail Eficiente Morales S de RL de CV,servicios@retaileficient.mx,5551675214,CDMX
+1190,KIKE920913SM0,Industrias Sánchez y Flores SAPI de CV,contacto@industriassánc.mx,5553684886,Oaxaca
+1191,LIJI630106RC9,Automotriz López y Reyes S de RL de CV,admin@automotrizlópe.mx,5569041996,Querétaro
+1192,FUKE860622LE3,Bebidas Norteña Reyes SA de CV,operaciones@bebidasnorteña.mx,5573785420,Tampico
+1193,ZERA600725RS1,Constructora Gutiérrez y González S de RL de CV,ventas@constructoragu.mx,5547488161,Morelia
+1194,YAQO890524LJ5,Textiles Ruiz y Ávila S de RL de CV,logistica@textilesruizyá.mx,5597000090,Saltillo
+1195,BOQO790318JZ2,Plásticos Medina y Gutiérrez SC,compras@plásticosmedin.mx,5521801728,Saltillo
+1196,NUKI730701AB4,Química Fronteriza Ruiz SA,facturacion@químicafronter.mx,5582276193,Morelia
+1197,RUVO840812BT5,Distribuidora Martínez y Reyes SC,gerencia@distribuidoram.mx,5523283028,Ciudad Juárez
+1198,PUQU960307NP6,Empacadora Ávila y Gutiérrez SA,info@empacadoraávil.mx,5581154026,Mexicali
+1199,DEPI830227JQ2,Electrónica Fronteriza SA,servicios@electrónicafro.mx,5578300764,Ciudad Juárez
+1200,ZEVI920417GN2,Electrónica Express SAPI de CV,contacto@electrónicaexp.mx,5524310326,Querétaro
+1201,XARA600523WR0,Constructora Rodríguez y Gutiérrez SA de CV,admin@constructoraro.mx,5599671723,CDMX
+1202,JETU960528UR8,Plásticos del Centro S de RL de CV,operaciones@plásticosdelce.mx,5590764425,Puebla
+1203,GEVU660104CF8,Automotriz Ávila y Vargas SA de CV,ventas@automotrizávil.mx,5597254980,CDMX
+1204,XIGE820506BI1,Grupo Comercial Pérez S de RL de CV,logistica@grupocomercial.mx,5593752242,Torreón
+1205,BAKO970115BT3,Manufactura del Sur SC,compras@manufacturadel.mx,5588785439,León
+1206,NASI861009PC3,Constructora Premier Gutiérrez SC,facturacion@constructorapr.mx,5565498353,Mérida
+1207,QOBE650306LM2,Retail Metropolitana SAPI de CV,gerencia@retailmetropol.mx,5558712488,Puebla
+1208,NUQI851103DN5,Manufactura Metropolitana Pérez S de RL de CV,info@manufacturamet.mx,5548062384,Querétaro
+1209,KOCI610626EH2,Corporativo Norteña SAPI de CV,servicios@corporativonor.mx,5527152276,Veracruz
+1210,SOKE830607XM6,Plásticos del Centro Torres S de RL de CV,contacto@plásticosdelce.mx,5577757098,Hermosillo
+1211,KOGI980819LR3,Bebidas Reyes y Pérez SC,admin@bebidasreyesyp.mx,5526480445,Xalapa
+1212,VAWI840122WS2,Distribuidora Medina y Martínez SC,operaciones@distribuidoram.mx,5541080089,Saltillo
+1213,JADU830925JG1,Retail del Este Sánchez SA,ventas@retaildelestes.mx,5526929227,Durango
+1214,QIPO891121EI2,Alimentos Premier SA,logistica@alimentospremi.mx,5565374297,CDMX
+1215,SEQI660310DI9,Manufactura Plus López S de RL de CV,compras@manufacturaplu.mx,5515368512,Morelia
+1216,HOJI690724BR4,Electrónica del Pacífico Gutiérrez SC,facturacion@electrónicadel.mx,5586526285,Oaxaca
+1217,VIRU820104YY4,Plásticos Eficiente SA de CV,gerencia@plásticosefici.mx,5542810472,Xalapa
+1218,FANE821203NW6,Bebidas de México Ramírez SAPI de CV,info@bebidasdeméxic.mx,5522070681,Querétaro
+1219,RONU880902VW3,Consolidadora Reyes y González S de RL de CV,servicios@consolidadorar.mx,5535406890,Guadalajara
+1220,WIHU701108RI3,Industrias Comercial SA,contacto@industriascome.mx,5565249116,Monterrey
+1221,JIGE911116HW3,Textiles Plus S de RL de CV,admin@textilesplussd.mx,5527864664,Toluca
+1222,PIGE971008KU1,Tecnología del Pacífico González SAPI de CV,operaciones@tecnologíadelp.mx,5571898372,Torreón
+1223,JAMA830807BB4,Corporativo Rodríguez y Torres S de RL de CV,ventas@corporativorod.mx,5525165038,León
+1224,NOSU830506RC0,Automotriz Moderna SA de CV,logistica@automotrizmode.mx,5554523387,Mexicali
+1225,XIFO870807ZR5,Alimentos del Este SA,compras@alimentosdeles.mx,5594254409,Morelia
+1226,ZIZE650324AA6,Retail Comercial SC,facturacion@retailcomercia.mx,5595644451,Chihuahua
+1227,HAMU800706UL5,Alimentos del Golfo SAPI de CV,gerencia@alimentosdelgo.mx,5559563388,Tampico
+1228,KACA961127WM0,Química Regional S de RL de CV,info@químicaregiona.mx,5531136938,Mérida
+1229,YUZA691208FE7,Constructora del Este López S de RL de CV,servicios@constructorade.mx,5574344167,Hermosillo
+1230,JIBA990914EJ1,Logística Avanzada Vargas SA,contacto@logísticaavanz.mx,5518417830,Cancún
+1231,BEHO780115ZS5,Corporativo Moderna Martínez SAPI de CV,admin@corporativomod.mx,5553445562,Chihuahua
+1232,SOWE851020CZ0,Consolidadora Industrial Ávila SA,operaciones@consolidadorai.mx,5585836139,Aguascalientes
+1233,RITE790617UA3,Consolidadora Ágil S de RL de CV,ventas@consolidadoraá.mx,5521436233,Tijuana
+1234,XIWU860617HS7,Servicios Rodríguez y Sánchez SC,logistica@serviciosrodrí.mx,5537222089,Veracruz
+1235,FELA720922IW7,Agropecuaria Integral SC,compras@agropecuariain.mx,5582642211,Aguascalientes
+1236,FUXU650722CZ7,Textiles Global SAPI de CV,facturacion@textilesglobal.mx,5525383151,Toluca
+1237,VASO940307SP1,Alimentos Eficiente SA de CV,gerencia@alimentosefici.mx,5564271810,Culiacán
+1238,CICA980415JD2,Grupo Ávila y Pérez SAPI de CV,info@grupoávilaypér.mx,5525396245,Mexicali
+1239,PEPI600504HL8,Textiles Comercial Morales SA de CV,servicios@textilescomerc.mx,5591039940,Querétaro
+1240,FIWI980202VH4,Corporativo Jiménez y García SAPI de CV,contacto@corporativojim.mx,5569039469,Puebla
+1241,BOFA760305RJ6,Plásticos Norteña SAPI de CV,admin@plásticosnorte.mx,5546066199,Cancún
+1242,BANE910916BZ0,Industrias Eficiente SAPI de CV,operaciones@industriasefic.mx,5562689130,Oaxaca
+1243,HOQE990903LK8,Retail del Golfo SAPI de CV,ventas@retaildelgolfo.mx,5593834960,Guadalajara
+1244,JEPO811015ML5,Farmacéutica Express S de RL de CV,logistica@farmacéuticaex.mx,5554799118,Culiacán
+1245,BESU621105XV2,Constructora Ramírez y Martínez SAPI de CV,compras@constructorara.mx,5545174120,Querétaro
+1246,XUVU681202RY1,Empacadora Regional SAPI de CV,facturacion@empacadoraregi.mx,5595177696,Puebla
+1247,PIKE640525KX5,Electrónica de México Cruz SAPI de CV,gerencia@electrónicadem.mx,5564487357,Saltillo
+1248,CINO920608ZH5,Transportes del Centro SA de CV,info@transportesdel.mx,5570817661,Torreón
+1249,SOXI701003EJ4,Nacional Gutiérrez y Ruiz SA,servicios@nacionalgutiér.mx,5519865074,Hermosillo
+1250,XAXE791012OL6,Grupo Moderna Flores SC,contacto@grupomodernafl.mx,5547026916,Tampico
+1251,WAHI751201GB6,Corporativo Ávila y Torres SAPI de CV,admin@corporativoávi.mx,5596985698,Puebla
+1252,JECE980103CZ9,Nacional González y García SC,operaciones@nacionalgonzál.mx,5546323698,Veracruz
+1253,ZAZI610411KX0,Química Metropolitana Ávila SA,ventas@químicametropo.mx,5533421640,Guadalajara
+1254,RADU810820MI7,Distribuidora Industrial SAPI de CV,logistica@distribuidorai.mx,5597790805,Saltillo
+1255,COYI700201EG2,Empacadora del Este Cruz SA,compras@empacadoradele.mx,5566805164,Querétaro
+1256,WUWE981011HX9,Internacional Morales y López SA,facturacion@internacionalm.mx,5597461744,Veracruz
+1257,SULI930909EI0,Química del Bajío Castillo SA,gerencia@químicadelbají.mx,5530212268,Toluca
+1258,KODA990304BR8,Agropecuaria del Pacífico SA,info@agropecuariade.mx,5591345913,Querétaro
+1259,GEHU610625WH7,Corporativo Castillo y Cruz S de RL de CV,servicios@corporativocas.mx,5571753436,Hermosillo
+1260,NAFA641113VL0,Plásticos Metropolitana S de RL de CV,contacto@plásticosmetro.mx,5560407717,Xalapa
+1261,ZEBI610523NH3,Corporativo Flores y Vargas SA,admin@corporativoflo.mx,5550058667,Oaxaca
+1262,JUHO770327JJ1,Distribuidora Morales y Sánchez SC,operaciones@distribuidoram.mx,5552918560,Xalapa
+1263,YUSE970126GX5,Empacadora Integral SC,ventas@empacadorainte.mx,5568359013,Tijuana
+1264,MAFE600310EQ5,Empacadora del Pacífico S de RL de CV,logistica@empacadoradelp.mx,5563307788,Monterrey
+1265,RIZO810119HG0,Transportes Avanzada SAPI de CV,compras@transportesava.mx,5541088683,Aguascalientes
+1266,RABA800204DP2,Tecnología del Norte Hernández SC,facturacion@tecnologíadeln.mx,5582536441,Tijuana
+1267,ZUVA930627PC5,Manufactura Ágil SA de CV,gerencia@manufacturaági.mx,5546637796,Durango
+1268,HALI640107QB6,Alimentos Norteña García SA,info@alimentosnorte.mx,5515557654,Toluca
+1269,SUMU811214XW4,Tecnología Flores y Ruiz S de RL de CV,servicios@tecnologíaflor.mx,5561402119,Tijuana
+1270,QORE600420QI9,Constructora de México Pérez SA de CV,contacto@constructorade.mx,5521651866,Morelia
+1271,CAQU801121OR5,Plásticos García y Morales S de RL de CV,admin@plásticosgarcí.mx,5578468388,Saltillo
+1272,XUQE840623CM8,Bebidas Flores y Martínez SAPI de CV,operaciones@bebidasfloresy.mx,5599153121,Culiacán
+1273,YILO820919PS3,Grupo Avanzada SA,ventas@grupoavanzadas.mx,5580320923,Hermosillo
+1274,VEPE710327VO2,Electrónica del Sur Flores S de RL de CV,logistica@electrónicadel.mx,5558554993,Ciudad Juárez
+1275,FOGI840212LV8,Retail Integral Martínez SA,compras@retailintegral.mx,5563089588,Mérida
+1276,SASO710905AV2,Química Reyes y Sánchez SAPI de CV,facturacion@químicareyesys.mx,5559764415,Chihuahua
+1277,NOLA950401SI0,Industrias Fronteriza Ruiz SA,gerencia@industriasfron.mx,5553488410,Tampico
+1278,KISA931116CG2,Retail Ávila y Cruz SA de CV,info@retailávilaycr.mx,5569395372,Torreón
+1279,PAMO871120ZI5,Constructora Express SC,servicios@constructoraex.mx,5593021142,Hermosillo
+1280,XIDE810203YO6,Textiles Vargas y Morales SA de CV,contacto@textilesvargas.mx,5524469829,Aguascalientes
+1281,XOSO860806CO6,Transportes Reyes y García SC,admin@transportesrey.mx,5536876403,Torreón
+1282,WAMU810725OD1,Grupo Express SA de CV,operaciones@grupoexpresssa.mx,5523650809,Oaxaca
+1283,DEXO631107WK7,Agropecuaria Plus S de RL de CV,ventas@agropecuariapl.mx,5588375608,Tijuana
+1284,RAZE800607QA2,Servicios Avanzada Ramírez SA de CV,logistica@serviciosavanz.mx,5552015590,Torreón
+1285,LIWO920722BJ4,Constructora Regional SAPI de CV,compras@constructorare.mx,5544505329,Mérida
+1286,JECE941112OV7,Plásticos del Golfo Cruz SA,facturacion@plásticosdelgo.mx,5536879253,Cancún
+1287,WANA940214SK0,Manufactura Jiménez y Torres SC,gerencia@manufacturajim.mx,5538100455,Aguascalientes
+1288,YOQO730402FN1,Transportes del Este SAPI de CV,info@transportesdel.mx,5576726235,León
+1289,BUHO741124VX4,Agropecuaria del Pacífico SC,servicios@agropecuariade.mx,5537770667,Chihuahua
+1290,FOFE650114HV4,Automotriz Premier Vargas SC,contacto@automotrizprem.mx,5517605407,Durango
+1291,GAHO780428SZ5,Agropecuaria Ágil González SA,admin@agropecuariaág.mx,5544633502,Saltillo
+1292,WEGE850111ME4,Electrónica Global SA de CV,operaciones@electrónicaglo.mx,5536596056,Cancún
+1293,GERI850202LD3,Textiles Avanzada Martínez SA,ventas@textilesavanza.mx,5575755396,Querétaro
+1294,BODE910528JT9,Empacadora del Este Pérez SC,logistica@empacadoradele.mx,5573143493,Tampico
+1295,KUMA971004AL3,Consolidadora Fronteriza SA de CV,compras@consolidadoraf.mx,5533082782,Saltillo
+1296,POTE811212FD4,Nacional Global S de RL de CV,facturacion@nacionalglobal.mx,5522840429,Mexicali
+1297,WAHU850802BB8,Comercializadora Regional Castillo SC,gerencia@comercializado.mx,5565744112,Aguascalientes
+1298,PAPE830322CK0,Química Fronteriza González SA,info@químicafronter.mx,5522618236,Puebla
+1299,KAGO770918DK7,Industrias Express SAPI de CV,servicios@industriasexpr.mx,5515645633,Chihuahua
+1300,LIJI850907EH8,Manufactura del Bajío García SA de CV,contacto@manufacturadel.mx,5517202700,Oaxaca
+1301,XEKA700327IA6,Bebidas Reyes y Rodríguez SA,admin@bebidasreyesyr.mx,5586478851,Puebla
+1302,DUJE751025ZQ0,Grupo Eficiente SA,operaciones@grupoeficiente.mx,5523163449,Guadalajara
+1303,JUHI810226YO9,Distribuidora Industrial S de RL de CV,ventas@distribuidorai.mx,5564640699,Guadalajara
+1304,DEGU700326LY2,Corporativo de México SA,logistica@corporativodem.mx,5518977557,CDMX
+1305,TATU810225TU1,Electrónica del Sur SA,compras@electrónicadel.mx,5565210938,Monterrey
+1306,ZIXE911125XP2,Internacional Torres y López S de RL de CV,facturacion@internacionalt.mx,5589239677,León
+1307,ROZU791219RU1,Servicios de México SC,gerencia@serviciosdeméx.mx,5536576930,Aguascalientes
+1308,SUKO961123BM6,Consolidadora Industrial Medina S de RL de CV,info@consolidadorai.mx,5521690160,Culiacán
+1309,ZIYO790110PT0,Química Regional S de RL de CV,servicios@químicaregiona.mx,5591169131,Mérida
+1310,SENU730212MO9,Retail Industrial SA de CV,contacto@retailindustri.mx,5546374309,León
+1311,SOWE670422UB6,Constructora Norteña SA,admin@constructorano.mx,5530254014,Querétaro
+1312,HEPU850516KQ9,Industrias Metropolitana SAPI de CV,operaciones@industriasmetr.mx,5511215815,CDMX
+1313,HAKO961109XL1,Nacional Avanzada Medina SC,ventas@nacionalavanza.mx,5544002887,Xalapa
+1314,RAVU810809JL4,Internacional Especializada Medina SAPI de CV,logistica@internacionale.mx,5518010977,Toluca
+1315,TOPA631104RM7,Empacadora Reyes y González SAPI de CV,compras@empacadorareye.mx,5571589401,Guadalajara
+1316,NOGA770307SS8,Constructora del Pacífico SAPI de CV,facturacion@constructorade.mx,5596100141,Tampico
+1317,ZEMU610718NU1,Electrónica Metropolitana Morales SA,gerencia@electrónicamet.mx,5547242815,Saltillo
+1318,HUTA940605GQ0,Retail Ágil SAPI de CV,info@retailágilsapi.mx,5532907933,Xalapa
+1319,MAXI840623FI4,Corporativo Ávila y Flores S de RL de CV,servicios@corporativoávi.mx,5564100073,Puebla
+1320,LIQI840809DG9,Textiles Vargas y Castillo SC,contacto@textilesvargas.mx,5552245887,Guadalajara
+1321,GIWO951114YC4,Alimentos Medina y Reyes SA,admin@alimentosmedin.mx,5594583304,Puebla
+1322,LOBA941219JL9,Servicios Sánchez y Martínez SAPI de CV,operaciones@serviciossánch.mx,5522939144,Morelia
+1323,RAME711221XW1,Constructora Flores y Medina S de RL de CV,ventas@constructorafl.mx,5577083538,Saltillo
+1324,PEGU930722JE3,Consolidadora Martínez y Vargas SA de CV,logistica@consolidadoram.mx,5577395448,CDMX
+1325,XEXO850419XI2,Manufactura Premier SC,compras@manufacturapre.mx,5577185476,Puebla
+1326,MAZO780321WW6,Servicios Plus Martínez SAPI de CV,facturacion@serviciosplusm.mx,5591181407,Chihuahua
+1327,LUJE790212VS1,Distribuidora Reyes y Martínez SA de CV,gerencia@distribuidorar.mx,5553639826,Hermosillo
+1328,BOZE880517BO9,Bebidas del Sur López SAPI de CV,info@bebidasdelsurl.mx,5572757988,Puebla
+1329,TEMI810919HG8,Retail Express SAPI de CV,servicios@retailexpresss.mx,5514092376,Culiacán
+1330,HAVI870603UI1,Comercializadora Metropolitana Medina SAPI de CV,contacto@comercializado.mx,5589021306,Ciudad Juárez
+1331,KAPU811109CU7,Transportes Regional Jiménez SAPI de CV,admin@transportesreg.mx,5571022534,Hermosillo
+1332,NUJA850310YG1,Textiles del Norte Jiménez SC,operaciones@textilesdelnor.mx,5536404991,Tampico
+1333,JUMA991201CL3,Distribuidora Castillo y Castillo SAPI de CV,ventas@distribuidorac.mx,5545405472,Veracruz
+1334,PEXI820504BX2,Alimentos Regional García S de RL de CV,logistica@alimentosregio.mx,5523710534,Saltillo
+1335,FEPO910211ZK7,Comercializadora Avanzada SAPI de CV,compras@comercializado.mx,5543720602,Chihuahua
+1336,QEPI610423IQ6,Nacional Metropolitana Hernández S de RL de CV,facturacion@nacionalmetrop.mx,5527962313,Tijuana
+1337,BAJU940701AZ1,Empacadora López y Pérez SAPI de CV,gerencia@empacadoralópe.mx,5581696814,Monterrey
+1338,NIYU890825UG0,Corporativo Comercial S de RL de CV,info@corporativocom.mx,5523961079,Puebla
+1339,XEJO891019UV7,Plásticos Ágil SA de CV,servicios@plásticoságils.mx,5573170738,León
+1340,QEZO901005DP9,Grupo Sánchez y Sánchez SA de CV,contacto@gruposánchezys.mx,5562654196,Aguascalientes
+1341,KAKA720102OB6,Manufactura Premier SA de CV,admin@manufacturapre.mx,5584650004,Toluca
+1342,XOLA690801PY1,Comercializadora del Pacífico González SAPI de CV,operaciones@comercializado.mx,5531852974,Morelia
+1343,VIFU840103AR1,Agropecuaria Eficiente Ávila SAPI de CV,ventas@agropecuariaef.mx,5582141456,Monterrey
+1344,CUYI890722AR3,Industrias Avanzada S de RL de CV,logistica@industriasavan.mx,5538019050,Puebla
+1345,ZERA990218QL1,Nacional de México SA de CV,compras@nacionaldeméxi.mx,5522050499,Querétaro
+1346,LIMI690820SK3,Grupo del Este SA de CV,facturacion@grupodelestesa.mx,5525256467,Xalapa
+1347,YEVO890720SU3,Empacadora del Este García SA de CV,gerencia@empacadoradele.mx,5514109947,Xalapa
+1348,GOCE990515IW2,Retail Cruz y García SA,info@retailcruzygar.mx,5561310377,Puebla
+1349,HOHO990609ZH0,Agropecuaria García y Flores SC,servicios@agropecuariaga.mx,5583010727,Querétaro
+1350,NAKI650906DB5,Electrónica Flores y Cruz SA de CV,contacto@electrónicaflo.mx,5582112550,Puebla
+1351,SEJU631122RH6,Internacional Especializada Martínez SC,admin@internacionale.mx,5539267518,Mérida
+1352,BIRA711015TV2,Nacional Fronteriza Medina SC,operaciones@nacionalfronte.mx,5555867061,Tampico
+1353,BAJI991121XS2,Grupo Eficiente Martínez S de RL de CV,ventas@grupoeficiente.mx,5550788799,Monterrey
+1354,DAWA640603ER1,Química Especializada Reyes SA,logistica@químicaespecia.mx,5570401993,León
+1355,FIMO861223FO1,Farmacéutica Flores y Pérez SA de CV,compras@farmacéuticafl.mx,5562074175,Culiacán
+1356,FEPI771001GC1,Consolidadora Premier SAPI de CV,facturacion@consolidadorap.mx,5551872093,Xalapa
+1357,LECE900227BM4,Grupo Express Gutiérrez SC,gerencia@grupoexpressgu.mx,5518328800,Monterrey
+1358,MALE820618XF2,Nacional Ramírez y Cruz SA,info@nacionalramíre.mx,5532311083,Chihuahua
+1359,FEHI840108UG3,Alimentos Sánchez y Castillo S de RL de CV,servicios@alimentossánch.mx,5545288678,CDMX
+1360,CAQI750501PO7,Comercializadora Integral SAPI de CV,contacto@comercializado.mx,5576056176,Monterrey
+1361,QATO710414OB1,Grupo Norteña SA,admin@gruponorteñasa.mx,5569581655,Oaxaca
+1362,KIWA640908PX3,Bebidas Metropolitana Rodríguez SA de CV,operaciones@bebidasmetropo.mx,5567962511,Chihuahua
+1363,CEVE920607DC7,Automotriz Jiménez y González SA de CV,ventas@automotrizjimé.mx,5570802569,Toluca
+1364,NAJI830204WP7,Industrias Reyes y García SAPI de CV,logistica@industriasreye.mx,5513284659,Toluca
+1365,TAWE911120EU5,Constructora Industrial SA de CV,compras@constructorain.mx,5559355506,Xalapa
+1366,ZEKA980824CO3,Retail Integral SC,facturacion@retailintegral.mx,5535706831,Mérida
+1367,NUJA850122FA5,Manufactura Martínez y Morales SA,gerencia@manufacturamar.mx,5578672889,Mexicali
+1368,TEYE720807JZ7,Manufactura Flores y López S de RL de CV,info@manufacturaflo.mx,5533824770,Saltillo
+1369,RAXI700427AE9,Bebidas Jiménez y Morales SAPI de CV,servicios@bebidasjiménez.mx,5583532887,Durango
+1370,QELE950209NE2,Transportes Express Flores SA de CV,contacto@transportesexp.mx,5532514728,Culiacán
+1371,REDU880709SV3,Nacional Norteña S de RL de CV,admin@nacionalnorteñ.mx,5522729615,Guadalajara
+1372,RABI640525FE6,Textiles Metropolitana SA,operaciones@textilesmetrop.mx,5599004297,Toluca
+1373,VUFO750822QS5,Agropecuaria del Centro Vargas SA de CV,ventas@agropecuariade.mx,5589481938,Tampico
+1374,XOHI750712QI1,Nacional del Sur Ávila S de RL de CV,logistica@nacionaldelsur.mx,5538499030,Xalapa
+1375,NASO811125WU2,Farmacéutica Sánchez y Vargas SA de CV,compras@farmacéuticasá.mx,5537803403,Veracruz
+1376,ROGE831223LM7,Transportes Sánchez y Castillo SC,facturacion@transportessán.mx,5545705686,Puebla
+1377,CUGO990721CP9,Farmacéutica Gutiérrez y Ruiz SA,gerencia@farmacéuticagu.mx,5556319055,Durango
+1378,RIHO611122YF6,Comercializadora Castillo y Torres SAPI de CV,info@comercializado.mx,5596179412,Hermosillo
+1379,ZEXE830521IF1,Automotriz Premier Gutiérrez SA de CV,servicios@automotrizprem.mx,5536617619,CDMX
+1380,YURU770103ZA2,Internacional de México SA de CV,contacto@internacionald.mx,5533298380,Culiacán
+1381,HIKA610203CG2,Farmacéutica Martínez y Reyes SA,admin@farmacéuticama.mx,5552971051,Mérida
+1382,ROLI630209FI1,Bebidas del Sur SA,operaciones@bebidasdelsurs.mx,5527685202,Mexicali
+1383,NIVO690420RZ0,Internacional Regional S de RL de CV,ventas@internacionalr.mx,5549613545,Durango
+1384,BEMA900203SE3,Automotriz Integral Sánchez SAPI de CV,logistica@automotrizinte.mx,5522525532,Xalapa
+1385,TURE600419GD7,Empacadora Norteña SAPI de CV,compras@empacadoranort.mx,5566838022,Chihuahua
+1386,WICA741201HQ4,Electrónica Plus S de RL de CV,facturacion@electrónicaplu.mx,5592506303,Hermosillo
+1387,HEMI680302HO5,Internacional Premier Torres S de RL de CV,gerencia@internacionalp.mx,5552339662,Chihuahua
+1388,MAYI650502KQ3,Industrias Especializada SC,info@industriasespe.mx,5571975786,CDMX
+1389,JIFU930622WP8,Empacadora Martínez y Rodríguez SA de CV,servicios@empacadoramart.mx,5593716981,Torreón
+1390,RODI920415KP6,Alimentos Global Jiménez SA,contacto@alimentosgloba.mx,5593046513,Guadalajara
+1391,FODI680128RE1,Consolidadora Ávila y López SA,admin@consolidadoraá.mx,5598265147,Monterrey
+1392,NOVA690723DW0,Retail Premier SC,operaciones@retailpremiers.mx,5581139004,Puebla
+1393,DIHU980706HF6,Internacional Flores y Cruz SA de CV,ventas@internacionalf.mx,5542591577,Cancún
+1394,WADI840808FT4,Constructora Pérez y González SC,logistica@constructorapé.mx,5575907046,Puebla
+1395,VIKA760916WE9,Farmacéutica Hernández y Flores SC,compras@farmacéuticahe.mx,5598536921,Ciudad Juárez
+1396,CAKU820126YI9,Logística Industrial SC,facturacion@logísticaindus.mx,5552652973,Tampico
+1397,PIPU820713JD3,Consolidadora Regional SAPI de CV,gerencia@consolidadorar.mx,5542799105,Toluca
+1398,CEGI760921KM6,Transportes Sánchez y Ruiz SA,info@transportessán.mx,5517361867,Querétaro
+1399,HIGU630915KP7,Corporativo Ágil Flores SA,servicios@corporativoági.mx,5543466491,Monterrey
+1400,FANA610412CT1,Nacional López y Pérez S de RL de CV,contacto@nacionallópezy.mx,5595909332,Torreón
+1401,MOQI960811LX4,Alimentos Express Rodríguez SAPI de CV,admin@alimentosexpre.mx,5588851223,Chihuahua
+1402,DOSO601108GG5,Alimentos Premier Rodríguez SAPI de CV,operaciones@alimentospremi.mx,5514682218,Cancún
+1403,XURA680703FQ4,Nacional Comercial Rodríguez SC,ventas@nacionalcomerc.mx,5591038578,Guadalajara
+1404,KIRE841123CN3,Retail Flores y Reyes SC,logistica@retailfloresyr.mx,5575937523,Veracruz
+1405,VAGU840926FF0,Agropecuaria del Bajío Gutiérrez SA,compras@agropecuariade.mx,5517169544,Guadalajara
+1406,JUBU730915ER3,Transportes Especializada S de RL de CV,facturacion@transportesesp.mx,5514082622,Ciudad Juárez
+1407,GULU770414GQ7,Grupo del Norte SA,gerencia@grupodelnortes.mx,5532203519,Mexicali
+1408,KULE930308TF3,Nacional Ágil Rodríguez S de RL de CV,info@nacionalágilro.mx,5589748728,Durango
+1409,JIRU630801OC1,Consolidadora Regional González SA,servicios@consolidadorar.mx,5571736224,León
+1410,ZEWI861208GH2,Alimentos Ávila y Vargas SA,contacto@alimentosávila.mx,5551612646,León
+1411,ZESA690419KD8,Industrias Vargas y Morales S de RL de CV,admin@industriasvarg.mx,5589463774,Oaxaca
+1412,TITU720819QE8,Manufactura del Este SA,operaciones@manufacturadel.mx,5561465058,Monterrey
+1413,QAPO810623WM2,Plásticos Ruiz y García SA de CV,ventas@plásticosruizy.mx,5573995216,Querétaro
+1414,VORU790318UV0,Transportes Especializada Cruz S de RL de CV,logistica@transportesesp.mx,5553838220,Aguascalientes
+1415,XENE950913UF4,Transportes del Norte SAPI de CV,compras@transportesdel.mx,5553380925,Oaxaca
+1416,SOLI930112RR5,Química del Bajío Flores SA,facturacion@químicadelbají.mx,5561958274,Morelia
+1417,YULA830703LZ8,Servicios Industrial SA,gerencia@serviciosindus.mx,5576442289,León
+1418,QADE730124ZE2,Manufactura Sánchez y López S de RL de CV,info@manufacturasán.mx,5545411355,Puebla
+1419,FEWU650314GB7,Constructora Regional Martínez SC,servicios@constructorare.mx,5590126894,Tijuana
+1420,MADA700202AK2,Automotriz del Pacífico SA de CV,contacto@automotrizdelp.mx,5534283220,Hermosillo
+1421,YIJI670711MN4,Manufactura Morales y García SC,admin@manufacturamor.mx,5532221333,León
+1422,GIZA880920VB7,Plásticos del Norte Jiménez S de RL de CV,operaciones@plásticosdelno.mx,5513088808,Morelia
+1423,ZIQU690126RQ2,Industrias Medina y Hernández SA de CV,ventas@industriasmedi.mx,5577150645,Durango
+1424,VAPO721013XV6,Química Gutiérrez y Ávila SC,logistica@químicagutiérr.mx,5552459147,Torreón
+1425,JIJU601023KK8,Bebidas Flores y Hernández SAPI de CV,compras@bebidasfloresy.mx,5583286302,Oaxaca
+1426,LATA690725CS6,Plásticos Reyes y Vargas SA de CV,facturacion@plásticosreyes.mx,5521712664,Aguascalientes
+1427,GAQI671028NO4,Nacional Integral SA,gerencia@nacionalintegr.mx,5523096566,Guadalajara
+1428,TIJA760526LG8,Textiles Regional Gutiérrez SA,info@textilesregion.mx,5571232286,Toluca
+1429,NOTA621227EZ4,Bebidas Global SC,servicios@bebidasglobals.mx,5557194094,Toluca
+1430,QELU620816AC1,Corporativo Integral SAPI de CV,contacto@corporativoint.mx,5572951997,Durango
+1431,DINU710321YD2,Servicios Industrial Hernández SC,admin@serviciosindus.mx,5539947499,Oaxaca
+1432,KILA740320JY1,Constructora Global Ávila S de RL de CV,operaciones@constructoragl.mx,5538486647,Puebla
+1433,RONA840421OP8,Servicios del Pacífico SAPI de CV,ventas@serviciosdelpa.mx,5526070689,Veracruz
+1434,NOHE900816IS5,Agropecuaria Moderna SAPI de CV,logistica@agropecuariamo.mx,5554089526,León
+1435,NAPO670316SJ5,Plásticos Ruiz y Hernández SA,compras@plásticosruizy.mx,5513847179,Saltillo
+1436,JOFI891112SY5,Electrónica Pérez y Ruiz SC,facturacion@electrónicapér.mx,5558364756,Hermosillo
+1437,YEMI751219CN0,Agropecuaria del Este SC,gerencia@agropecuariade.mx,5579110978,Chihuahua
+1438,FEFI660422SW0,Logística Vargas y Martínez SA,info@logísticavarga.mx,5552010125,Aguascalientes
+1439,BURI970927FA9,Industrias de México SA de CV,servicios@industriasdemé.mx,5538262285,Puebla
+1440,LUVI840723AC9,Tecnología del Bajío Ramírez SAPI de CV,contacto@tecnologíadelb.mx,5529853714,Ciudad Juárez
+1441,PABA871018UM2,Nacional Cruz y Ruiz SC,admin@nacionalcruzyr.mx,5558184108,Querétaro
+1442,LUGE700305DS1,Retail Avanzada SAPI de CV,operaciones@retailavanzada.mx,5587099136,Puebla
+1443,WORO940124BH6,Manufactura del Norte SC,ventas@manufacturadel.mx,5557971137,Culiacán
+1444,DOXO870616YB3,Logística Integral Reyes SC,logistica@logísticainteg.mx,5515048460,Morelia
+1445,HEDI650625CK1,Empacadora Torres y Martínez SAPI de CV,compras@empacadoratorr.mx,5569981970,Culiacán
+1446,GEMO800223QN2,Logística Moderna Rodríguez SC,facturacion@logísticamoder.mx,5593911104,Guadalajara
+1447,MUCI630217XX3,Constructora del Pacífico Sánchez SC,gerencia@constructorade.mx,5568156684,Tampico
+1448,SAKO601208VM1,Tecnología del Este SAPI de CV,info@tecnologíadele.mx,5548612483,Querétaro
+1449,NELI740113NW6,Transportes del Este SA de CV,servicios@transportesdel.mx,5517630607,Veracruz
+1450,JIZA840922PI3,Consolidadora Moderna SAPI de CV,contacto@consolidadoram.mx,5570113449,Mérida
+1451,DUTE690216NE0,Industrias Express López SA de CV,admin@industriasexpr.mx,5525151338,Saltillo
+1452,KAKU770606WL6,Servicios del Pacífico Jiménez S de RL de CV,operaciones@serviciosdelpa.mx,5534112281,CDMX
+1453,GAWO751105VI1,Constructora del Este SC,ventas@constructorade.mx,5510486211,Tijuana
+1454,CIDI970628XZ8,Automotriz Especializada Gutiérrez SAPI de CV,logistica@automotrizespe.mx,5536378937,Mérida
+1455,VETI680612QR9,Bebidas Norteña SAPI de CV,compras@bebidasnorteña.mx,5527272075,Chihuahua
+1456,BORU710118JI1,Internacional Integral Cruz SAPI de CV,facturacion@internacionali.mx,5573934741,Culiacán
+1457,VUQU780513WB4,Farmacéutica Pérez y Jiménez SA,gerencia@farmacéuticapé.mx,5551123612,Cancún
+1458,PAPE740721XV4,Alimentos Plus García SA,info@alimentosplusg.mx,5583606713,Guadalajara
+1459,NIRA871017VJ3,Farmacéutica Morales y Rodríguez SC,servicios@farmacéuticamo.mx,5575452965,Puebla
+1460,PELO621205KN7,Tecnología González y Flores SC,contacto@tecnologíagonz.mx,5596085424,León
+1461,HILA750602FB6,Corporativo González y Cruz SAPI de CV,admin@corporativogon.mx,5526017210,Puebla
+1462,LOVO980501MM2,Distribuidora Cruz y Rodríguez SA,operaciones@distribuidorac.mx,5554688305,Tijuana
+1463,CUJE611022ST3,Comercializadora Pérez y Sánchez SC,ventas@comercializado.mx,5573255444,Aguascalientes
+1464,XIFA960617UT1,Automotriz del Bajío Sánchez SC,logistica@automotrizdelb.mx,5569124007,Mérida
+1465,RIBE670613HU6,Farmacéutica Express SC,compras@farmacéuticaex.mx,5560627874,Toluca
+1466,CUWI770825WP7,Logística Premier S de RL de CV,facturacion@logísticapremi.mx,5572001278,Culiacán
+1467,YUHU900913FZ1,Empacadora Jiménez y Martínez SA,gerencia@empacadorajimé.mx,5571989217,Hermosillo
+1468,BADA710601NN8,Retail Cruz y Reyes SA,info@retailcruzyrey.mx,5532713191,Puebla
+1469,VUTA830528RG3,Alimentos Flores y Ávila SAPI de CV,servicios@alimentosflore.mx,5585062799,Aguascalientes
+1470,LIDU830212VR5,Farmacéutica Premier SA de CV,contacto@farmacéuticapr.mx,5555448958,León
+1471,RAPE850106VG8,Alimentos Medina y Ramírez SC,admin@alimentosmedin.mx,5533126893,Durango
+1472,SEPA610708KV6,Logística Moderna Ruiz S de RL de CV,operaciones@logísticamoder.mx,5536511375,Veracruz
+1473,HAZE710526UQ2,Bebidas del Pacífico Reyes SA,ventas@bebidasdelpací.mx,5548978379,Veracruz
+1474,WETU670309JJ3,Bebidas Express Sánchez S de RL de CV,logistica@bebidasexpress.mx,5552916643,Aguascalientes
+1475,GITO950327BU1,Bebidas Eficiente SA de CV,compras@bebidaseficien.mx,5589448311,Durango
+1476,VELA710901AT3,Grupo Jiménez y Ruiz SC,facturacion@grupojiménezyr.mx,5534491071,Hermosillo
+1477,NIYA680612CC0,Nacional del Bajío López SC,gerencia@nacionaldelbaj.mx,5549269723,Xalapa
+1478,LIDE881026IR0,Nacional Fronteriza SC,info@nacionalfronte.mx,5551325244,Monterrey
+1479,WOYU690723RO6,Corporativo Sánchez y Ramírez SA,servicios@corporativosán.mx,5578516661,Culiacán
+1480,GIQA740207OZ5,Textiles Cruz y Reyes S de RL de CV,contacto@textilescruzyr.mx,5513566333,Morelia
+1481,POJE820824VM2,Empacadora del Golfo Vargas SC,admin@empacadoradelg.mx,5573328756,Chihuahua
+1482,JEZE821026DI4,Electrónica Rodríguez y Morales SA,operaciones@electrónicarod.mx,5560584012,Aguascalientes
+1483,XENO600509ZE8,Bebidas Express Castillo SC,ventas@bebidasexpress.mx,5532807068,Mérida
+1484,FOSO870428DE6,Textiles del Golfo SA,logistica@textilesdelgol.mx,5539687585,Toluca
+1485,ROLE660324SG2,Plásticos Ruiz y Pérez S de RL de CV,compras@plásticosruizy.mx,5596676580,Chihuahua
+1486,TABE880125US1,Tecnología del Centro Torres SAPI de CV,facturacion@tecnologíadelc.mx,5540636749,Aguascalientes
+1487,HIPA900221FW4,Servicios Global SA de CV,gerencia@serviciosgloba.mx,5518040874,Aguascalientes
+1488,CEKE650509CI7,Servicios del Norte SA,info@serviciosdelno.mx,5571942028,Culiacán
+1489,PERA740104KX1,Internacional Morales y García SC,servicios@internacionalm.mx,5538053207,Querétaro
+1490,CIQO940708JN1,Textiles Ágil Jiménez S de RL de CV,contacto@textileságilji.mx,5588500708,Chihuahua
+1491,TIHO860422BR3,Plásticos Sánchez y Ruiz SAPI de CV,admin@plásticossánch.mx,5525891390,Monterrey
+1492,POBA761116UF3,Transportes Torres y Vargas SC,operaciones@transportestor.mx,5529155445,Toluca
+1493,QAMA840824KQ9,Farmacéutica del Este SC,ventas@farmacéuticade.mx,5516514201,Xalapa
+1494,DICI790923ZF1,Nacional Especializada SA de CV,logistica@nacionalespeci.mx,5550131721,CDMX
+1495,PEYO921214DD8,Retail Morales y Jiménez S de RL de CV,compras@retailmoralesy.mx,5524323682,Ciudad Juárez
+1496,KOJI901123MM8,Servicios del Bajío Gutiérrez SA de CV,facturacion@serviciosdelba.mx,5597466230,Cancún
+1497,LEGO841009LE9,Industrias Regional González SA,gerencia@industriasregi.mx,5541951075,Puebla
+1498,WARA621015VZ4,Automotriz Plus Martínez SA de CV,info@automotrizplus.mx,5524654452,Torreón
+1499,MUBO830326PC0,Transportes Avanzada SC,servicios@transportesava.mx,5595672841,Monterrey
+1500,DUJU930205JN7,Plásticos Sánchez y Flores SA de CV,contacto@plásticossánch.mx,5585602813,Mexicali
+1501,FURI980128DD6,Plásticos Plus SC,admin@plásticospluss.mx,5588867359,Mexicali
+1502,LOME960701JO9,Retail Ruiz y Ramírez SAPI de CV,operaciones@retailruizyram.mx,5521482893,Puebla
+1503,VONE830211QQ4,Retail Comercial Sánchez S de RL de CV,ventas@retailcomercia.mx,5578862540,Tampico
+1504,YUKO890527TZ3,Agropecuaria Especializada SC,logistica@agropecuariaes.mx,5584897618,CDMX
+1505,DIHI761220GM7,Internacional Especializada SA de CV,compras@internacionale.mx,5550313585,Xalapa
+1506,FETU860107MM6,Alimentos Premier SAPI de CV,facturacion@alimentospremi.mx,5597270332,Mérida
+1507,QUQU850413EQ5,Automotriz del Sur Martínez SC,gerencia@automotrizdels.mx,5520214312,Durango
+1508,WEPI890811JT5,Agropecuaria Premier SC,info@agropecuariapr.mx,5532857278,Monterrey
+1509,GUVE900628DQ2,Internacional Global SC,servicios@internacionalg.mx,5554169623,Mérida
+1510,MALE850114HM7,Automotriz Especializada S de RL de CV,contacto@automotrizespe.mx,5510057327,Puebla
+1511,KOLE611004OW6,Consolidadora Avanzada Martínez SC,admin@consolidadoraa.mx,5570184188,Mérida
+1512,JAPU620225SA9,Química Global González S de RL de CV,operaciones@químicaglobalg.mx,5530720741,Veracruz
+1513,SIPO700403WS5,Tecnología del Centro Torres SAPI de CV,ventas@tecnologíadelc.mx,5553771379,Guadalajara
+1514,VIVA620609WX4,Servicios Regional Reyes S de RL de CV,logistica@serviciosregio.mx,5570327569,Cancún
+1515,SUNA990326DH2,Transportes del Centro S de RL de CV,compras@transportesdel.mx,5599584207,Saltillo
+1516,JISO621127FB2,Grupo Martínez y Jiménez SA de CV,facturacion@grupomartínezy.mx,5512393387,Oaxaca
+1517,RUDO740325BS6,Farmacéutica Fronteriza S de RL de CV,gerencia@farmacéuticafr.mx,5565799907,Torreón
+1518,CUBI621026NG3,Distribuidora García y Rodríguez SA de CV,info@distribuidorag.mx,5566758196,Oaxaca
+1519,TIFU841011AM4,Bebidas Martínez y Morales SAPI de CV,servicios@bebidasmartíne.mx,5580731850,Torreón
+1520,FOFO660824NZ8,Distribuidora del Bajío Ávila S de RL de CV,contacto@distribuidorad.mx,5550822844,Guadalajara
+1521,YOYI600808LS7,Comercializadora Torres y Castillo SAPI de CV,admin@comercializado.mx,5592747491,Guadalajara
+1522,NIWE960719ZV0,Automotriz Ruiz y Castillo SAPI de CV,operaciones@automotrizruiz.mx,5529630136,Morelia
+1523,TIZU621210VA2,Internacional López y Sánchez SA de CV,ventas@internacionall.mx,5596997748,León
+1524,LEQE931025KT9,Empacadora del Bajío SC,logistica@empacadoradelb.mx,5568967889,Chihuahua
+1525,QIGO710925JL0,Servicios Moderna López SA de CV,compras@serviciosmoder.mx,5531900485,CDMX
+1526,QUDI810205ME4,Internacional del Sur Gutiérrez SA de CV,facturacion@internacionald.mx,5571681053,Chihuahua
+1527,GOFE690508AB4,Empacadora del Pacífico S de RL de CV,gerencia@empacadoradelp.mx,5595058348,Chihuahua
+1528,NEHI851105VS7,Servicios Ávila y Ruiz SC,info@serviciosávila.mx,5528165131,Morelia
+1529,PEKA670425JY0,Farmacéutica Rodríguez y Torres S de RL de CV,servicios@farmacéuticaro.mx,5582529116,León
+1530,SADI850306GC0,Consolidadora Metropolitana SA de CV,contacto@consolidadoram.mx,5526871358,Culiacán
+1531,SARO670113KG3,Tecnología Plus Cruz S de RL de CV,admin@tecnologíaplus.mx,5581367103,Querétaro
+1532,GODI860510XD3,Farmacéutica Jiménez y Torres SC,operaciones@farmacéuticaji.mx,5595696295,Oaxaca
+1533,MOYA670803SO6,Química Ramírez y Medina SA de CV,ventas@químicaramírez.mx,5541091994,Chihuahua
+1534,ZEVO720116MK6,Comercializadora Global Castillo SA de CV,logistica@comercializado.mx,5562666183,Xalapa
+1535,GIRU680511OO4,Química Eficiente Ávila SC,compras@químicaeficien.mx,5533256901,Tampico
+1536,ZUBO610528RP5,Tecnología del Norte S de RL de CV,facturacion@tecnologíadeln.mx,5565177657,Mexicali
+1537,JADE790707NL9,Consolidadora Integral Castillo S de RL de CV,gerencia@consolidadorai.mx,5559066009,Torreón
+1538,FEDI930219XO6,Alimentos Express Vargas SC,info@alimentosexpre.mx,5542193533,Toluca
+1539,XUWO810513KP7,Química Express SAPI de CV,servicios@químicaexpress.mx,5537782240,Xalapa
+1540,CECI790207HP4,Agropecuaria Vargas y Ruiz SA de CV,contacto@agropecuariava.mx,5515711706,Mexicali
+1541,DEJA840317XJ5,Transportes Global SA,admin@transportesglo.mx,5597823247,Ciudad Juárez
+1542,KACA910602XM4,Automotriz Sánchez y Ramírez SC,operaciones@automotrizsánc.mx,5572778119,León
+1543,HOPE981221ZM8,Corporativo Fronteriza SA,ventas@corporativofro.mx,5546704587,Veracruz
+1544,KAWI840420KA0,Internacional Vargas y Castillo SA,logistica@internacionalv.mx,5550468836,Oaxaca
+1545,KUKI731221LR7,Alimentos Plus Medina SA de CV,compras@alimentosplusm.mx,5511336992,Aguascalientes
+1546,BUWO800807NZ8,Empacadora del Centro Morales SA de CV,facturacion@empacadoradelc.mx,5573023343,Hermosillo
+1547,NOBI781123YE7,Bebidas Premier Pérez SA,gerencia@bebidaspremier.mx,5581824932,Oaxaca
+1548,YEJI850601DJ5,Corporativo Express González SC,info@corporativoexp.mx,5565557103,Mexicali
+1549,MAPU690210IY8,Servicios Castillo y Jiménez SA,servicios@servicioscasti.mx,5585316119,Saltillo
+1550,LAKI740625GZ6,Farmacéutica García y Castillo SA,contacto@farmacéuticaga.mx,5547839446,CDMX
+1551,VIGE830221LK1,Industrias Regional Ramírez SA de CV,admin@industriasregi.mx,5587622176,Cancún
+1552,TIPU931202KN9,Agropecuaria Hernández y Morales S de RL de CV,operaciones@agropecuariahe.mx,5554234858,Tijuana
+1553,KIYA750408BG8,Transportes Global S de RL de CV,ventas@transportesglo.mx,5557049483,Oaxaca
+1554,PAJE870916GB5,Grupo Norteña SA,logistica@gruponorteñasa.mx,5525801156,Oaxaca
+1555,GUVE660920EM2,Corporativo Gutiérrez y Flores S de RL de CV,compras@corporativogut.mx,5520603574,Oaxaca
+1556,NOJI610816GG8,Comercializadora Plus Jiménez SC,facturacion@comercializado.mx,5590635702,Puebla
+1557,NEFE951221KL1,Comercializadora Ruiz y López SA,gerencia@comercializado.mx,5593934323,Torreón
+1558,SOLI790927AG7,Grupo del Centro SA,info@grupodelcentro.mx,5588062126,Ciudad Juárez
+1559,JADU621005AQ7,Bebidas Ramírez y Ramírez SA de CV,servicios@bebidasramírez.mx,5565095438,Aguascalientes
+1560,LUCI680807XG3,Distribuidora Especializada SAPI de CV,contacto@distribuidorae.mx,5546190259,Tijuana
+1561,TOPA870723BQ1,Plásticos López y Medina SC,admin@plásticoslópez.mx,5576166181,Oaxaca
+1562,HEVO680914II1,Comercializadora Integral SA,operaciones@comercializado.mx,5586484806,Puebla
+1563,VUVE930405AC5,Farmacéutica de México SA de CV,ventas@farmacéuticade.mx,5516318379,Ciudad Juárez
+1564,HADO901123XG6,Empacadora Castillo y Pérez SC,logistica@empacadoracast.mx,5584469851,Xalapa
+1565,YOTE620618GZ5,Nacional del Centro S de RL de CV,compras@nacionaldelcen.mx,5524311347,Puebla
+1566,NUVU950322UB4,Distribuidora Moderna Gutiérrez S de RL de CV,facturacion@distribuidoram.mx,5586850758,Guadalajara
+1567,GIRO640708RQ5,Constructora del Golfo Vargas SA,gerencia@constructorade.mx,5559852764,Mérida
+1568,YASA801204MP7,Plásticos del Bajío SA,info@plásticosdelba.mx,5514953218,Culiacán
+1569,XAGA780822KB3,Manufactura Integral Ramírez S de RL de CV,servicios@manufacturaint.mx,5569637057,Torreón
+1570,FEHI670619WW7,Logística Regional SC,contacto@logísticaregio.mx,5519207424,Mexicali
+1571,SUTU680223SA6,Manufactura Reyes y Rodríguez SAPI de CV,admin@manufacturarey.mx,5540727190,Cancún
+1572,NEXI650820FX8,Nacional Martínez y Flores SAPI de CV,operaciones@nacionalmartín.mx,5512540266,Puebla
+1573,LOYE920627BO1,Agropecuaria Pérez y Hernández SA,ventas@agropecuariapé.mx,5581914691,Morelia
+1574,GULI971109OZ2,Servicios Jiménez y Pérez SAPI de CV,logistica@serviciosjimén.mx,5532201608,Aguascalientes
+1575,JOGE810313YJ6,Constructora González y Cruz SA de CV,compras@constructorago.mx,5567108302,Toluca
+1576,LEVI730709EE5,Automotriz Avanzada Reyes SAPI de CV,facturacion@automotrizavan.mx,5537765666,Tijuana
+1577,HIWI601123XN2,Servicios del Este SC,gerencia@serviciosdeles.mx,5524640481,Mérida
+1578,WONU750527IZ5,Internacional del Sur Gutiérrez SA de CV,info@internacionald.mx,5586860336,Guadalajara
+1579,BEXI930227US6,Manufactura Moderna SAPI de CV,servicios@manufacturamod.mx,5555800180,Cancún
+1580,CILA851125LZ8,Internacional Rodríguez y Pérez SAPI de CV,contacto@internacionalr.mx,5596295210,Durango
+1581,NILI990208YB1,Constructora Comercial Gutiérrez SC,admin@constructoraco.mx,5597815367,Ciudad Juárez
+1582,NIKE930910FS1,Industrias del Norte Sánchez SA,operaciones@industriasdeln.mx,5578961954,Chihuahua
+1583,TEWO970806BL1,Electrónica Industrial SC,ventas@electrónicaind.mx,5513445074,Morelia
+1584,CEGI781204QV2,Electrónica González y Ruiz SA,logistica@electrónicagon.mx,5552842606,León
+1585,GOHO850305JM2,Farmacéutica Global Sánchez S de RL de CV,compras@farmacéuticagl.mx,5559637109,Monterrey
+1586,VIYO660918ZU9,Plásticos Norteña SAPI de CV,facturacion@plásticosnorte.mx,5523077144,Tijuana
+1587,NIRA940204FW6,Farmacéutica López y González SA,gerencia@farmacéuticaló.mx,5526773467,Querétaro
+1588,PIZE890821ZB5,Farmacéutica Reyes y Rodríguez SA,info@farmacéuticare.mx,5517462861,Querétaro
+1589,VOPU951012OI2,Retail Especializada SA de CV,servicios@retailespecial.mx,5536184646,Xalapa
+1590,RACU780918FN8,Grupo del Golfo Sánchez SA de CV,contacto@grupodelgolfos.mx,5528624166,Xalapa
+1591,SUBE630401XH2,Agropecuaria González y Hernández SAPI de CV,admin@agropecuariago.mx,5587331370,Torreón
+1592,TIBE800518XZ7,Alimentos Regional SC,operaciones@alimentosregio.mx,5593683104,Cancún
+1593,GUYU811101WW7,Agropecuaria del Golfo García SA,ventas@agropecuariade.mx,5574167318,Durango
+1594,QIXA910104PC1,Constructora Industrial Sánchez SA,logistica@constructorain.mx,5597899049,Cancún
+1595,ZASU950819JQ9,Alimentos Moderna Pérez S de RL de CV,compras@alimentosmoder.mx,5520103103,Ciudad Juárez
+1596,FUPE940722GH3,Manufactura Industrial SA de CV,facturacion@manufacturaind.mx,5563863249,Tampico
+1597,MABU860522ZR6,Nacional Fronteriza Gutiérrez SC,gerencia@nacionalfronte.mx,5573230857,Cancún
+1598,SIQA660820KF8,Nacional Moderna SC,info@nacionalmodern.mx,5541002025,Tampico
+1599,PUYA810119LL6,Empacadora del Bajío Flores SA,servicios@empacadoradelb.mx,5554191833,Mérida
