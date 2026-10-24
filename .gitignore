@@ -1,0 +1,69 @@
+# =====================================
+# macOS (Finder y metadatos)
+# =====================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =====================================
+# Python / Entornos virtuales
+# =====================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+.venv/
+ENV/
+env/
+
+# =====================================
+# Variables de entorno y credenciales
+# =====================================
+.env
+.env.*
+!.env.example
+
+# =====================================
+# Editores e IDEs (VS Code, JetBrains)
+# =====================================
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*~
+
+# =====================================
+# Logs y temporales
+# =====================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.temp/
+.tmp/
