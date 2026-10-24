@@ -2680,58 +2680,32 @@ print(resp.status_code, resp.json())</pre>
     <p class="section-lead">El perfil resultante de un cliente corporativo real tras los 5 ejercicios: identidad unificada, métricas en tiempo real, y alertas activas en el CRM del account manager.</p>
 
     <div class="profile-360">
-      <h3>Industrias Bajío Automotriz</h3>
-      <p class="p360-sub">RFC: INBA001122RS6 · León, Guanajuato · Segmento: B2B Corporate</p>
+      <h3>Medicaltech Paredes y Ortega SA de CV</h3>
+      <p class="p360-sub">ID ERP: #1111 · Morelia · Segmento: B2B Riesgo Crítico</p>
       <div class="profile-grid">
         <div class="profile-widget">
-          <div class="pw-label">Guías (Mes Actual)</div>
-          <div class="pw-value">678</div>
-          <div class="pw-sub" style="color:var(--green)">↑ +12% vs mes anterior</div>
+          <div class="pw-label">VOLUMEN (MES ACTUAL)</div>
+          <div class="pw-value">116</div>
+          <div class="pw-sub" style="color:var(--green)">Total_Monthly_Volume__c</div>
         </div>
         <div class="profile-widget">
-          <div class="pw-label">SLA Rate</div>
-          <div class="pw-value">98.3%</div>
-          <div class="pw-sub" style="color:var(--green)">↑ En objetivo</div>
+          <div class="pw-label">INCIDENCIAS ACTIVAS</div>
+          <div class="pw-value" style="color:#c0392b">15</div>
+          <div class="pw-sub"><span class="status-dot dot-red"></span>Active_Delayed_Count__c (Alerta AM)</div>
         </div>
         <div class="profile-widget">
-          <div class="pw-label">Incidencias Activas</div>
-          <div class="pw-value" style="color:var(--yellow)">0</div>
-          <div class="pw-sub"><span class="status-dot dot-green"></span>Sin alertas activas</div>
-        </div>
-        <div class="profile-widget">
-          <div class="pw-label">Peso Total (Mes)</div>
-          <div class="pw-value">1,247 kg</div>
-          <div class="pw-sub">Servicio: Express Prioritario</div>
-        </div>
-        <div class="profile-widget">
-          <div class="pw-label">Cuenta Unificada</div>
-          <div class="pw-value" style="font-size:16px">2 Fuentes</div>
-          <div class="pw-sub">TMS + ERP · Identity Match: RFC</div>
+          <div class="pw-label">CUENTA UNIFICADA</div>
+          <div class="pw-value" style="font-size:14px">579f086a...</div>
+          <div class="pw-sub">Identity Match ERP: #1111</div>
         </div>
         <div class="profile-widget">
           <div class="pw-label">Próxima Acción CRM</div>
-          <div class="pw-value" style="font-size:16px">✅ Renovación</div>
-          <div class="pw-sub">Contrato anual — oportunidad activa</div>
+          <div class="pw-value" style="font-size:14px;color:#c0392b">⚠️ Atención Inmediata</div>
+          <div class="pw-sub">Riesgo de Fuga</div>
         </div>
       </div>
-    </div>
-
-    <div class="card-grid" style="margin-top:24px">
-      <div class="card" style="border-top:4px solid var(--pink)">
-        <h4>⚠️ Perfil de Riesgo — Dist. del Norte</h4>
-        <p style="font-size:14px;color:#4a5a7a;margin-top:8px">RFC: DINO960315MX1 · 429 guías unificadas · <strong style="color:var(--pink)">2 incidencias activas</strong> · Alerta enviada al AM</p>
-        <div style="margin-top:12px;font-size:13px;color:#6a7a9a">
-          <span class="status-dot dot-red"></span>INC-0892: Dirección Incorrecta — Monterrey<br>
-          <span class="status-dot dot-orange" style="margin-top:4px;display:inline-block"></span>INC-0895: Demora Tránsito — Mty-CDMX
-        </div>
-      </div>
-      <div class="card" style="border-top:4px solid var(--green)">
-        <h4>✅ Perfil Saludable — Log. Global Azteca</h4>
-        <p style="font-size:14px;color:#4a5a7a;margin-top:8px">RFC: LOGA950820XY2 · 583 guías unificadas · <strong style="color:var(--green)">0 incidencias activas</strong> · SLA 96.8%</p>
-        <div style="margin-top:12px;font-size:13px;color:#6a7a9a">
-          <span class="status-dot dot-green"></span>Último envío: ayer<br>
-          <span class="status-dot dot-green" style="margin-top:4px;display:inline-block"></span>Candidato: upsell Servicio Premium
-        </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button onclick="document.getElementById('modal-verify-data').style.display='block'" style="padding: 10px 18px; background: #066AFE; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">🔍 Auditar Datos con SQL en Data Cloud</button>
       </div>
     </div>
 
@@ -3557,6 +3531,64 @@ function ej2OverlayClick(e) {
         <img src="images/e5-014.png" alt="Publicar ahora" class="modal-img" onerror="this.style.display='none'">
         <div class="img-caption">Figura 7.13: Forzando el envío inmediato para ver el resultado en vivo</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: VERIFICACIÓN / AUDITORÍA TÉCNICA ===== -->
+<!-- ===== MODAL: AUDITORÍA SQL PASO A PASO ===== -->
+<div id="modal-verify-data" class="modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-content" style="max-width: 920px;">
+    <span class="close-modal" onclick="document.getElementById('modal-verify-data').style.display='none'" style="position: absolute; top: 16px; right: 20px; font-size: 22px; cursor: pointer; color: #556; line-height: 1;">&times;</span>
+    <h3 style="color: #003468; border-bottom: 2px solid #00a1e0; padding-bottom: 10px; margin-top: 0;">🔍 Auditoría Técnica: Verificación SQL en Data Cloud</h3>
+    <div class="modal-body">
+      <p style="font-size: 14px; color: #334; line-height: 1.6; margin-bottom: 18px;">
+        Los valores de este perfil se auditan directamente contra la base de datos de Data Cloud mediante ANSI SQL en Query Editor, cruzando la identidad unificada con los dos Calculated Insights en una sola consulta relacional.
+      </p>
+
+      <!-- Paso 1 -->
+      <div class="modal-step-section" style="margin-top: 16px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Paso 1 — Acceder a Query Editor y Crear Nuevo Espacio de Trabajo</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En la barra de navegación superior de Data Cloud, haz clic en <strong>Query Editor</strong>.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en el botón <strong>New</strong> en la esquina superior derecha para iniciar un nuevo workspace.</p>
+        <img src="images/ev-001.png" alt="Acceso a Query Editor" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura EV-1: Creación de un nuevo espacio de trabajo en Query Editor</div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Paso 2 — Configurar el Workspace de Auditoría</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Asigna el nombre <code>Auditoria_U360_Logistica</code> en la ventana modal.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Mantén el <strong>Data Space</strong> en <code>default</code> y presiona <strong>Save</strong> para ingresar al editor.</p>
+        <img src="images/ev-002.png" alt="Configuración de Workspace" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura EV-2: Guardado de workspace en Data Space default</div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Paso 3 — Mega JOIN SQL: Reconstrucción Integral del Perfil</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Redacta y ejecuta la consulta que unifica el DMO Account, la tabla puente de identidad y ambos Calculated Insights:</p>
+        <pre style="background: #1e293b; color: #f8fafc; padding: 12px; border-radius: 6px; font-size: 12px; overflow-x: auto; margin: 10px 0;"><code>SELECT
+    acc.ssot__Name__c AS Razon_Social,
+    link.SourceRecordId__c AS ID_ERP,
+    vol.Total_Monthly_Volume__c AS Volumen_Mensual,
+    inc.Active_Delayed_Count__c AS Incidencias_Activas
+FROM "UnifiedLinkssotAccountL001__dlm" link
+JOIN ssot__Account__dlm acc
+    ON link.SourceRecordId__c = acc.ssot__Id__c
+JOIN U360_Active_Delayed_Incidents__cio inc
+    ON link.UnifiedRecordId__c = inc.UnifiedAccountId__c
+JOIN U360_Monthly_Shipment_Volume__cio vol
+    ON link.UnifiedRecordId__c = vol.UnifiedAccountId__c
+WHERE link.SourceRecordId__c = '1111'</code></pre>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en <strong>Run Query</strong>. La cuadrícula inferior confirma en 341 ms el registro exacto: Razón Social <strong>Medicaltech Paredes y Ortega SA de CV</strong>, ID <strong>1111</strong>, <strong>116</strong> envíos y <strong>15</strong> incidencias activas, validando la correlación de datos de punta a punta.</p>
+        <img src="images/ev-003.png" alt="Resultado de Mega JOIN en Query Editor" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura EV-3: Ejecución en vivo de Mega JOIN de 4 tablas con resultado validado</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; text-align: right; border-top: 1px solid #e2e8f0; padding-top: 14px;">
+      <button onclick="document.getElementById('modal-verify-data').style.display='none'" style="padding: 8px 16px; background: #001E5B; color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Cerrar Auditoría</button>
     </div>
   </div>
 </div>
