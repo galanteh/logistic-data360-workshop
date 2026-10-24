@@ -86,32 +86,6 @@ button:focus-visible{outline:3px solid var(--blue-action);outline-offset:3px;bor
 }
 
 /* Mode toggle */
-.mode-toggle{
-  display:flex;align-items:center;background:rgba(255,255,255,0.1);
-  border-radius:999px;padding:4px;border:1px solid rgba(255,255,255,0.2);
-  gap:2px;flex-shrink:0;
-}
-.mode-btn{
-  border:none;cursor:pointer;border-radius:999px;
-  padding:6px 18px;font-size:13px;font-weight:700;
-  font-family:var(--font-body);transition:all .2s;
-  color:rgba(255,255,255,0.65);background:transparent;
-  white-space:nowrap;
-}
-.mode-btn.active{background:var(--blue-action);color:var(--white);}
-.mode-btn:hover:not(.active){color:var(--white);background:rgba(255,255,255,0.15)}
-
-/* Instructor badge ribbon */
-.instructor-badge{
-  display:none;
-  position:fixed;top:72px;left:0;right:0;
-  background:linear-gradient(90deg,var(--teal),#0a6c67);
-  color:var(--white);text-align:center;
-  font-size:12px;font-weight:700;padding:6px;z-index:999;
-  letter-spacing:.5px;
-}
-body.instructor-mode .instructor-badge{display:block}
-body.instructor-mode{padding-top:118px}
 
 /* ===== LAYOUT ===== */
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
@@ -232,79 +206,6 @@ h4{font-family:var(--font-head);font-weight:700;font-size:17px;margin-bottom:8px
 .data-block pre .highlight{color:#7dd3fc}
 .data-block pre .dup{color:var(--pink)}
 
-/* ===== INSTRUCTOR-ONLY BLOCKS ===== */
-.instructor-only{display:none}
-body.instructor-mode .instructor-only{display:block}
-
-.instructor-callout{
-  background:#f0fdfb;border:2px solid var(--teal);border-radius:var(--radius);
-  padding:20px 24px;margin-top:20px;
-  position:relative;
-}
-.instructor-callout::before{
-  content:"🎙️ INSTRUCTOR";position:absolute;top:-13px;left:20px;
-  background:var(--teal);color:var(--white);
-  font-size:11px;font-weight:700;letter-spacing:2px;
-  padding:3px 10px;border-radius:99px;
-}
-.instructor-callout h4{color:var(--teal);margin-top:0;margin-bottom:10px}
-.instructor-callout p,
-.instructor-callout li{font-size:14px;line-height:1.7;color:#1a3a37}
-.instructor-callout ul{padding-left:18px;margin-top:8px}
-.instructor-callout blockquote{
-  border-left:4px solid var(--teal);padding-left:14px;margin:10px 0;
-  font-style:italic;color:#2a5a56;font-size:14px;
-}
-
-.tech-callout{
-  background:#f4f0ff;border:2px solid var(--violet);border-radius:var(--radius);
-  padding:20px 24px;margin-top:20px;position:relative;
-}
-.tech-callout::before{
-  content:"⚙️ ARQUITECTURA";position:absolute;top:-13px;left:20px;
-  background:var(--violet);color:var(--white);
-  font-size:11px;font-weight:700;letter-spacing:2px;
-  padding:3px 10px;border-radius:99px;
-}
-.tech-callout ul{padding-left:18px;margin-top:8px;font-size:14px;line-height:1.7}
-
-.gotcha-callout{
-  background:#fffbf0;border:2px solid var(--orange);border-radius:var(--radius);
-  padding:20px 24px;margin-top:20px;position:relative;
-}
-.gotcha-callout::before{
-  content:"⚠️ GOTCHAS";position:absolute;top:-13px;left:20px;
-  background:var(--orange);color:var(--white);
-  font-size:11px;font-weight:700;letter-spacing:2px;
-  padding:3px 10px;border-radius:99px;
-}
-.gotcha-callout ul{padding-left:18px;margin-top:8px;font-size:14px;line-height:1.7;color:#5a3a00}
-
-/* ===== COLLAPSIBLE TALK TRACK ===== */
-.talk-track-toggle{
-  display:flex;align-items:center;gap:10px;
-  background:var(--teal);color:var(--white);border:none;
-  border-radius:10px;padding:10px 18px;cursor:pointer;
-  font-weight:700;font-size:14px;font-family:var(--font-body);
-  margin-top:20px;transition:background .2s;
-  width:100%;text-align:left;
-}
-.talk-track-toggle:hover{background:#0a6c67}
-.talk-track-toggle .arrow{transition:transform .25s;display:inline-block;margin-left:auto}
-.talk-track-toggle.open .arrow{transform:rotate(180deg)}
-.talk-track-body{
-  display:none;background:#f0fdfb;border:1px solid var(--teal);
-  border-top:none;border-radius:0 0 10px 10px;
-  padding:20px;font-size:14px;line-height:1.75;color:#1a3a37;
-}
-.talk-track-body.open{display:block}
-.talk-track-body p{margin-bottom:10px}
-.talk-track-body strong{color:var(--teal)}
-.talk-track-body .quote-box{
-  background:var(--white);border-left:4px solid var(--teal);
-  padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;
-  font-style:italic;color:#2a5a56;
-}
 
 /* ===== HANDS-ON GOAL BOX ===== */
 .goal-box{
@@ -592,11 +493,9 @@ footer{padding:48px 0;background:var(--blue-deep)}
   .nav-bar{padding:0 14px;height:64px}
   .progress-wrap{display:none}
   body{padding-top:64px}
-  body.instructor-mode{padding-top:110px}
   section{padding:48px 0}
   .container{padding:0 16px}
   .hero-visual{grid-template-columns:1fr 1fr}
-  .mode-btn{padding:5px 12px;font-size:12px}
 }
 
 /* ===== DURATION MODE ===== */
@@ -749,8 +648,6 @@ body.deep-dive .deep-dive-module{display:block}
 <!-- Skip link -->
 <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-<!-- Instructor mode ribbon -->
-<div class="instructor-badge" aria-live="polite">MODO INSTRUCTOR ACTIVO — Vista ampliada con talk tracks, gotchas y notas técnicas</div>
 
 <!-- ===== STICKY NAV ===== -->
 <nav class="nav-bar" role="navigation" aria-label="Navegación principal">
@@ -776,10 +673,6 @@ body.deep-dive .deep-dive-module{display:block}
         <button class="dur-btn active" id="btn-core" onclick="setDuration('core')" aria-pressed="true">Core 3h</button>
         <button class="dur-btn" id="btn-deep" onclick="setDuration('deep')" aria-pressed="false">Deep Dive 5h</button>
       </div>
-    </div>
-    <div class="mode-toggle" role="group" aria-label="Modo de vista">
-      <button class="mode-btn active" id="btn-alumno" onclick="setMode('alumno')" aria-pressed="true">👨‍🎓 Alumno</button>
-      <button class="mode-btn" id="btn-instructor" onclick="setMode('instructor')" aria-pressed="false">🎙️ Instructor</button>
     </div>
   </div>
 </nav>
@@ -869,13 +762,7 @@ body.deep-dive .deep-dive-module{display:block}
       </p>
     </div>
 
-    <div class="instructor-only">
-      <div class="instructor-callout">
-        <h4>Contexto para el Instructor</h4>
-        <p>Este es el momento de anclar el dolor real. Pregunta al grupo: <em>"¿Cuántos sistemas distintos tienen con datos de cliente hoy?"</em> — La respuesta típica es 4-8. Eso es tu hook.</p>
-        <blockquote>"Cada sistema que mencionan es una versión diferente del mismo cliente. Nuestro trabajo hoy es crear UNA verdad."</blockquote>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -958,18 +845,7 @@ body.deep-dive .deep-dive-module{display:block}
       </div>
     </div>
 
-    <div class="instructor-only">
-      <div class="instructor-callout">
-        <h4>🎙️ Analogías para Perfiles No-Técnicos</h4>
-        <ul>
-          <li><strong>DMO vs Tabla SQL:</strong> "Imaginen una hoja de Excel turbo-cargada que sabe auto-relacionarse con otras hojas y puede tener millones de filas sin colapsar."</li>
-          <li><strong>Unified Profile:</strong> "Es como cuando su banco consolida todas sus tarjetas, créditos y cuentas en un solo estado de cuenta. Antes el operador logístico tenía 3 estados de cuenta separados para el mismo cliente corporativo."</li>
-          <li><strong>Party Identification:</strong> "El RFC es como el CURP fiscal de una empresa. Si dos registros tienen el mismo RFC, son la misma empresa — sin importar cómo esté escrito el nombre."</li>
-          <li><strong>Zero-Copy:</strong> "Como Google Drive — el archivo existe en un solo lugar pero varias personas pueden verlo desde distintas apps sin hacer copias."</li>
-        </ul>
-        <blockquote>"La diferencia entre Data 360 y un Excel con millones de filas no es el tamaño — es que Data 360 <em>actúa</em> sobre los datos. El Excel solo los muestra."</blockquote>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -1031,17 +907,7 @@ body.deep-dive .deep-dive-module{display:block}
       </div>
     </div>
 
-    <div class="instructor-only">
-      <div class="tech-callout">
-        <p><strong>Nota de Arquitectura:</strong> Los DMOs de Shipment e Individual son los más divergentes del modelo estándar de Sales Cloud. El equipo técnico debe validar que el <em>Primary Key</em> de NumGuia sea único a nivel tenant.</p>
-        <ul>
-          <li>Data 360 usa <strong>Party Graph</strong> para relacionar Account ↔ Individual a través de Shipment</li>
-          <li>RFC es el mejor identificador determinístico para B2B en México — validar formato sin guiones</li>
-          <li>El campo <code>Phone_Normalized</code> debe normalizar a E.164 (+521XXXXXXXXXX para celulares)</li>
-          <li>DeliveryIncident puede modelarse como <strong>Engagement Event</strong> o DMO custom — depende del volumen</li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -1492,29 +1358,12 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
       </table>
     </div>
 
-    <div class="instructor-only">
-      <button class="talk-track-toggle" onclick="toggleTalkTrack(this)" aria-expanded="false">
-        🎙️ Talk Track — Qué Decir en Ejercicio 1
-        <span class="arrow">▼</span>
-      </button>
-      <div class="talk-track-body" role="region">
-        <div class="quote-box">"Lo que normalmente les tomaría 3 semanas de pipeline lo vamos a hacer en los próximos 10 minutos. No hay código, no hay transformaciones manuales — Data 360 mapea el esquema automáticamente."</div>
-        <p>Mientras los participantes suben el CSV, señala los <strong>duplicados intencionales</strong> de DINO960315MX1 y LOGA950820XY2. Pregunta: <em>"¿Qué ven de especial en estas dos empresas?"</em> — deja que descubran el RFC duplicado.</p>
-        <p>Momento clave: cuando el mapping automático sugiere <code>RFC</code> → <code>RFC__c</code>, di: <em>"El sistema reconoció que esto es un identificador fiscal mexicano. Esa inteligencia es la que vamos a explotar en el siguiente ejercicio."</em></p>
-      </div>
-      <div class="gotcha-callout">
-        <p><strong>Gotchas Frecuentes:</strong></p>
-        <ul>
-          <li>Si el CSV tiene tildes (á, é, ñ), asegurarse de subir en <strong>UTF-8</strong> — BOM puede corromper el primer campo</li>
-          <li>El campo <code>FechaEnvio</code> debe estar en formato ISO 8601 (YYYY-MM-DD) o el parser falla silenciosamente</li>
-          <li>El teléfono sin "+52" no matcheará en Identity Resolution — el CSV ya viene normalizado</li>
-          <li>Si el Data Explorer muestra 0 registros, el Job de ingesta puede estar en cola — esperar 60s y refrescar</li>
-          <li><strong>⚠️ Inmutabilidad de Categorías:</strong> Si configuran Shipments como <em>Other</em> o <em>Profile</em> en lugar de <strong>Engagement</strong>, no podrán usar funciones basadas en tiempo (ej. "últimos 30 días") en los Calculated Insights del Ejercicio 3. Data 360 <strong>no permite cambiar la Category</strong> después de la primera ingesta — habría que borrar el Data Stream y empezar de nuevo.</li>
-          <li><strong>⚠️ Event Time Field obligatorio:</strong> La categoría <strong>Engagement</strong> requiere un campo de tiempo explícito. Data 360 lo usa para el particionamiento de datos y el motor de streaming en tiempo real. Sin él, el Data Stream no se podrá activar.</li>
-          <li><strong>⚠️ Organization Unit Identifier — siempre en blanco en este taller:</strong> Este campo existe para segmentar datos cuando una misma Org de Data 360 atiende múltiples unidades de negocio o subsidiarias (Business Units / configuraciones Multi-Org). Rellenarlo con cualquier valor en una org de taller hará que los registros queden aislados en esa unidad y no sean visibles globalmente. <em>Dejarlo estrictamente vacío.</em></li>
-          <li><strong>⚠️ Sanitización de nombres por defecto:</strong> Data 360 copia el nombre literal del archivo — incluyendo la extensión <code>.csv</code> — en el campo <em>Data Stream Name</em> y <em>DLO Label</em>. Si no se limpia antes de guardar, los objetos quedan registrados como <code>cuentas_b2b_logistica.csv_DLO</code>, ensuciando el Data Explorer, los Data Graphs y las referencias de SOQL/SSOT en ejercicios posteriores. <strong>Siempre borrar la extensión y usar los nombres de la tabla cheatsheet.</strong></li>
-        </ul>
-      </div>
+    <div style="background:#fff8e6; border:1px solid #f0c060; color:#7a4f00; margin-top:24px; padding:16px 20px; border-radius:8px; font-size:13.5px; line-height:1.6;">
+      <h4 style="margin:0 0 10px 0; color:#92400e;">⚠️ Notas Críticas de Arquitectura (Gotchas)</h4>
+      <ul style="padding-left:18px; margin:0;">
+        <li style="margin-bottom:6px;"><strong>Categorías Inmutables:</strong> Si configuras el DLO de Guías o Incidencias como <em>Profile</em> en lugar de <strong>Engagement</strong>, no podrás usar agrupaciones de tiempo en los Calculated Insights del Ejercicio 3. Data 360 no permite cambiar la categoría después de la creación; tendrías que borrar el stream y empezar de nuevo.</li>
+        <li><strong>Nomenclatura:</strong> Data 360 copia por defecto el nombre del archivo (incluyendo <code>.csv</code>) en el Data Stream Name y DLO Label. ¡Límpialo siempre! Si no lo haces, tus objetos quedarán nombrados como <code>cuentas.csv_DLO</code>, afectando tus queries y referencias SSOT futuras.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1737,33 +1586,7 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
       </div>
     </div>
 
-    <div class="instructor-only">
-      <button class="talk-track-toggle" onclick="toggleTalkTrack(this)" aria-expanded="false">
-        🎙️ Talk Track — Qué Decir en Ejercicio 2
-        <span class="arrow">▼</span>
-      </button>
-      <div class="talk-track-body">
-        <div class="quote-box">"Vean este número: DINO960315MX1 tenía 342 guías en un registro y 87 en otro. Para el sistema, eran dos clientes diferentes. Después de Identity Resolution, son un solo perfil con 429 guías — y eso cambia completamente cómo el operador logístico valúa esta relación."</div>
-        <p>Enfatiza la diferencia entre <strong>determinístico vs. fuzzy</strong>: "El RFC es el DNI fiscal de México — un match exacto es una certeza absoluta. El fuzzy nos protege cuando alguien escribió 'Dist. del Norte' en lugar del nombre completo."</p>
-        <p>Si alguien pregunta sobre privacidad: <em>"Data 360 procesa esto dentro del tenant de Salesforce — los datos nunca salen de su instancia."</em></p>
-      </div>
-      <div class="gotcha-callout">
-        <p><strong>Gotchas Frecuentes:</strong></p>
-        <ul>
-          <li>El Ruleset puede tardar más de 2 min en tenants con datos reales — en demo usar Full Refresh con los 10 registros sintéticos</li>
-          <li>Si el threshold del fuzzy es muy bajo (&lt;70), puede unir cuentas no relacionadas. 85 es el sweet spot para nombres de empresa en español</li>
-          <li>El campo <code>Phone_Normalized</code> debe estar en E.164 antes de entrar a Data 360 — verificar que el CSV no tiene espacios ni paréntesis</li>
-          <li>"Party Merge" vs "Individual Merge": en B2B siempre usar Party, en B2C usar Individual</li>
-        </ul>
-      </div>
-      <div class="tech-callout">
-        <ul>
-          <li><strong>Party Graph</strong> — la estructura subyacente que conecta Account ↔ Individual a través de relaciones de shipment</li>
-          <li>Data 360 escala a billones de comparaciones usando <strong>Bloom Filters + MinHash LSH</strong> internamente — el threshold es sobre el Jaccard similarity score</li>
-          <li>En producción, considerar <strong>Incremental Run</strong> en lugar de Full Refresh para datasets &gt;1M registros</li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -1909,24 +1732,7 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
       </div>
     </div>
 
-    <div class="instructor-only">
-      <button class="talk-track-toggle" onclick="toggleTalkTrack(this)" aria-expanded="false">
-        🎙️ Talk Track — Qué Decir en Ejercicio 3
-        <span class="arrow">▼</span>
-      </button>
-      <div class="talk-track-body">
-        <div class="quote-box">"Acaban de crear en literalmente 5 minutos lo que le toma a un equipo de BI 2 días producir. La diferencia es que esta métrica no es un reporte — está viva, se actualiza con cada envío que entra al sistema."</div>
-        <p>Señala la diferencia estratégica: <strong>"U360_Monthly_Shipment_Volume</strong> es una métrica comercial que el account manager ve en el CRM. <strong>U360_Active_Delayed_Incidents</strong> es una alerta operativa. Ambas en el mismo perfil del cliente."</p>
-        <p>Tip de demo: muestra el perfil de DINO960315MX1 antes y después de las métricas. El "before" es solo nombre y RFC. El "after" es un perfil de negocio completo.</p>
-      </div>
-      <div class="gotcha-callout">
-        <ul>
-          <li>Si el SQL retorna 0 filas, verificar que los nombres de DMO coincidan exactamente con lo configurado en el tenant (pueden variar con el namespace)</li>
-          <li>El campo <code>Resuelto__c</code> debe ser booleano — si se ingesta como string "false" el WHERE no funcionará</li>
-          <li>En un demo rápido, se puede simplificar el SQL a un COUNT(*) sin JOINs para mostrar el concepto más rápido</li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -2015,23 +1821,9 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
       </div>
     </div>
 
-    <div class="instructor-only">
-      <button class="talk-track-toggle" onclick="toggleTalkTrack(this)" aria-expanded="false">
-        🎙️ Talk Track — Qué Decir en Ejercicio 4
-        <span class="arrow">▼</span>
-      </button>
-      <div class="talk-track-body">
-        <div class="quote-box">"Este segmento no es una lista estática. Si mañana Dist. del Norte resuelve sus 2 incidencias, automáticamente sale del segmento. Si una nueva cuenta alcanza las 50 guías y acumula 2 demoras, entra automáticamente. No hay operador humano en el medio."</div>
-        <p>Pregunta retórica para el grupo de operaciones: <em>"¿Cuánto tiempo les tomaría hoy identificar estas 2 cuentas si las incidencias están en un sistema y el volumen de guías en otro?"</em></p>
-        <p>Mensaje clave para los arquitectos: los Calculated Insights del Ejercicio 3 son los que alimentan este segmento — es un pipeline completo sin ETL custom.</p>
-      </div>
-      <div class="gotcha-callout">
-        <ul>
-          <li>Los Calculated Insights deben estar en estado "Active" para aparecer como filtros disponibles en Segmentation</li>
-          <li>Si el segmento muestra 0 miembros, revisar que el run de Calculated Insights completó exitosamente</li>
-          <li>Para demo rápido, bajar los thresholds: &gt;10 guías y &gt;=1 incidencia para ver más resultados</li>
-        </ul>
-      </div>
+    <div style="background:#fff8e6; border:1px solid #f0c060; color:#7a4f00; margin-top:24px; padding:16px 20px; border-radius:8px; font-size:13.5px; line-height:1.6;">
+      <h4 style="margin:0 0 8px 0; color:#92400e;">⚠️ ¿No ves tus métricas en el Canvas?</h4>
+      <p style="margin:0;">Si en el Panel de <em>Related Attributes</em> no encuentras las métricas <code>U360_Monthly_Shipment_Volume</code> o <code>Active_Delayed_Count</code>, verifica en la pestaña Calculated Insights que su estado (Last Run Status) sea <strong>Success</strong>. Las métricas en modo Draft o fallidas no se exponen al motor de segmentación.</p>
     </div>
   </div>
 </section>
@@ -2130,24 +1922,7 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
       </div>
     </div>
 
-    <div class="instructor-only">
-      <button class="talk-track-toggle" onclick="toggleTalkTrack(this)" aria-expanded="false">
-        🎙️ Talk Track — Qué Decir en Ejercicio 5
-        <span class="arrow">▼</span>
-      </button>
-      <div class="talk-track-body">
-        <div class="quote-box">"Observen lo que acaba de pasar: tomamos datos que estaban en el TMS, los unificamos en Data 360, calculamos una métrica operativa, definimos un segmento de riesgo, y en este momento el account manager ya tiene una tarea en su CRM. Todo esto sin una sola línea de integración custom."</div>
-        <p>Para la audiencia de operaciones: enfatiza el <strong>tiempo de respuesta</strong>. Antes: "me enteré mañana en el reporte". Ahora: "alerta en segundos cuando el segundo incidente se registra".</p>
-        <p>Para los arquitectos: el Activation Target de CRM usa la API estándar de Salesforce Platform — no hay ningún conector especial que mantener.</p>
-      </div>
-      <div class="gotcha-callout">
-        <ul>
-          <li>El usuario de integración del CRM Target debe tener permisos de "Modify All" en Task o el create fallará silenciosamente</li>
-          <li>Para WhatsApp: el template debe estar aprobado en Meta Business Manager antes del workshop — no hacer esto en tiempo real</li>
-          <li>Si el segmento tiene 0 miembros al activar, el payload no se dispara. Para demo, usar un segmento con threshold muy bajo</li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -2246,24 +2021,7 @@ WHERE  Largo_cm IS NOT NULL
       </div>
     </div>
 
-    <div class="instructor-only">
-      <button class="talk-track-toggle" onclick="toggleTalkTrack(this)" aria-expanded="false">
-        🎙️ Talk Track — Módulo 6
-        <span class="arrow">▼</span>
-      </button>
-      <div class="talk-track-body">
-        <div class="quote-box">"Este campo no existe en ningún sistema del operador logístico hoy. Lo acabamos de crear sobre datos históricos en minutos, sin tocar el TMS ni el ERP. Eso es lo que significa 'transformar datos en el lugar donde viven'."</div>
-        <p>Énfasis técnico: Data Transforms corre sobre el <strong>motor columnar interno de Data 360</strong> — no sale a Snowflake ni a ningún sistema externo. Es 100% nativo.</p>
-        <p>Para el equipo de finanzas: "Este campo <code>PesoFacturable_Kg</code> puede alimentar directamente la lógica de cotización automática en el CRM — sin un desarrollador en el medio."</p>
-      </div>
-      <div class="gotcha-callout">
-        <ul>
-          <li>El Transform falla silenciosamente si alguna columna dimensional no existe en el DMO — verificar que el stream CSV incluyó <code>Largo_cm</code>, <code>Ancho_cm</code>, <code>Alto_cm</code></li>
-          <li><code>GREATEST()</code> no está disponible en todas las versiones del editor visual — usar el modo SQL si el UI no lo soporta</li>
-          <li>El modo Incremental solo procesa guías nuevas — usar Batch completo en la primera ejecución para recalcular el historial</li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -2391,24 +2149,7 @@ print(resp.status_code, resp.json())</pre>
       </div>
     </div>
 
-    <div class="instructor-only">
-      <button class="talk-track-toggle" onclick="toggleTalkTrack(this)" aria-expanded="false">
-        🎙️ Talk Track — Módulo 7
-        <span class="arrow">▼</span>
-      </button>
-      <div class="talk-track-body">
-        <div class="quote-box">"Lo que acaban de ejecutar en 5 líneas de Python es exactamente lo que el sistema del CEDIS haría automáticamente con cada escaneo. Sin middleware, sin Kafka, sin arquitectura de streaming personalizada — directo a Data 360."</div>
-        <p>Señala el contraste temporal: <strong>"Antes"</strong>: el escaneo ocurre, va a un archivo de log, se procesa en batch nocturno, llega al reporte a las 8am del día siguiente. <strong>"Ahora"</strong>: el escaneo ocurre, en 5 segundos está en el perfil del cliente, disponible para alertas en tiempo real.</p>
-      </div>
-      <div class="gotcha-callout">
-        <ul>
-          <li>Reemplazar <code>YOUR_ORG</code> con el subdominio de la org del workshop (formato: <code>logistics-dev-ed</code>)</li>
-          <li>La Connected App necesita el scope <code>cdpquery cdpprofile</code> — sin esto el token es válido pero la API devuelve 403</li>
-          <li>El schema del Ingestion API Source debe definirse <em>antes</em> de enviar el primer evento o Data 360 rechaza el payload con 400</li>
-          <li>En sandbox, el endpoint cambia de <code>.c360a.salesforce.com</code> a <code>.c360a.sandbox.salesforce.com</code></li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -2528,24 +2269,7 @@ print(resp.status_code, resp.json())</pre>
       </div>
     </div>
 
-    <div class="instructor-only">
-      <button class="talk-track-toggle" onclick="toggleTalkTrack(this)" aria-expanded="false">
-        🎙️ Talk Track — Módulo 8
-        <span class="arrow">▼</span>
-      </button>
-      <div class="talk-track-body">
-        <div class="quote-box">"Este JSON que acaban de recibir en 87 milisegundos contiene información que antes requería 3 consultas a 3 sistemas distintos. El contact center puede integrar esto en su pantalla de llamada y el agente tiene el historial completo antes de terminar de saludar al cliente."</div>
-        <p>Punto técnico clave: Data Graph <strong>no ejecuta una consulta SQL en tiempo real</strong>. Pre-materializa el grafo y lo actualiza incrementalmente. Por eso la latencia es de milisegundos y no de segundos.</p>
-      </div>
-      <div class="gotcha-callout">
-        <ul>
-          <li>El campo <code>joinField</code> debe usar el nombre del campo en el DMO target, no el nombre del CSV original</li>
-          <li>Limitar siempre los nodos hijo con <code>limit</code> — sin límite, un cliente con 50K guías devuelve un payload de cientos de MB</li>
-          <li>Modo STREAMING requiere que todos los DMOs involucrados tengan al menos un stream de ingesta activo</li>
-          <li>La API de Data Graph está en GA desde Spring '24 — verificar la versión del API con el equipo técnico antes del workshop</li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -2650,25 +2374,7 @@ print(resp.status_code, resp.json())</pre>
       </div>
     </div>
 
-    <div class="instructor-only">
-      <button class="talk-track-toggle" onclick="toggleTalkTrack(this)" aria-expanded="false">
-        🎙️ Talk Track — Módulo 9
-        <span class="arrow">▼</span>
-      </button>
-      <div class="talk-track-body">
-        <div class="quote-box">"Acaban de cerrar el loop completo. Los datos logísticos que empezaron como un CSV ahora viven en el CRM del ejecutivo de ventas — en tiempo real, sin límites de almacenamiento, y con alertas automáticas ante incidencias críticas. Todo sin una línea de integración custom."</div>
-        <p>Para el equipo de Sales: "Esta Related List no consume espacio de almacenamiento de Sales Cloud. Es una vista en tiempo real de los datos en Data 360 — pueden mostrar 50,000 guías sin que el administrador reciba alertas de almacenamiento."</p>
-        <p>Para los arquitectos: las Data Actions en modo ON_INSERT son síncronas con la ingesta — si el evento llega por Ingestion API (Módulo 7), el Flow se dispara en segundos.</p>
-      </div>
-      <div class="gotcha-callout">
-        <ul>
-          <li>El Flow debe estar en estado <strong>Active</strong> antes de activar la Data Action — si está en Draft, la acción falla silenciosamente</li>
-          <li>La Data 360 Related List requiere el paquete <strong>Data 360 for CRM</strong> instalado en la org — verificar en Setup → Installed Packages antes del workshop</li>
-          <li>El filtro de Related List usa sintaxis SOQL del DMO — <code>Resuelto__c = false</code> (booleano), no <code>'false'</code> (string)</li>
-          <li>El componente no soporta aún filtros por fecha relativa (ej. "últimos 30 días") — usar limit de registros como alternativa</li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -2709,18 +2415,7 @@ print(resp.status_code, resp.json())</pre>
       </div>
     </div>
 
-    <div class="instructor-only">
-      <div class="instructor-callout">
-        <h4>Cierre Ejecutivo — Talk Track Final</h4>
-        <blockquote>"LogisticForce comenzó este workshop con datos fragmentados en 3 sistemas, clientes duplicados, y alertas de 24 horas de retraso. En menos de 2 horas construimos el perfil completo de un cliente corporativo — con identidad unificada, métricas en tiempo real, y el account manager ya recibiendo alertas automáticas en su CRM."</blockquote>
-        <p><strong>Puntos de valor para llevarse:</strong></p>
-        <ul>
-          <li>RFC como anchor de identidad fiscal es único en México — Data 360 lo soporta nativamente como identificador de alta confianza</li>
-          <li>El mismo pipeline aplica para casos de uso futuros: scoring de crédito, predicción de churn, expansión de servicios</li>
-          <li>El tiempo de implementación real en producción: semanas, no meses — el modelo canónico ya está pre-construido</li>
-        </ul>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -2829,28 +2524,6 @@ print(resp.status_code, resp.json())</pre>
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-/* ===== MODE TOGGLE ===== */
-function setMode(mode) {
-  const body = document.body;
-  const btnAlumno = document.getElementById('btn-alumno');
-  const btnInstructor = document.getElementById('btn-instructor');
-
-  if (mode === 'instructor') {
-    body.classList.add('instructor-mode');
-    btnAlumno.classList.remove('active');
-    btnAlumno.setAttribute('aria-pressed', 'false');
-    btnInstructor.classList.add('active');
-    btnInstructor.setAttribute('aria-pressed', 'true');
-    showToast('🎙️ Modo Instructor activado — Talk tracks y notas técnicas visibles');
-  } else {
-    body.classList.remove('instructor-mode');
-    btnInstructor.classList.remove('active');
-    btnInstructor.setAttribute('aria-pressed', 'false');
-    btnAlumno.classList.add('active');
-    btnAlumno.setAttribute('aria-pressed', 'true');
-    showToast('👨‍🎓 Vista Alumno activada — Guía paso a paso');
-  }
-}
 
 /* ===== COPY TO CLIPBOARD ===== */
 function copyData(elementId, btn) {
@@ -2888,14 +2561,6 @@ function copyData(elementId, btn) {
   });
 }
 
-/* ===== TALK TRACK TOGGLE ===== */
-function toggleTalkTrack(btn) {
-  const body = btn.nextElementSibling;
-  const isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
-  btn.classList.toggle('open', !isOpen);
-  btn.setAttribute('aria-expanded', String(!isOpen));
-}
 
 /* ===== TOAST ===== */
 let toastTimeout;
