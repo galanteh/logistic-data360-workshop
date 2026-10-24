@@ -1791,80 +1791,51 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
       </div>
       <div class="ps-card solution">
         <div class="ps-icon">📊</div>
-        <h4>Solución: Métricas en Tiempo Real</h4>
+        <h4>Valor de Negocio (KPIs 360)</h4>
+        <p style="font-size:14px; margin-bottom:10px; color:#1a3a37;">Creamos estos Calculated Insights para transformar datos crudos en <strong>inteligencia accionable</strong>:</p>
         <ul>
-          <li>Calculated Insights corren sobre millones de eventos logísticos</li>
-          <li>Métricas disponibles en el perfil unificado sin código</li>
-          <li>Se actualizan con cada evento nuevo de ingesta</li>
-          <li>Disponibles para segmentación y activación inmediata</li>
+          <li><strong>Métrica de Volumen (Comercial):</strong> Mide el valor real del cliente unificado. Define quién es VIP.</li>
+          <li><strong>Métrica de Incidencias (Operativo):</strong> Mide el riesgo de fuga (Churn) detectando problemas en tiempo real.</li>
+          <li><strong>El Cruce (U360):</strong> Al unir ambas métricas en el siguiente ejercicio, habilitaremos estrategias de retención exactas (ej. "Atender de inmediato a clientes de alto volumen con entregas demoradas").</li>
         </ul>
       </div>
     </div>
 
     <div class="exercise-card" style="background: white; border: 1px solid #e1e4e8; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 30px;">
-      <h3 style="color: #003468; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 1.2em;">📐 Objetivo Hands-On — Ejercicio 3: Calculated Insights</h3>
+      <h3 style="color: #003468; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 1.2em;">📐 Objetivo Hands-On — Ejercicio 3: Calculated Insights — Visual &amp; SQL Builder</h3>
 
       <!-- Tabs Nav -->
       <div style="display: flex; border-bottom: 1px solid #e1e4e8; margin-bottom: 20px; gap: 20px;">
         <div id="tab-btn-sql" style="padding: 10px 15px; border-bottom: 3px solid #00a1e0; color: #003468; font-weight: bold; cursor: pointer;" onclick="document.getElementById('tab-content-sql').style.display='block'; document.getElementById('tab-content-builder').style.display='none'; this.style.borderBottom='3px solid #00a1e0'; this.style.color='#003468'; this.style.fontWeight='bold'; document.getElementById('tab-btn-builder').style.borderBottom='none'; document.getElementById('tab-btn-builder').style.color='#6a737d'; document.getElementById('tab-btn-builder').style.fontWeight='normal';">
-          📊 1. Métrica SQL (Volumen)
+          🧩 1. Visual Builder (No-Code)
         </div>
         <div id="tab-btn-builder" style="padding: 10px 15px; color: #6a737d; cursor: pointer;" onclick="document.getElementById('tab-content-builder').style.display='block'; document.getElementById('tab-content-sql').style.display='none'; this.style.borderBottom='3px solid #00a1e0'; this.style.color='#003468'; this.style.fontWeight='bold'; document.getElementById('tab-btn-sql').style.borderBottom='none'; document.getElementById('tab-btn-sql').style.color='#6a737d'; document.getElementById('tab-btn-sql').style.fontWeight='normal';">
-          🧩 2. Métrica Visual (Incidencias)
+          📊 2. SQL Builder (Unificación 360)
         </div>
       </div>
 
-      <!-- Tab 1: SQL Content -->
+      <!-- Tab 1: Visual Builder Content -->
       <div id="tab-content-sql" style="display: block;">
+        <!-- Nota de objetivo -->
+        <div style="padding: 10px 14px; background: #f0f7ff; border-left: 4px solid #00a1e0; border-radius: 0 6px 6px 0; margin-bottom: 16px; font-size: 0.9em; color: #003468;">
+          <strong>Objetivo:</strong> Aprender a usar la interfaz drag-and-drop para crear métricas operativas rápidas sin escribir código. Ideal para exploración y prototipado de KPIs.
+        </div>
         <!-- Caja 1: Configuración Vertical -->
         <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; margin-bottom: 15px; background-color: #f6f8fa;">
           <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">1 · CONFIGURACIÓN</h5>
           <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Insight Name:</span> <code style="background: #e1efff; color: #0366d6; padding: 3px 8px; border-radius: 4px;">Monthly_Volume_Guias</code></div>
-            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Description:</span> <span style="color: #24292e;">Volumen y SLA de entregas del mes actual</span></div>
-            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Método:</span> <span style="color: #24292e; font-weight: 600;">Create from SQL</span></div>
-            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">DMO Base:</span> <span style="color: #24292e; font-weight: 600;">Shipment_std__dlm</span></div>
-          </div>
-        </div>
-        <!-- Caja 2: SQL -->
-        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; position: relative; margin-bottom: 20px;">
-          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 10px; font-size: 0.85em; letter-spacing: 1px;">2 · CÓDIGO SQL (ZERO JOINS)</h5>
-          <button onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); this.innerHTML='✅ Copiado'; setTimeout(() => this.innerHTML='📋 Copiar SQL', 2000);" style="position: absolute; top: 12px; right: 15px; background: #005fb2; color: white; border: none; padding: 5px 12px; border-radius: 4px; font-size: 0.85em; cursor: pointer; font-weight: bold;">📋 Copiar SQL</button>
-          <pre id="sql-metric1" style="margin: 0; padding: 15px; background: #24292e; border-radius: 6px; font-size: 0.9em; overflow-x: auto; color: #e1e4e8; border: 1px solid #1b1f23;"><code><span style="color: #f9826c;">SELECT</span>
-    Shipment_std__dlm.AccountId__c <span style="color: #f9826c;">AS</span> account_id__c,
-    <span style="color: #79b8ff;">COUNT</span>(Shipment_std__dlm.ShipmentStatus__c) <span style="color: #f9826c;">AS</span> Monthly_Volume_Guias__c,
-    (<span style="color: #79b8ff;">SUM</span>(<span style="color: #f9826c;">CASE WHEN</span> Shipment_std__dlm.ShipmentStatus__c = <span style="color: #9ecbff;">'Entregado'</span>
-         <span style="color: #f9826c;">THEN</span> <span style="color: #79b8ff;">1.0</span> <span style="color: #f9826c;">ELSE</span> <span style="color: #79b8ff;">0.0</span> <span style="color: #f9826c;">END</span>)
-    / <span style="color: #79b8ff;">COUNT</span>(Shipment_std__dlm.Id__c)) * <span style="color: #79b8ff;">100</span> <span style="color: #f9826c;">AS</span> SLA_Rate_Pct__c
-<span style="color: #f9826c;">FROM</span> Shipment_std__dlm
-<span style="color: #f9826c;">GROUP BY</span> Shipment_std__dlm.AccountId__c</code></pre>
-        </div>
-        <!-- Botón de Acción -->
-        <div style="text-align: center;">
-          <button class="ej1-guide-btn" onclick="document.getElementById('modal-insights-sql').style.display='block'">
-            📖 Abrir Guía Detallada de Clics y Pantallas (SQL)
-          </button>
-        </div>
-      </div>
-
-      <!-- Tab 2: Builder Content -->
-      <div id="tab-content-builder" style="display: none;">
-        <!-- Caja 1: Configuración Vertical -->
-        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; margin-bottom: 15px; background-color: #fafbfc;">
-          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">1 · CONFIGURACIÓN</h5>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
             <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Insight Name:</span> <code style="background: #f9f1ff; color: #5a32fa; padding: 3px 8px; border-radius: 4px;">Active_Delayed_Shipments</code></div>
-            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Description:</span> <span style="color: #24292e;">Monitoreo de incidencias operativas activas y su severidad</span></div>
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Description:</span> <span style="color: #24292e;">Conteo de incidencias activas por número de guía (métrica exploratoria)</span></div>
             <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Método:</span> <span style="color: #24292e; font-weight: 600;">Create with Builder</span></div>
             <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">DMO Base:</span> <span style="color: #24292e; font-weight: 600;">DeliveryIncident_std__dlm</span></div>
           </div>
         </div>
-        <!-- Caja 2: Builder Requerimientos -->
+        <!-- Caja 2: Requerimientos del lienzo -->
         <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
           <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">2 · REQUERIMIENTOS DEL LIENZO VISUAL</h5>
           <ul style="font-size: 0.95em; color: #24292e; padding-left: 20px; margin-bottom: 0;">
             <li style="margin-bottom: 6px;"><strong>Objeto Base:</strong> <code>Incident</code> (Estándar)</li>
-            <li style="margin-bottom: 6px;"><strong>Filtro (Condición):</strong> <code>Incident Type</code> NO contiene 'Resolved' (o 'Resuelto')</li>
+            <li style="margin-bottom: 6px;"><strong>Filtro (Condición):</strong> <code>Incident Type</code> NO contiene <code>'Resolved'</code></li>
             <li style="margin-bottom: 6px;"><strong>Agrupación (Dimension):</strong> <code>NumGuia</code></li>
             <li><strong>Medidas (Measures):</strong> <code>COUNT</code> de Incident Id</li>
           </ul>
@@ -1872,7 +1843,67 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
         <!-- Botón de Acción -->
         <div style="text-align: center;">
           <button class="ej1-guide-btn" onclick="document.getElementById('modal-insights-builder').style.display='block'" style="background:linear-gradient(135deg,#f3e8ff,#e9d5ff);border-color:#8b5cf6;color:#6d28d9;">
-            🧩 Abrir Guía Detallada de Clics y Pantallas (Builder)
+            🧩 Abrir Guía Detallada de Clics y Pantallas (Visual Builder)
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 2: SQL Builder Content -->
+      <div id="tab-content-builder" style="display: none;">
+        <!-- Nota arquitectónica -->
+        <div style="padding: 10px 14px; background: #fffbea; border-left: 4px solid #f59e0b; border-radius: 0 6px 6px 0; margin-bottom: 16px; font-size: 0.9em; color: #5c3d00;">
+          <strong>Objetivo Arquitectónico:</strong> Para utilizar métricas en el motor de Segmentación sobre perfiles unificados, debemos cruzar los datos transaccionales con la tabla puente (<code>UnifiedLinkssotAccountL001</code>). Esto se logra mediante SQL — el Visual Builder no puede realizar este tipo de JOIN.
+        </div>
+
+        <!-- Métrica A: U360_Monthly_Shipment_Volume -->
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; margin-bottom: 15px; background-color: #f6f8fa;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">A · MÉTRICA 1 — VOLUMEN TOTAL DE ENVÍOS</h5>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Insight Name:</span> <code style="background: #e1efff; color: #0366d6; padding: 3px 8px; border-radius: 4px;">U360_Monthly_Shipment_Volume</code></div>
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Description:</span> <span style="color: #24292e;">Volumen total de envíos consolidados a nivel de Perfil Unificado B2B.</span></div>
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Método:</span> <span style="color: #24292e; font-weight: 600;">Create from SQL</span></div>
+          </div>
+          <div style="position: relative;">
+            <button onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); this.innerHTML='✅ Copiado'; setTimeout(() => this.innerHTML='📋 Copiar SQL', 2000);" style="position: absolute; top: 8px; right: 8px; background: #005fb2; color: white; border: none; padding: 4px 10px; border-radius: 4px; font-size: 0.8em; cursor: pointer; font-weight: bold; z-index:1;">📋 Copiar SQL</button>
+            <pre id="sql-metric1" style="margin: 0; padding: 15px; background: #24292e; border-radius: 6px; font-size: 0.85em; overflow-x: auto; color: #e1e4e8; border: 1px solid #1b1f23;"><code><span style="color: #f9826c;">SELECT</span>
+    UnifiedssotAccountL001__dlm.ssot__Id__c <span style="color: #f9826c;">AS</span> UnifiedAccountId__c,
+    <span style="color: #79b8ff;">COUNT</span>(Shipment_std__dlm.Id__c) <span style="color: #f9826c;">AS</span> Total_Monthly_Volume__c
+<span style="color: #f9826c;">FROM</span> UnifiedssotAccountL001__dlm
+<span style="color: #f9826c;">JOIN</span> UnifiedLinkssotAccountL001__dlm
+    <span style="color: #f9826c;">ON</span> UnifiedssotAccountL001__dlm.ssot__Id__c = UnifiedLinkssotAccountL001__dlm.UnifiedRecordId__c
+<span style="color: #f9826c;">JOIN</span> Shipment_std__dlm
+    <span style="color: #f9826c;">ON</span> Shipment_std__dlm.AccountId__c = UnifiedLinkssotAccountL001__dlm.SourceRecordId__c
+<span style="color: #f9826c;">GROUP BY</span> UnifiedssotAccountL001__dlm.ssot__Id__c</code></pre>
+          </div>
+        </div>
+
+        <!-- Métrica B: U360_Active_Delayed_Incidents -->
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; margin-bottom: 20px; background-color: #fafbfc;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">B · MÉTRICA 2 — ENVÍOS CON INCIDENCIAS ACTIVAS</h5>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Insight Name:</span> <code style="background: #f9f1ff; color: #5a32fa; padding: 3px 8px; border-radius: 4px;">U360_Active_Delayed_Incidents</code></div>
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Description:</span> <span style="color: #24292e;">Conteo de envíos con incidencias operativas (estatus retrasado) a nivel de Perfil Unificado B2B.</span></div>
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 110px;">Método:</span> <span style="color: #24292e; font-weight: 600;">Create from SQL</span></div>
+          </div>
+          <div style="position: relative;">
+            <button onclick="navigator.clipboard.writeText(this.nextElementSibling.innerText); this.innerHTML='✅ Copiado'; setTimeout(() => this.innerHTML='📋 Copiar SQL', 2000);" style="position: absolute; top: 8px; right: 8px; background: #005fb2; color: white; border: none; padding: 4px 10px; border-radius: 4px; font-size: 0.8em; cursor: pointer; font-weight: bold; z-index:1;">📋 Copiar SQL</button>
+            <pre id="sql-metric2" style="margin: 0; padding: 15px; background: #24292e; border-radius: 6px; font-size: 0.85em; overflow-x: auto; color: #e1e4e8; border: 1px solid #1b1f23;"><code><span style="color: #f9826c;">SELECT</span>
+    UnifiedssotAccountL001__dlm.ssot__Id__c <span style="color: #f9826c;">AS</span> UnifiedAccountId__c,
+    <span style="color: #79b8ff;">COUNT</span>(Shipment_std__dlm.Id__c) <span style="color: #f9826c;">AS</span> Active_Delayed_Count__c
+<span style="color: #f9826c;">FROM</span> UnifiedssotAccountL001__dlm
+<span style="color: #f9826c;">JOIN</span> UnifiedLinkssotAccountL001__dlm
+    <span style="color: #f9826c;">ON</span> UnifiedssotAccountL001__dlm.ssot__Id__c = UnifiedLinkssotAccountL001__dlm.UnifiedRecordId__c
+<span style="color: #f9826c;">JOIN</span> Shipment_std__dlm
+    <span style="color: #f9826c;">ON</span> Shipment_std__dlm.AccountId__c = UnifiedLinkssotAccountL001__dlm.SourceRecordId__c
+<span style="color: #f9826c;">WHERE</span> Shipment_std__dlm.ShipmentStatus__c = <span style="color: #9ecbff;">'Retrasado'</span>
+<span style="color: #f9826c;">GROUP BY</span> UnifiedssotAccountL001__dlm.ssot__Id__c</code></pre>
+          </div>
+        </div>
+
+        <!-- Botón de Acción -->
+        <div style="text-align: center;">
+          <button class="ej1-guide-btn" onclick="document.getElementById('modal-insights-sql').style.display='block'">
+            📖 Abrir Guía Detallada de Clics y Pantallas (SQL Builder)
           </button>
         </div>
       </div>
@@ -1885,7 +1916,7 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
       </button>
       <div class="talk-track-body">
         <div class="quote-box">"Acaban de crear en literalmente 5 minutos lo que le toma a un equipo de BI 2 días producir. La diferencia es que esta métrica no es un reporte — está viva, se actualiza con cada envío que entra al sistema."</div>
-        <p>Señala la diferencia estratégica: <strong>"Monthly_Volume_Guias</strong> es una métrica comercial que el account manager ve en el CRM. <strong>Active_Delayed_Shipments</strong> es una alerta operativa. Ambas en el mismo perfil del cliente."</p>
+        <p>Señala la diferencia estratégica: <strong>"U360_Monthly_Shipment_Volume</strong> es una métrica comercial que el account manager ve en el CRM. <strong>U360_Active_Delayed_Incidents</strong> es una alerta operativa. Ambas en el mismo perfil del cliente."</p>
         <p>Tip de demo: muestra el perfil de DINO960315MX1 antes y después de las métricas. El "before" es solo nombre y RFC. El "after" es un perfil de negocio completo.</p>
       </div>
       <div class="gotcha-callout">
@@ -1934,24 +1965,53 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
     <div class="segment-visual" role="img" aria-label="Fórmula del segmento B2B con incidencias críticas">
       <p style="color:var(--cloud-blue);font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700">SEGMENTO: Cuentas B2B Clave con Incidencias Críticas</p>
       <div class="seg-formula">
-        <span class="seg-highlight">Monthly_Volume_Guias</span> &gt; 50
+        <span class="seg-highlight">U360_Monthly_Shipment_Volume</span> &gt; 50
         <br>AND
-        <br><span class="seg-highlight">Active_Delayed_Shipments</span> &gt;= 2
+        <br><span class="seg-highlight">U360_Active_Delayed_Incidents</span> &gt;= 2
       </div>
       <p style="color:rgba(207,233,254,0.8);font-size:14px">→ Resultado con datos sintéticos: <strong>2 cuentas</strong> califican (DINO960315MX1, LOGA950820XY2)</p>
     </div>
 
-    <div class="goal-box" style="margin-top:24px">
-      <div class="goal-icon">🎯</div>
-      <div>
-        <h4>Objetivo Hands-On — Ejercicio 4</h4>
-        <ol>
-          <li>En Segmentation → New Segment, seleccionar DMO "UnifiedAccount".</li>
-          <li>Agregar filtro: <code>Monthly_Volume_Guias</code> is greater than <strong>50</strong>.</li>
-          <li>Agregar filtro AND: <code>Active_Delayed_Shipments</code> is greater than or equal to <strong>2</strong>.</li>
-          <li>Nombrar segmento: "Cuentas_B2B_Clave_Incidencias_Criticas".</li>
-          <li>Publicar y verificar que el count muestra 2 miembros.</li>
-        </ol>
+    <!-- TARJETA EJERCICIO 4 -->
+    <div class="exercise-card" style="background: white; border: 1px solid #e1e4e8; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 30px;">
+      <h3 style="color: #003468; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 1.2em;">🎯 Objetivo Hands-On — Ejercicio 4: Segmentación Dinámica</h3>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+
+        <!-- Columna 1: Configuración -->
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; background-color: #f6f8fa;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">1 · CONFIGURACIÓN DEL SEGMENTO</h5>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 130px;">Segment Name:</span> <code style="background: #e1efff; color: #0366d6; padding: 3px 8px; border-radius: 4px;">Cuentas_B2B_Clave_Incidencias_Criticas</code></div>
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 130px;">Segment On:</span> <span style="color: #24292e; font-weight: 600;">UnifiedAccount</span></div>
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 130px;">Publish Schedule:</span> <span style="color: #24292e;">Don't Refresh (Manual)</span></div>
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 130px;">Resultado Esperado:</span> <span style="color: #28a745; font-weight: bold;">2 cuentas (DINO960315MX1, LOGA950820XY2)</span></div>
+          </div>
+        </div>
+
+        <!-- Columna 2: Reglas Lógicas -->
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">2 · REGLAS DE SEGMENTACIÓN (AND)</h5>
+          <ul style="font-size: 0.95em; color: #24292e; padding-left: 20px; margin-bottom: 0;">
+            <li style="margin-bottom: 8px;">
+              <strong>Regla 1 (Volumen):</strong> <code>U360_Monthly_Shipment_Volume</code> &gt; <code>50</code>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <span style="background: #e1efff; color: #005fb2; padding: 1px 6px; border-radius: 3px; font-size: 0.8em; font-weight: bold;">AND</span>
+            </li>
+            <li>
+              <strong>Regla 2 (Fricción):</strong> <code>U360_Active_Delayed_Incidents</code> &gt;= <code>2</code>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Botón Modal -->
+      <div style="text-align: center;">
+        <button class="btn btn-primary" onclick="document.getElementById('modal-segments').style.display='block'" style="background-color: #e8f4fd; color: #005fb2; border: 1px solid #005fb2; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s;">
+          📖 Abrir Guía Detallada de Clics y Pantallas (Segmentación)
+        </button>
       </div>
     </div>
 
@@ -2051,9 +2111,9 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
     "accountId":           "<span class="dup">{{UnifiedAccount.RFC__c}}</span>",
     "accountName":         "{{UnifiedAccount.Name}}",
     "alertPriority":       <span class="dup">"HIGH"</span>,
-    "activeIncidents":     "{{UnifiedAccount.Active_Delayed_Shipments}}",
-    "monthlyVolume":       "{{UnifiedAccount.Monthly_Volume_Guias}}",
-    "alertMessage":        "Cuenta clave con {{Active_Delayed_Shipments}} incidencias activas. Volumen mensual: {{Monthly_Volume_Guias}} guías.",
+    "activeIncidents":     "{{UnifiedAccount.U360_Active_Delayed_Incidents}}",
+    "monthlyVolume":       "{{UnifiedAccount.U360_Monthly_Shipment_Volume}}",
+    "alertMessage":        "Cuenta clave con {{U360_Active_Delayed_Incidents}} incidencias activas. Volumen mensual: {{U360_Monthly_Shipment_Volume}} guías.",
     <span class="header">"actionType"</span>:         <span class="highlight">"CREATE_TASK_AND_CASE"</span>,
     "assignedTo":          "{{Account.OwnerId}}",
     "caseSubject":         "Alerta SLA — Incidencias Críticas Activas",
@@ -2071,7 +2131,7 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
         <ol>
           <li>En Activation Targets → New, crear target "Logistics_CRM_Alert" de tipo Salesforce CRM.</li>
           <li>Conectar el segmento "Cuentas_B2B_Clave_Incidencias_Criticas" al Activation Target.</li>
-          <li>Mapear atributos: <code>RFC (Custom)</code>, <code>Name</code>, <code>Active_Delayed_Shipments</code>, <code>Monthly_Volume_Guias</code>.</li>
+          <li>Mapear atributos: <code>RFC (Custom)</code>, <code>Name</code>, <code>U360_Active_Delayed_Incidents</code>, <code>U360_Monthly_Shipment_Volume</code>.</li>
           <li>Configurar la acción: Crear Tarea en Account del CRM con prioridad High.</li>
           <li>Activar y verificar en Salesforce CRM que aparece la tarea en las 2 cuentas del segmento.</li>
         </ol>
@@ -3046,10 +3106,10 @@ function ej2OverlayClick(e) {
 <div id="modal-insights-sql" class="modal" onclick="if(event.target===this)this.style.display='none'">
   <div class="modal-content">
     <span class="close" onclick="document.getElementById('modal-insights-sql').style.display='none'">&times;</span>
-    <h3 style="margin-top:0;color:#1a73e8;font-weight:700">Guía Detallada — Calculated Insights</h3>
-    <p>Sigue las pantallas exactas para compilar y guardar las métricas logísticas (SLA y Demoras).</p>
+    <h3 style="margin-top:0;color:#1a73e8;font-weight:700">Guía Detallada — Calculated Insights (SQL Builder)</h3>
+    <p>En Data Cloud, el <strong>Visual Builder</strong> es ideal para métricas exploratorias rápidas. Sin embargo, para cruces avanzados con entidades generadas por Identity Resolution (como <em>Unified Account</em>), el motor de <strong>SQL Builder</strong> ofrece la flexibilidad necesaria para hacer JOINs con las tablas puente (<code>UnifiedLinkssotAccountL001__dlm</code>) y elevar los cálculos al nivel del Perfil Unificado B2B.</p>
     <div id="insights-steps-container">
-      <h4 style="color: #003468; border-bottom: 2px solid #00a1e0; padding-bottom: 5px; margin-bottom: 20px;">Fase 1: Métrica con SQL (Volumen y SLA)</h4>
+      <h4 style="color: #003468; border-bottom: 2px solid #00a1e0; padding-bottom: 5px; margin-bottom: 20px;">Fase 1: Métrica de Volumen Unificado (U360_Monthly_Shipment_Volume)</h4>
       <div class="modal-step-section">
         <h5>Pantalla 1 — Selección del Tipo de Insight</h5>
         <p>1. En el menú superior de <strong>Data 360</strong>, ve a la pestaña <strong>Calculated Insights</strong> y haz clic en el botón azul <strong>New</strong> (arriba a la derecha).</p>
@@ -3075,21 +3135,21 @@ function ej2OverlayClick(e) {
       </div>
       <div class="modal-step-section" style="margin-top: 20px;">
         <h5>Pantalla 3 — Configuración de la Métrica SQL</h5>
-        <p>1. En el campo <strong>Insight Name</strong> escribe: <code>Monthly_Volume_Guias</code> (el campo <em>API Name</em> se autocompletará solo).</p>
-        <p>2. En el campo <strong>Description</strong> escribe: <code>Volumen y SLA de entregas del mes actual</code>.</p>
+        <p>1. En el campo <strong>Insight Name</strong> escribe: <code>U360_Monthly_Shipment_Volume</code> (el campo <em>API Name</em> se autocompletará solo).</p>
+        <p>2. En el campo <strong>Description</strong> escribe: <code>Volumen total de envíos consolidados a nivel de Perfil Unificado B2B.</code>.</p>
         <p>3. En la caja grande de <strong>SQL Query</strong>, borra todo el código de plantilla que viene por defecto.</p>
         <p>4. Copia el código SQL de la <strong>Métrica 1</strong> (desde la tarjeta principal de este ejercicio) y pégalo en la caja.</p>
         <div class="alert-info" style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin: 15px 0; color: #856404;">
-          <strong>🤓 ¿Por qué escribimos el SQL así? (Las Leyes de Data 360)</strong><br>
-          El motor de Data 360 es ultra estricto. Si usas SQL tradicional, te arrojará docenas de errores (ej. "Cannot find type", "Ambiguous fact tables"). Para que compile en verde, aplicamos estas reglas:
+          <strong>🤓 ¿Por qué usamos JOIN con la tabla puente? (Arquitectura Unificada)</strong><br>
+          Data 360 no enlaza automáticamente los datos transaccionales con los perfiles unificados. Para operar al nivel del <em>Perfil Unificado B2B</em>, debemos cruzar explícitamente mediante la tabla puente. Reglas clave:
           <ul style="margin-top: 5px; margin-bottom: 0;">
-            <li><strong>Alias obligatorios:</strong> Todo alias con <code>AS</code> debe terminar en <code>__c</code> (ej. <code>AS account_id__c</code>).</li>
-            <li><strong>Cálculos anidados:</strong> No soporta <code>AVG(CASE...)</code>. Debemos hacer la matemática manual: <code>SUM(CASE...)/COUNT(...)</code>.</li>
-            <li><strong>Zero JOINs:</strong> La mejor práctica es NO hacer JOIN hacia la tabla de perfiles. Consultamos la tabla de hechos y agrupamos (<code>GROUP BY</code>) por el ID foráneo del cliente. Data 360 hace el cruce mágicamente.</li>
+            <li><strong>Alias obligatorios:</strong> Todo alias con <code>AS</code> debe terminar en <code>__c</code> (ej. <code>AS UnifiedAccountId__c</code>).</li>
+            <li><strong>JOIN con tabla puente:</strong> <code>UnifiedLinkssotAccountL001__dlm</code> conecta el <code>SourceRecordId__c</code> (ID original) con el <code>UnifiedRecordId__c</code> (ID del perfil unificado).</li>
+            <li><strong>GROUP BY unificado:</strong> Agrupamos por <code>UnifiedRecordId__c</code> para que el resultado quede anclado al perfil unificado, no a la cuenta cruda.</li>
           </ul>
         </div>
-        <img src="images/e3-004.png" alt="Editor SQL de Data 360" class="modal-img" onerror="this.style.display='none'">
-        <div class="img-caption">Figura 5.4: Interfaz del editor SQL de Calculated Insights</div>
+        <img src="images/e3-004.png" alt="Editor SQL de Data Cloud" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.4: Editor SQL de Data Cloud con JOIN a la tabla puente</div>
         <p>5. Haz clic en el botón azul <strong>Check Syntax</strong> para verificar que todo esté en verde y luego haz clic en <strong>Activate</strong>.</p>
       </div>
       <div class="modal-step-section" style="margin-top: 20px;">
@@ -3102,7 +3162,7 @@ function ej2OverlayClick(e) {
       </div>
       <div class="modal-step-section" style="margin-top: 20px;">
         <h5>Pantalla 5 — Ejecución Manual (Run Now)</h5>
-        <p>1. ¡Felicidades! Tu métrica ya está creada. Llegarás a la pantalla de detalles de <code>Monthly_Volume_Guias</code>.</p>
+        <p>1. ¡Felicidades! Tu métrica ya está creada. Llegarás a la pantalla de detalles de <code>U360_Monthly_Shipment_Volume</code>.</p>
         <p>2. Como no la programamos automáticamente, necesitamos calcularla por primera vez ahora mismo.</p>
         <p>3. En la esquina superior derecha, haz clic en la <strong>flecha desplegable</strong> junto al botón Disable/Edit.</p>
         <p>4. Selecciona <strong>Run Now</strong> del menú.</p>
@@ -3112,6 +3172,24 @@ function ej2OverlayClick(e) {
           <strong>⏳ Paciencia:</strong> El estado <em>Last Run Status</em> cambiará a <strong>Running</strong>. Al igual que con Identity Resolution, este proceso puede tomar unos 10-15 minutos en completarse. Presiona <strong>F5</strong> ocasionalmente hasta que veas <strong>Success</strong>.
         </div>
       </div>
+
+      <h4 style="color: #003468; border-bottom: 2px solid #00a1e0; padding-bottom: 5px; margin-bottom: 20px; margin-top: 40px;">Fase 2: Métrica Unificada de Incidencias (U360)</h4>
+      <div class="modal-step-section">
+        <h5>Pantalla 6 — Nuevo Calculated Insight</h5>
+        <p>1. Como ya conoces el proceso, haz clic nuevamente en <strong>New</strong> en la pantalla principal.</p>
+        <p>2. Selecciona la tarjeta <strong>Calculated Insight</strong> y luego la opción <strong>Use SQL Authoring</strong>.</p>
+        <img src="images/e3-020.png" alt="Selección de SQL Authoring para la segunda métrica" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.7: Creando la segunda métrica operativa con SQL</div>
+      </div>
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 7 — Configuración y Query de Incidencias</h5>
+        <p>1. Nombra el insight como <code>U360_Active_Delayed_Incidents</code> y agrega la descripción correspondiente.</p>
+        <p>2. Pega el SQL de esta métrica (el que cruza con la tabla puente <code>UnifiedLinkssotAccountL001__dlm</code> y filtra por <code>ShipmentStatus__c = 'Demorado'</code>).</p>
+        <img src="images/e3-019.png" alt="Configuración de la métrica U360_Active_Delayed_Incidents" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.8: Editor SQL con la métrica unificada de incidencias</div>
+        <p>3. Al igual que en la primera métrica: haz clic en <strong>Check Syntax</strong>, luego en <strong>Activate</strong>.</p>
+        <p>4. Configura el Schedule como <strong>Not Scheduled</strong> (Enable), y ejecuta un <strong>Run Now</strong> desde el menú desplegable.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -3119,123 +3197,244 @@ function ej2OverlayClick(e) {
 <div id="modal-insights-builder" class="modal" onclick="if(event.target===this)this.style.display='none'">
   <div class="modal-content" style="max-width: 900px;">
     <span class="close" onclick="document.getElementById('modal-insights-builder').style.display='none'">&times;</span>
-    <h3 style="margin-top:0;color:#003468;border-bottom:2px solid #00a1e0;padding-bottom:10px;font-weight:700">Guía Detallada — Visual Builder (Métrica 2)</h3>
+    <h3 style="margin-top:0;color:#003468;border-bottom:2px solid #00a1e0;padding-bottom:10px;font-weight:700">Guía Detallada — Visual Builder (Métrica de Incidencias)</h3>
     <div class="modal-body">
-      <p>Esta guía te mostrará cómo crear la métrica de incidencias utilizando la interfaz visual de arrastrar y soltar de Data 360, sin escribir una sola línea de código SQL.</p>
+      <p class="intro-text">Esta guía muestra paso a paso cómo construir la métrica operativa de incidencias utilizando la interfaz visual (no-code) de Data Cloud sobre el objeto de eventos de incidencias.</p>
+
+      <!-- Pantalla 1: Selección de Herramienta -->
       <div class="modal-step-section" style="margin-top: 20px;">
         <h5>Pantalla 1 — Selección del Visual Builder</h5>
         <p>1. En la pestaña <strong>Calculated Insights</strong>, haz clic en <strong>New</strong>.</p>
-        <p>2. Selecciona la tarjeta <strong>Calculated Insight</strong> (ícono de calendario).</p>
-        <p>3. Selecciona la opción <strong>Use Visual Builder</strong> y haz clic en <strong>Next</strong>.</p>
-        <img src="images/e3-007.png" alt="Selección de Visual Builder en Data 360" class="modal-img" onerror="this.style.display='none'">
-        <div class="img-caption">Figura 5.7: Eligiendo el enfoque No-Code para la Métrica 2</div>
+        <p>2. Selecciona la tarjeta <strong>Calculated Insight</strong> (procesamiento batch).</p>
+        <p>3. En la parte inferior, marca <strong>Use Visual Builder</strong> y haz clic en <strong>Next</strong>.</p>
+        <img src="images/e3-007.png" alt="Selección de Visual Builder en Data Cloud" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.7: Selección de la herramienta Visual Builder</div>
       </div>
+
+      <!-- Pantalla 2: Selección de Objeto Base -->
       <div class="modal-step-section" style="margin-top: 20px;">
         <h5>Pantalla 2 — Selección del Objeto Base (DMO)</h5>
-        <p>1. Data 360 te pedirá seleccionar el punto de partida (la tabla de hechos).</p>
-        <p>2. En la barra de búsqueda, escribe <code>Incident</code> (o <code>DeliveryIncident</code> dependiendo del nombre en tu entorno).</p>
-        <p>3. Selecciona el objeto correspondiente y haz clic en <strong>Next</strong>.</p>
-        <img src="images/e3-008.png" alt="Búsqueda del objeto Incident" class="modal-img" onerror="this.style.display='none'">
-        <div class="img-caption">Figura 5.8: Selección de la tabla de hechos inicial</div>
+        <p>1. En la lista de objetos de datos (<em>Select Input Data</em>), busca y selecciona <code>Incident</code> (o <code>DeliveryIncident</code>).</p>
+        <p>2. Haz clic en el botón azul <strong>Next</strong> en la esquina inferior derecha.</p>
+        <img src="images/e3-008.png" alt="Selección del objeto Incident" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.8: Selección de la tabla de hechos base</div>
       </div>
+
+      <!-- Pantalla 3: Lienzo Inicial -->
       <div class="modal-step-section" style="margin-top: 20px;">
-        <h5>Pantalla 3 — Construcción en el Lienzo (Canvas)</h5>
-        <p>1. Se abrirá el lienzo de trabajo <em>Visual Insights Builder</em> mostrando el nodo inicial del Incidente.</p>
-        <img src="images/e3-009.png" alt="Lienzo en blanco del Visual Builder" class="modal-img" onerror="this.style.display='none'">
-        <div class="img-caption">Figura 5.9: Nodo raíz en el lienzo visual</div>
-        <div style="background-color: #f9f1ff; border-left: 4px solid #5a32fa; padding: 15px; margin: 15px 0;">
-          <h6 style="margin-top: 0; color: #5a32fa; margin-bottom: 10px;">🛠️ Siguientes pasos en el lienzo:</h6>
-          <ol style="margin-bottom: 0; padding-left: 20px; font-size: 0.95em;">
-            <li style="margin-bottom: 8px;">Haz clic en el ícono <strong>(+)</strong> junto al nodo Incident y selecciona <strong>Filter</strong>.</li>
-            <li style="margin-bottom: 8px;">En el panel inferior, bajo <em>Take Action When</em>, asegúrate de que esté en <strong>"All Conditions Are Met"</strong>.</li>
-            <li style="margin-bottom: 8px;">Agrega la siguiente condición para excluir los casos ya cerrados:
-              <ul style="margin-top: 6px;">
-                <li><strong>Campo:</strong> <code>Incident Type</code></li>
-                <li><strong>Operador:</strong> <code>Does Not Contain</code> (o <em>Does Not Equal</em>)</li>
-                <li><strong>Valor:</strong> <code>Resolved</code> (o <em>Resuelto</em>)</li>
-              </ul>
-            </li>
-            <li style="margin-bottom: 8px;">Haz clic en el ícono <strong>(+)</strong> después del filtro y selecciona <strong>Aggregate</strong>.</li>
-            <li style="margin-bottom: 8px;">En <em>Dimensions</em>, selecciona el campo <code>NumGuia</code>.</li>
-            <li style="margin-bottom: 8px;">En <em>Measures</em>, agrega un <strong>COUNT</strong> de <code>Incident Id</code>.</li>
-            <li>Haz clic en el ícono del engranaje (⚙️) arriba a la derecha para nombrar la métrica como <code>Active_Delayed_Shipments</code>, y finalmente presiona <strong>Save and Run</strong>.</li>
-          </ol>
-        </div>
+        <h5>Pantalla 3 — Lienzo de Trabajo Inicial</h5>
+        <p>1. Se abrirá el lienzo de trabajo <em>Visual Insights Builder</em> mostrando el nodo raíz <strong>Incident</strong>.</p>
+        <img src="images/e3-009.png" alt="Lienzo inicial del Visual Builder con nodo Incident" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.9: Nodo inicial en el lienzo visual</div>
       </div>
-      <!-- Pantalla 4: Nodo Filter -->
+
+      <!-- Pantalla 4: Agregar Filtro -->
       <div class="modal-step-section" style="margin-top: 20px;">
-        <h5>Pantalla 4 — Filtro de Incidentes Activos</h5>
-        <p>1. En el lienzo, haz clic en el ícono <strong>(+)</strong> junto al nodo Incident y selecciona <strong>Filter</strong>.</p>
-        <p>2. En el panel inferior, haz clic en el botón <strong>+</strong> grande para agregar una condición.</p>
-        <p>3. En la lista de campos, selecciona <code>Incident Type</code> y haz clic en Next.</p>
-        <img src="images/e3-010.png" alt="Selección del campo Incident Type" class="modal-img" onerror="this.style.display='none'">
-        <p>4. Configura la regla lógica para descartar los incidentes cerrados:</p>
-        <ul style="margin-bottom: 10px;">
+        <h5>Pantalla 4 — Selección de Campo para el Filtro</h5>
+        <p>1. Haz clic en el ícono <strong>(+)</strong> junto al nodo Incident y selecciona <strong>Filter</strong>.</p>
+        <p>2. En el panel inferior <em>Define Filter</em>, haz clic en el botón <strong>+</strong> para agregar una condición.</p>
+        <p>3. Selecciona el campo <code>Incident Type</code> y haz clic en <strong>Next</strong>.</p>
+        <img src="images/e3-010.png" alt="Selección del campo Incident Type para filtro" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.10: Selección del campo condicional para excluir incidencias resueltas</div>
+      </div>
+
+      <!-- Pantalla 5: Configuración de la Regla del Filtro -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 5 — Regla Lógica del Filtro</h5>
+        <p>1. Configura el criterio para descartar casos cerrados:</p>
+        <ul>
           <li><strong>Operator:</strong> <code>does not contain</code></li>
           <li><strong>Value:</strong> <code>Resolved</code></li>
         </ul>
-        <p>5. Haz clic en <strong>Apply</strong>.</p>
-        <img src="images/e3-011.png" alt="Configuración del operador y valor del filtro" class="modal-img" onerror="this.style.display='none'">
-        <div class="img-caption">Figura 5.10: Excluyendo los registros cuyo tipo contenga 'Resolved'</div>
+        <p>2. Haz clic en <strong>Apply</strong>.</p>
+        <img src="images/e3-011.png" alt="Configuración de does not contain Resolved" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.11: Exclusión de registros cuyo tipo contenga 'Resolved'</div>
       </div>
-      <!-- Pantalla 5: Nodo Aggregate -->
+
+      <!-- Pantalla 6: Dimensión de Agrupación -->
       <div class="modal-step-section" style="margin-top: 20px;">
-        <h5>Pantalla 5 — Agrupación y Cálculo (Aggregate)</h5>
-        <p>1. Haz clic en el ícono <strong>(+)</strong> situado a la derecha del nodo <em>Filters</em> y selecciona <strong>Aggregate</strong>.</p>
-        <div style="background-color: #f8f9fa; border-left: 4px solid #00a1e0; padding: 15px; margin: 15px 0;">
-          <h6 style="margin-top: 0; color: #005fb2; margin-bottom: 10px;">A. Configurar la Dimensión (Agrupación)</h6>
-          <p style="margin-bottom: 5px; font-size: 0.95em;">1. En el panel inferior, bajo <strong>DIMENSIONS</strong>, haz clic en el botón <strong>+</strong>.</p>
-          <p style="margin-bottom: 5px; font-size: 0.95em;">2. Selecciona el campo <code>NumGuia</code> y haz clic en Next.</p>
-        </div>
+        <h5>Pantalla 6 — Nodo Aggregate: Configurar Dimensión</h5>
+        <p>1. Haz clic en el ícono <strong>(+)</strong> a la derecha del nodo <em>Filters</em> y selecciona <strong>Aggregate</strong>.</p>
+        <p>2. En la sección <strong>DIMENSIONS</strong> del panel inferior, haz clic en el botón <strong>+</strong>.</p>
+        <p>3. Selecciona el campo <code>NumGuia</code> y haz clic en <strong>Next</strong>.</p>
         <img src="images/e3-012.png" alt="Selección de dimensión NumGuia" class="modal-img" onerror="this.style.display='none'">
-        <div style="background-color: #f8f9fa; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0;">
-          <h6 style="margin-top: 0; color: #1e7e34; margin-bottom: 10px;">B. Configurar la Medida (Cálculo)</h6>
-          <p style="margin-bottom: 5px; font-size: 0.95em;">1. En el panel inferior, bajo <strong>MEASURES</strong>, haz clic en el botón <strong>+</strong>.</p>
-          <p style="margin-bottom: 5px; font-size: 0.95em;">2. Selecciona la función matemática <strong>Count</strong>.</p>
-          <p style="margin-bottom: 5px; font-size: 0.95em;">3. Selecciona el campo <code>Incident Id</code> y haz clic en Next.</p>
-          <p style="margin-bottom: 5px; font-size: 0.95em;">4. (Opcional) En la siguiente pantalla puedes renombrar la métrica a <code>Incident_Id</code> y dar clic en <strong>Apply</strong>.</p>
-        </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <img src="images/e3-013.png" alt="Selección de función Count y campo Incident Id" style="width: 100%; border: 1px solid #ddd; border-radius: 4px;" onerror="this.style.display='none'">
-          <img src="images/e3-014.png" alt="Nombramiento final de la métrica" style="width: 100%; border: 1px solid #ddd; border-radius: 4px;" onerror="this.style.display='none'">
-        </div>
-        <div class="img-caption">Figura 5.11: Configurando el conteo de incidentes activos por cada número de guía</div>
+        <div class="img-caption">Figura 5.12: Agrupación dimensional por número de guía</div>
       </div>
-      <!-- Pantalla 6: Guardado y Schedule -->
+
+      <!-- Pantalla 7: Configurar Medida -->
       <div class="modal-step-section" style="margin-top: 20px;">
-        <h5>Pantalla 6 — Guardado y Schedule</h5>
-        <p>1. Con el lienzo completo, haz clic en el botón <strong>Save and Run</strong> (o en el engranaje ⚙️ de la esquina superior derecha).</p>
-        <div style="background-color: #f8f9fa; border-left: 4px solid #00a1e0; padding: 15px; margin: 15px 0;">
-          <h6 style="margin-top: 0; color: #005fb2; margin-bottom: 10px;">A. Detalles del Insight</h6>
-          <p style="margin-bottom: 5px; font-size: 0.95em;">En la primera ventana, completa los detalles básicos y dale a guardar/siguiente:</p>
-          <ul style="margin-bottom: 0; font-size: 0.95em;">
-            <li><strong>Insight Name:</strong> <code>Active_Delayed_Shipments</code></li>
-            <li><strong>Description:</strong> <code>Monitoreo de incidencias operativas activas y su severidad</code></li>
-          </ul>
-        </div>
-        <img src="images/e3-016.png" alt="Ventana de guardado con nombre y descripción" class="modal-img" onerror="this.style.display='none'">
-        <div style="background-color: #f8f9fa; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0;">
-          <h6 style="margin-top: 0; color: #1e7e34; margin-bottom: 10px;">B. Frecuencia de Ejecución (Schedule)</h6>
-          <p style="margin-bottom: 5px; font-size: 0.95em;">En la segunda ventana, desactiva la automatización:</p>
-          <ul style="margin-bottom: 0; font-size: 0.95em;">
-            <li>Asegúrate de que el menú desplegable indique <strong>Not Scheduled</strong>.</li>
-            <li>Haz clic en el botón azul <strong>Enable</strong> para finalizar.</li>
-          </ul>
-        </div>
-        <img src="images/e3-017.png" alt="Configuración de Not Scheduled" class="modal-img" onerror="this.style.display='none'">
-        <div class="img-caption">Figura 5.12: Flujo de guardado en dos fases (Metadatos y Programación)</div>
+        <h5>Pantalla 7 — Nodo Aggregate: Configurar Medida (Count)</h5>
+        <p>1. En la sección <strong>MEASURES</strong> del panel inferior, haz clic en el botón <strong>+</strong>.</p>
+        <p>2. Selecciona la función agregada <strong>Count</strong>.</p>
+        <p>3. Selecciona el campo <code>Incident Id</code> y haz clic en <strong>Next</strong>.</p>
+        <img src="images/e3-013.png" alt="Selección de función Count y campo Incident Id" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.13: Definición del cálculo de agregación (COUNT)</div>
       </div>
-      <!-- Pantalla 7: Run Now -->
+
+      <!-- Pantalla 8: Nombre de la Medida -->
       <div class="modal-step-section" style="margin-top: 20px;">
-        <h5>Pantalla 7 — Ejecución Manual (Run Now)</h5>
-        <p>1. Serás redirigido a la página de detalles de tu nueva métrica (<code>Active_Delayed_Shipments</code>).</p>
-        <p>2. Como desactivamos la ejecución automática, necesitamos correrla manualmente la primera vez.</p>
-        <p>3. Haz clic en la <strong>flecha desplegable</strong> junto al botón Disable/Edit en la esquina superior derecha.</p>
-        <p>4. Selecciona <strong>Run Now</strong>.</p>
-        <img src="images/e3-018.png" alt="Ejecución manual desde el menú desplegable" class="modal-img" onerror="this.style.display='none'">
+        <h5>Pantalla 8 — Aplicar Medida de Conteo</h5>
+        <p>1. En la pantalla de confirmación de medida, mantén o renombra la métrica y haz clic en <strong>Apply</strong>.</p>
+        <img src="images/e3-014.png" alt="Confirmación de la medida Incident Id" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.14: Medida aplicada exitosamente al nodo Aggregate</div>
+      </div>
+
+      <!-- Pantalla 9: Flujo Visual Completo -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 9 — Flujo Visual Completo</h5>
+        <p>1. Revisa el flujo consolidado en el lienzo: <strong>Incident &rarr; Filters &rarr; Aggregate</strong>.</p>
+        <p>2. En la esquina superior derecha, haz clic en el botón azul <strong>Save and Run</strong>.</p>
+        <img src="images/e3-015.png" alt="Lienzo visual con Incident, Filters y Aggregate" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.15: Flujo lógico completado en el Visual Builder</div>
+      </div>
+
+      <!-- Pantalla 10: Propiedades del Insight -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 10 — Guardado de Propiedades</h5>
+        <p>1. En el primer paso del asistente de guardado, define las propiedades del insight:</p>
+        <ul>
+          <li><strong>Insight Name:</strong> <code>Active_Delayed_Shipments</code></li>
+          <li><strong>Description:</strong> <code>Monitoreo de incidencias operativas activas y su severidad</code></li>
+        </ul>
+        <p>2. Haz clic en <strong>Next</strong>.</p>
+        <img src="images/e3-016.png" alt="Propiedades de guardado del Insight" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.16: Metadatos y nomenclatura del Calculated Insight</div>
+      </div>
+
+      <!-- Pantalla 11: Programación (Schedule) -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 11 — Configuración del Schedule</h5>
+        <p>1. En la pantalla de programación de ejecución, mantén el menú desplegable en <strong>Not Scheduled</strong>.</p>
+        <p>2. Haz clic en el botón azul <strong>Enable</strong> para registrar la métrica en la plataforma.</p>
+        <img src="images/e3-017.png" alt="Schedule Not Scheduled y botón Enable" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.17: Configuración de ejecución manual sin consumo periódico</div>
+      </div>
+
+      <!-- Pantalla 12: Ejecución Manual -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 12 — Ejecución Manual (Run Now)</h5>
+        <p>1. Al ser redirigido a la ficha de <code>Active_Delayed_Shipments</code>, haz clic en la flecha desplegable junto al botón Disable/Edit.</p>
+        <p>2. Selecciona <strong>Run Now</strong>.</p>
+        <img src="images/e3-018.png" alt="Ejecución manual Run Now de la métrica" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 5.18: Ejecución manual a demanda para procesar los datos</div>
         <div class="alert-info" style="background-color: #d4edda; border-left: 4px solid #28a745; padding: 10px; margin: 15px 0;">
-          <strong>⏳ Espera la magia:</strong> El <em>Last Run Status</em> cambiará a <strong>Pending</strong> y luego a <strong>Running</strong>. Toma un respiro, actualiza la página con <strong>F5</strong> en unos minutos, y espera ver el hermoso estado de <strong>Success</strong>.
+          <strong>⏳ Estado de Procesamiento:</strong> El campo <em>Last Run Status</em> pasará a <strong>Pending</strong>, luego a <strong>Running</strong> y finalmente a <strong>Success</strong>.
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-segments" class="modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-content" style="max-width: 900px;">
+    <span class="close-modal" onclick="document.getElementById('modal-segments').style.display='none'">&times;</span>
+    <h3 style="color: #003468; border-bottom: 2px solid #00a1e0; padding-bottom: 10px; margin-top: 0;">Guía Detallada — Segmentación Dinámica (Ejercicio 4)</h3>
+    <div class="modal-body">
+      <p class="intro-text">Esta guía detalla cómo crear un segmento dinámico combinando atributos calculados de volumen e incidencias activas sobre perfiles B2B unificados.</p>
+
+      <!-- Pantalla 1: Acceso a Segmentos -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 1 — Acceso a Segmentos</h5>
+        <p>1. En la barra de navegación superior de Data Cloud, haz clic en la pestaña <strong>Segments</strong>.</p>
+        <p>2. En la esquina superior derecha de la lista, haz clic en el botón <strong>New</strong>.</p>
+        <img src="images/e4-001.png" alt="Pestaña Segments y botón New en Data Cloud" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.1: Inicio del asistente de segmentación</div>
+      </div>
+
+      <!-- Pantalla 2: Tipo de Segmento -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 2 — Selección del Tipo de Segmento</h5>
+        <p>1. <strong>How do you want to create your segment?:</strong> Selecciona <strong>Use a Visual Builder</strong> (interfaz gráfica de arrastrar y soltar).</p>
+        <p>2. <strong>What type of segment do you want to create?:</strong> Selecciona <strong>Standard Segment</strong> (cálculo sobre objetos del modelo e insights calculados).</p>
+        <p>3. Verifica que el Data Space seleccionado sea <code>default</code>.</p>
+        <p>4. Haz clic en el botón azul <strong>Next</strong> en la esquina inferior derecha.</p>
+        <img src="images/e4-002.png" alt="Selección de Visual Builder y Standard Segment" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.2: Configuración del motor y formato visual del segmento</div>
+      </div>
+
+      <!-- Pantalla 3: Propiedades del Segmento -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 3 — Propiedades del Segmento</h5>
+        <p>1. Completa las propiedades del segmento con los siguientes valores:</p>
+        <ul>
+          <li><strong>Data Space:</strong> <code>default</code></li>
+          <li><strong>Segment On:</strong> <code>Unified Account L001</code> (entidad unificada generada en el Ejercicio 2)</li>
+          <li><strong>Segment Name:</strong> <code>Cuentas_B2B_Clave_Incidencias_Criticas</code></li>
+          <li><strong>Description:</strong> <code>Cuentas B2B de alto volumen (&gt;50 guías) con incidencias operativas activas (&gt;=2) para alertas y retención last-mile.</code></li>
+        </ul>
+        <p>2. Haz clic en el botón azul <strong>Next</strong> en la esquina inferior derecha.</p>
+        <img src="images/e4-003.png" alt="Propiedades del Segmento en Data Cloud" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.3: Configuración de metadatos y selección del objeto unificado base</div>
+      </div>
+
+      <!-- Pantalla 4: Tipo de Publicación y Programación -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 4 — Tipo de Publicación y Programación</h5>
+        <p>1. Configura los parámetros de ejecución y ventana de datos:</p>
+        <ul>
+          <li><strong>Publish Type:</strong> Selecciona <code>Standard Publish</code> (evalúa hasta 2 años de datos transaccionales e insights).</li>
+          <li><strong>Run Mode:</strong> Selecciona <code>Do Not Schedule</code> para mantener la ejecución manual y optimizar recursos.</li>
+          <li><strong>Lookback Window:</strong> Mantén el valor predeterminado (<code>90 Days</code>).</li>
+        </ul>
+        <p>2. Haz clic en el botón azul <strong>Save</strong> en la esquina inferior derecha para ingresar al lienzo visual de segmentación.</p>
+        <img src="images/e4-004.png" alt="Configuración de publicación y schedule del segmento" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.4: Selección de modo manual sin programación automática</div>
+      </div>
+
+      <!-- Pantalla 5: Lienzo de Segmentación y Recursos -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 5 — Navegación en el Lienzo de Segmentación</h5>
+        <p>1. Al abrirse el lienzo visual, el panel izquierdo (<em>Attributes</em>) se posiciona por defecto dentro de los atributos directos de <code>Unified Account L001</code>.</p>
+        <p>2. Para acceder a los insights calculados, haz clic en el enlace <strong>Resources</strong> en la ruta de navegación superior del panel. Dentro de la carpeta <strong>Calculated Insights</strong> encontrarás las dos métricas creadas en el Ejercicio 3: <code>U360_Monthly_Shipment_Volume</code> y <code>U360_Active_Delayed_Incidents</code>.</p>
+        <img src="images/e4-005.png" alt="Panel de atributos y breadcrumb Resources en el lienzo de segmentación" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.5: Explorador de atributos de la cuenta unificada y acceso a Resources</div>
+      </div>
+
+      <!-- Pantalla 6: Ubicar Métricas -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 6 — Ubicar las Métricas en Related Attributes</h5>
+        <p>1. Para encontrar los Insights Calculados que creaste, expande la carpeta <strong>Related Attributes</strong> y busca la subcarpeta de Calculated Insights (o de la tabla puente Unificada).</p>
+        <p>2. Al expandirla, verás tus métricas: <code>U360_Monthly_Shipment_Volume</code> y <code>U360_Active_Delayed_Incidents</code>.</p>
+        <img src="images/e4-006.png" alt="Ubicación de Calculated Insights en el panel" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.6: Las métricas operativas listas para ser usadas</div>
+      </div>
+
+      <!-- Pantalla 7: Arrastrar Métrica 1 -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 7 — Configurar Regla de Volumen</h5>
+        <p>1. Arrastra la métrica <code>Total_Monthly_Volume__c</code> al lienzo principal.</p>
+        <p>2. Configura el operador: <strong>Is Greater Than</strong>.</p>
+        <p>3. Ingresa el valor: <code>50</code> y haz clic en <strong>Done</strong>.</p>
+        <img src="images/e4-007.jpg" alt="Configuración de la regla de volumen" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.7: Filtrando clientes corporativos por volumen de envíos</div>
+      </div>
+
+      <!-- Pantalla 8: Arrastrar Métrica 2 (AND) -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 8 — Añadir Regla de Incidencias (AND)</h5>
+        <p>1. Arrastra la segunda métrica <code>Active_Delayed_Count__c</code> justo debajo de la primera regla. Data Cloud automáticamente insertará el operador <strong>AND</strong>.</p>
+        <p>2. Configura el operador: <strong>Is Greater Than Or Equal To</strong>.</p>
+        <p>3. Ingresa el valor: <code>2</code> y haz clic en <strong>Done</strong>.</p>
+        <img src="images/e4-008.jpg" alt="Configuración de la regla de incidencias" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.8: Añadiendo el criterio de riesgo operativo</div>
+      </div>
+
+      <!-- Pantalla 9: Recuento Poblacional -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 9 — Calcular la Población</h5>
+        <p>1. Con ambas reglas en el lienzo, haz clic en el ícono de recarga circular junto al número de <em>Segment Population</em>.</p>
+        <p>2. Data Cloud evaluará las reglas contra el historial y mostrará cuántas cuentas califican bajo estos parámetros.</p>
+        <img src="images/e4-009.jpg" alt="Cálculo de población del segmento" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.9: Calculando el número de cuentas B2B en riesgo</div>
+      </div>
+
+      <!-- Pantalla 10: Guardar Segmento -->
+      <div class="modal-step-section" style="margin-top: 20px;">
+        <h5>Pantalla 10 — Guardar el Segmento</h5>
+        <p>1. Una vez confirmado que el segmento trae datos (ej. 567 cuentas), haz clic en el botón azul <strong>Save</strong> arriba a la derecha.</p>
+        <p>2. Verás un banner verde confirmando que el guardado fue exitoso y el segmento quedará activo para la fase de Activación.</p>
+        <img src="images/e4-010.png" alt="Guardado exitoso del segmento" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 6.10: Segmento dinámico finalizado y guardado</div>
       </div>
     </div>
   </div>
