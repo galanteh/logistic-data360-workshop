@@ -2098,43 +2098,35 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
       </div>
     </div>
 
-    <div class="data-block" style="margin-top:24px">
-      <div class="data-block-header">
-        <div class="file-name">activation_payload_example.json</div>
-        <button class="copy-btn" onclick="copyData('json-payload', this)" aria-label="Copiar ejemplo de payload de activación">📋 Copiar Payload</button>
-      </div>
-      <pre id="json-payload">{
-  <span class="header">"activationTarget"</span>: <span class="highlight">"Logistics_CRM_Alert"</span>,
-  <span class="header">"triggerType"</span>: <span class="highlight">"SEGMENT_ENTRY"</span>,
-  <span class="header">"segment"</span>: <span class="highlight">"Cuentas_B2B_Clave_Incidencias_Criticas"</span>,
-  "payload": {
-    "accountId":           "<span class="dup">{{UnifiedAccount.RFC__c}}</span>",
-    "accountName":         "{{UnifiedAccount.Name}}",
-    "alertPriority":       <span class="dup">"HIGH"</span>,
-    "activeIncidents":     "{{UnifiedAccount.U360_Active_Delayed_Incidents}}",
-    "monthlyVolume":       "{{UnifiedAccount.U360_Monthly_Shipment_Volume}}",
-    "alertMessage":        "Cuenta clave con {{U360_Active_Delayed_Incidents}} incidencias activas. Volumen mensual: {{U360_Monthly_Shipment_Volume}} guías.",
-    <span class="header">"actionType"</span>:         <span class="highlight">"CREATE_TASK_AND_CASE"</span>,
-    "assignedTo":          "{{Account.OwnerId}}",
-    "caseSubject":         "Alerta SLA — Incidencias Críticas Activas",
-    "casePriority":        "High",
-    "notifyWhatsApp":      true,
-    "whatsAppTemplate":    "logistics_delay_alert_v2"
-  }
-}</pre>
-    </div>
+    <!-- TARJETA EJERCICIO 5 -->
+    <div class="exercise-card" style="background: white; border: 1px solid #e1e4e8; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 30px; margin-top: 24px;">
+      <h3 style="color: #003468; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 1.2em;">🎯 Objetivo Hands-On — Ejercicio 5: Activación a CRM</h3>
 
-    <div class="goal-box">
-      <div class="goal-icon">🎯</div>
-      <div>
-        <h4>Objetivo Hands-On — Ejercicio 5</h4>
-        <ol>
-          <li>En Activation Targets → New, crear target "Logistics_CRM_Alert" de tipo Salesforce CRM.</li>
-          <li>Conectar el segmento "Cuentas_B2B_Clave_Incidencias_Criticas" al Activation Target.</li>
-          <li>Mapear atributos: <code>RFC (Custom)</code>, <code>Name</code>, <code>U360_Active_Delayed_Incidents</code>, <code>U360_Monthly_Shipment_Volume</code>.</li>
-          <li>Configurar la acción: Crear Tarea en Account del CRM con prioridad High.</li>
-          <li>Activar y verificar en Salesforce CRM que aparece la tarea en las 2 cuentas del segmento.</li>
-        </ol>
+      <div style="padding: 10px 14px; background: #f0f7ff; border-left: 4px solid #00a1e0; border-radius: 0 6px 6px 0; margin-bottom: 16px; font-size: 0.9em; color: #003468;">
+        <strong>Objetivo:</strong> Crear un <em>Activation Target</em> nativo hacia Salesforce CRM. Enviaremos el segmento de riesgo junto con sus métricas calculadas para habilitar la creación automática de tareas u oportunidades basadas en datos reales.
+      </div>
+
+      <!-- HEADS UP (Fuera del modal) -->
+      <div style="background:#fff8e6; border:1px solid #f0c060; color:#7a4f00; margin-bottom:20px; padding:12px 16px; border-radius:8px; font-size:13.5px; line-height:1.6;">
+        <strong>⚠️ Nota Importante: ¿Por qué elegiremos "Data Cloud" como destino y no vemos otras opciones?</strong><br>
+        Puede sonar ilógico enviar datos de Data Cloud a "Data Cloud". En la nomenclatura de la plataforma, elegir esta opción significa en realidad <strong>enviar los datos al CRM Core (Sales Cloud o Service Cloud)</strong> de tu instancia. Por otro lado, no vemos destinos como Marketing Cloud o Amazon S3 porque en un entorno de taller, esos conectores externos requieren configurarse y autenticarse previamente en el Setup. El CRM local es el único disponible por defecto.
+      </div>
+
+      <!-- VARIABLES Y CONFIGURACIÓN -->
+      <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; margin-bottom: 15px; background-color: #f6f8fa;">
+        <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">PARÁMETROS DE CONFIGURACIÓN DEL TARGET</h5>
+        <ul style="font-size: 0.95em; color: #24292e; padding-left: 20px; margin-bottom: 0;">
+          <li style="margin-bottom: 6px;"><strong>Target Name:</strong> <code style="background: #e1efff; color: #0366d6; padding: 2px 6px; border-radius: 4px;">Logistics_CRM_Alert</code></li>
+          <li style="margin-bottom: 6px;"><strong>Destino (Plataforma):</strong> Seleccionar la tarjeta <code>Data Cloud</code></li>
+          <li style="margin-bottom: 6px;"><strong>Segmento a Conectar:</strong> <code>Cuentas_B2B_Clave_Incidencias_Criticas</code></li>
+          <li><strong>Atributos a mapear:</strong> <code>RFC (Custom)</code>, <code>Name</code>, <code>U360_Active_Delayed_Incidents</code>, <code>U360_Monthly_Shipment_Volume</code></li>
+        </ul>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="btn btn-primary" onclick="document.getElementById('modal-activation').style.display='block'" style="background-color: #e8f4fd; color: #005fb2; border: 1px solid #005fb2; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s;">
+          📖 Abrir Guía Detallada de Clics y Pantallas (Activación)
+        </button>
       </div>
     </div>
 
@@ -3435,6 +3427,135 @@ function ej2OverlayClick(e) {
         <p>2. Verás un banner verde confirmando que el guardado fue exitoso y el segmento quedará activo para la fase de Activación.</p>
         <img src="images/e4-010.png" alt="Guardado exitoso del segmento" class="modal-img" onerror="this.style.display='none'">
         <div class="img-caption">Figura 6.10: Segmento dinámico finalizado y guardado</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: ACTIVATION ===== -->
+<div id="modal-activation" class="modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-content" style="max-width: 900px;">
+    <span class="close-modal" onclick="document.getElementById('modal-activation').style.display='none'" style="position: absolute; top: 16px; right: 20px; font-size: 22px; cursor: pointer; color: #556; line-height: 1;">&times;</span>
+    <h3 style="color: #003468; border-bottom: 2px solid #00a1e0; padding-bottom: 10px; margin-top: 0;">Guía Detallada — Activación a CRM (Ejercicio 5)</h3>
+    <div class="modal-body">
+      <p class="intro-text">Esta guía detalla cómo configurar un Target de Activación hacia el CRM de Salesforce local.</p>
+
+      <!-- Pantalla 1: Pestaña Activation Targets -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 1 — Acceso a Activation Targets</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En la barra de navegación superior, selecciona la pestaña <strong>Activation Targets</strong>.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en el botón <strong>New</strong> en la esquina superior derecha.</p>
+        <img src="images/e5-001.png" alt="Pestaña Activation Targets y botón New" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.1: Inicio de la configuración del Target de Activación</div>
+      </div>
+
+      <!-- Pantalla 2: Tipo de Target -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 2 — Selección de la Plataforma de Destino</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Bajo la sección <em>Salesforce Targets</em>, selecciona la tarjeta <strong>Data Cloud</strong> (la que no dice Loyalty).</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en <strong>Next</strong>.</p>
+        <img src="images/e5-002.png" alt="Selección de la plataforma Data Cloud como target" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.2: Seleccionando el CRM local como destino nativo</div>
+      </div>
+
+      <!-- Pantalla 3: Nombrar y Guardar -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 3 — Nombrar y Guardar el Target</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Ingresa <code>Logistics_CRM_Alert</code> en el campo <strong>Name</strong>.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Ingresa en <strong>Description</strong>: <code>Target nativo para enviar segmentos de riesgo logístico hacia Salesforce CRM (Core) y habilitar la creación de tareas automatizadas.</code></p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Asegúrate de que la Org de Salesforce donde estás trabajando esté seleccionada.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">4. Haz clic en <strong>Save</strong> para finalizar la creación del Target.</p>
+        <img src="images/e5-003.png" alt="Guardado del Activation Target" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.3: Nombrando y publicando el destino de activación</div>
+      </div>
+
+      <!-- Pantalla 4: Iniciar Activación -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 4 — Iniciar la Activación del Segmento</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Ve a la pestaña <strong>Segments</strong> y abre tu segmento <code>Cuentas_B2B_Clave_Incidencias_Criticas</code>.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. En la sección inferior, selecciona <strong>Activations</strong> y haz clic en <strong>New</strong>.</p>
+        <img src="images/e5-005.png" alt="Crear nueva activación desde el segmento" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.4: Botón New en la sección Activations del segmento</div>
+      </div>
+
+      <!-- Pantalla 5: Seleccionar Target -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 5 — Enlazar el Target</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En el asistente "New Activation", selecciona el Target que creaste en el paso anterior: <code>Logistics_CRM_Alert</code>.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Deja el Activation Membership por defecto (Unified Account) y haz clic en <strong>Continue</strong>.</p>
+        <img src="images/e5-006.png" alt="Selección del Activation Target" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.5: Enlazando el segmento con el Target del CRM</div>
+      </div>
+
+      <!-- Pantalla 6: Puntos de Contacto -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 6 — Puntos de Contacto (Omitir)</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Como nuestro destino es el CRM para crear tareas internamente, <strong>no selecciones nada</strong> en esta pantalla.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic directamente en el Paso 2 de la barra superior: <strong>View, edit, or delete attributes...</strong></p>
+        <img src="images/e5-007.png" alt="Pantalla de puntos de contacto" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.6: Omitiendo la selección de email/teléfono para activaciones internas</div>
+      </div>
+
+      <!-- Pantalla 7: Botón Add Attributes -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 7 — Iniciar el Mapeo del Payload</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Ya en la pestaña de atributos, haz clic en el botón <strong>Add Attributes</strong> para definir qué datos viajarán al CRM.</p>
+        <img src="images/e5-008.png" alt="Botón Add Attributes" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.7: Accediendo al selector de atributos</div>
+      </div>
+
+      <!-- Pantalla 8: Atributos Directos ID -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 8 — Selección de Atributos Base</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. El sistema incluirá por defecto el <code>Unified Account Id</code> en el lienzo derecho.</p>
+        <img src="images/e5-009.png" alt="ID de cuenta unificada" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.8: El ID base de la cuenta</div>
+      </div>
+
+      <!-- Pantalla 9: RFC y Name -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 9 — Añadir RFC y Nombre</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Navega por las carpetas de la izquierda y selecciona el <code>RFC</code> y el <code>Account Name</code> para que se sumen al lienzo derecho.</p>
+        <img src="images/e5-010.png" alt="Añadiendo RFC y Nombre" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.9: Agregando datos de identificación B2B</div>
+      </div>
+
+      <!-- Pantalla 10: Calculated Insights -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 10 — Añadir las Métricas Calculadas</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Abre la carpeta <strong>Related Attributes</strong> y ubica tus Calculated Insights.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Arrastra las métricas <code>Active_Delayed_Count__c</code> y <code>Total_Monthly_Volume__c</code> al panel derecho.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Haz clic en <strong>Save</strong> en la esquina superior derecha.</p>
+        <img src="images/e5-011.png" alt="Añadiendo Calculated Insights" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.10: Sumando las métricas de riesgo logístico al payload</div>
+      </div>
+
+      <!-- Pantalla 11: Resumen -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 11 — Confirmación de Atributos</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Revisa que los 5 atributos requeridos estén listados correctamente en tu pantalla.</p>
+        <img src="images/e5-012.png" alt="Resumen de atributos mapeados" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.11: El paquete de datos validado y listo</div>
+      </div>
+
+      <!-- Pantalla 12: Nombre y Guardado -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 12 — Nombre, Descripción y Guardado</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Haz clic en el último paso de la barra superior.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. <strong>Name:</strong> <code>Alerta_Riesgo_B2B_CRM</code>.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">3. <strong>Description:</strong> <code>Envío de segmento de riesgo B2B al CRM Core. Incluye RFC, Nombre y métricas operativas (volumen e incidencias) para detonar alertas automáticas.</code></p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">4. Haz clic en <strong>✓ Mark as Complete</strong>.</p>
+        <img src="images/e5-013.png" alt="Completando la activación" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.12: Guardando la tubería de activación hacia el CRM</div>
+      </div>
+
+      <!-- Pantalla 13: Publish Now -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Pantalla 13 — Forzar la Publicación Inmediata</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. De vuelta en el segmento, baja a <strong>Activations</strong>.</p>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en la flecha a la derecha de tu activación y selecciona <strong>Publish Now</strong>.</p>
+        <img src="images/e5-014.png" alt="Publicar ahora" class="modal-img" onerror="this.style.display='none'">
+        <div class="img-caption">Figura 7.13: Forzando el envío inmediato para ver el resultado en vivo</div>
       </div>
     </div>
   </div>
