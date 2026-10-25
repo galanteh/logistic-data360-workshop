@@ -75,15 +75,28 @@ button:focus-visible{outline:3px solid var(--blue-action);outline-offset:3px;bor
 .nav-brand-text span{color:var(--cloud-blue);font-size:12px;font-weight:400;display:block}
 
 /* Progress bar */
-.progress-wrap{flex:1;max-width:340px;min-width:120px}
-.progress-label{color:rgba(207,233,254,0.8);font-size:11px;margin-bottom:4px}
-.progress-bar-bg{
-  height:6px;background:rgba(255,255,255,0.15);border-radius:99px;overflow:hidden;
+/* ===== FAST NAV DROPDOWN ===== */
+.fast-nav{position:relative;flex:1;display:flex;justify-content:flex-start;margin-left:24px}
+.fast-nav-btn{
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);
+  color:var(--white);border-radius:8px;padding:8px 16px;
+  font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;
+  transition:all 0.2s;font-family:var(--font-body);
 }
-.progress-bar-fill{
-  height:100%;background:linear-gradient(90deg,var(--blue-action),var(--teal));
-  border-radius:99px;transition:width .5s ease;width:0%;
+.fast-nav-btn:hover{background:rgba(255,255,255,0.2)}
+.fast-nav-menu{
+  display:none;position:absolute;top:120%;left:0;
+  background:var(--white);border-radius:8px;box-shadow:0 8px 24px rgba(0,30,91,0.2);
+  width:260px;overflow:hidden;z-index:2000;flex-direction:column;
 }
+.fast-nav-menu.show{display:flex}
+.fast-nav-menu a{
+  padding:12px 16px;font-size:13px;color:var(--blue-deep);
+  text-decoration:none;border-bottom:1px solid #e2e8f0;
+  font-weight:600;transition:background 0.15s;
+}
+.fast-nav-menu a:last-child{border-bottom:none}
+.fast-nav-menu a:hover{background:#f0f5ff;color:var(--blue-action)}
 
 /* Mode toggle */
 
@@ -491,7 +504,8 @@ footer{padding:48px 0;background:var(--blue-deep)}
 }
 @media(max-width:600px){
   .nav-bar{padding:0 14px;height:64px}
-  .progress-wrap{display:none}
+  .fast-nav{margin-left:10px;flex:none}
+  .fast-nav-btn{font-size:11px;padding:6px 10px}
   body{padding-top:64px}
   section{padding:48px 0}
   .container{padding:0 16px}
@@ -659,10 +673,24 @@ body.deep-dive .deep-dive-module{display:block}
     </div>
   </div>
 
-  <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Progreso del workshop" id="progress-wrap">
-    <div class="progress-label" id="progress-label">Progreso: Ejercicio 0 / 5</div>
-    <div class="progress-bar-bg">
-      <div class="progress-bar-fill" id="progress-bar"></div>
+  <div class="fast-nav">
+    <button class="fast-nav-btn" onclick="document.getElementById('fast-nav-menu').classList.toggle('show')">
+      📍 Navegación Rápida ▾
+    </button>
+    <div class="fast-nav-menu" id="fast-nav-menu">
+      <a href="#arquitectura" onclick="closeFastNav()">🏠 Modelo de Datos (Arch)</a>
+      <a href="#ejercicio-1" onclick="closeFastNav()">1️⃣ Ej. 1: Ingesta y Mapeo</a>
+      <a href="#ejercicio-2" onclick="closeFastNav()">2️⃣ Ej. 2: Identity Resolution</a>
+      <a href="#ejercicio-3" onclick="closeFastNav()">3️⃣ Ej. 3: Calculated Insights</a>
+      <a href="#ejercicio-4" onclick="closeFastNav()">4️⃣ Ej. 4: Segmentación Dinámica</a>
+      <a href="#ejercicio-5" onclick="closeFastNav()">5️⃣ Ej. 5: Activación a CRM</a>
+      <!-- Enlaces Deep Dive (Ocultos por defecto) -->
+      <a href="#modulo-6" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">6️⃣ Mod. 6: Data Transforms</a>
+      <a href="#modulo-7" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">7️⃣ Mod. 7: Ingestion API</a>
+      <a href="#modulo-8" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">8️⃣ Mod. 8: Data Graphs</a>
+      <a href="#modulo-9" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">9️⃣ Mod. 9: Data Actions</a>
+      <!-- --------------------------------------- -->
+      <a href="#showcase" onclick="closeFastNav()">🌟 Resultado Final 360°</a>
     </div>
   </div>
 
@@ -2602,36 +2630,14 @@ function downloadAll(e) {
   showToast('⬇ Descargando 3 archivos CSV...');
 }
 
-/* ===== PROGRESS BAR ===== */
-(function() {
-  const exercises = document.querySelectorAll('[data-exercise]');
-  const bar = document.getElementById('progress-bar');
-  const label = document.getElementById('progress-label');
-  const wrap = document.getElementById('progress-wrap');
-  const total = exercises.length;
-
-  function updateProgress() {
-    const scrollY = window.scrollY + window.innerHeight * 0.5;
-    let completed = 0;
-    exercises.forEach(section => {
-      const top = section.getBoundingClientRect().top + window.scrollY;
-      if (scrollY > top) completed++;
-    });
-    const pct = Math.round((completed / total) * 100);
-    bar.style.width = pct + '%';
-    label.textContent = 'Progreso: Ejercicio ' + completed + ' / ' + total;
-    wrap.setAttribute('aria-valuenow', pct);
-  }
-
-  window.addEventListener('scroll', function() { updateProgress(); updateExerciseCount(); }, { passive: true });
-  updateProgress();
-})();
+window.addEventListener('scroll', function() { updateExerciseCount(); }, { passive: true });
 
 /* ===== DURATION MODE ===== */
 function setDuration(mode) {
   const body = document.body;
   const btnCore = document.getElementById('btn-core');
   const btnDeep = document.getElementById('btn-deep');
+  const deepDiveLinks = document.querySelectorAll('.deep-dive-link');
 
   if (mode === 'deep') {
     body.classList.add('deep-dive');
@@ -2639,6 +2645,7 @@ function setDuration(mode) {
     btnCore.setAttribute('aria-pressed', 'false');
     btnDeep.classList.add('active');
     btnDeep.setAttribute('aria-pressed', 'true');
+    deepDiveLinks.forEach(link => link.style.display = 'block');
     showToast('🔬 Modo Deep Dive (5h) — Módulos 6 al 9 desbloqueados');
   } else {
     body.classList.remove('deep-dive');
@@ -2646,30 +2653,14 @@ function setDuration(mode) {
     btnDeep.setAttribute('aria-pressed', 'false');
     btnCore.classList.add('active');
     btnCore.setAttribute('aria-pressed', 'true');
+    deepDiveLinks.forEach(link => link.style.display = 'none');
     showToast('⏱ Modo Core (3h) — Ejercicios 1 al 5');
   }
   updateExerciseCount();
 }
 
 function updateExerciseCount() {
-  const isDeep = document.body.classList.contains('deep-dive');
-  const exercises = document.querySelectorAll(
-    isDeep ? '[data-exercise]' : '[data-exercise]:not(.deep-dive-module)'
-  );
-  const bar = document.getElementById('progress-bar');
-  const label = document.getElementById('progress-label');
-  const wrap = document.getElementById('progress-wrap');
-  const total = exercises.length;
-  const scrollY = window.scrollY + window.innerHeight * 0.5;
-  let completed = 0;
-  exercises.forEach(section => {
-    const top = section.getBoundingClientRect().top + window.scrollY;
-    if (scrollY > top) completed++;
-  });
-  const pct = Math.round((completed / total) * 100);
-  if (bar) bar.style.width = pct + '%';
-  if (label) label.textContent = 'Progreso: Ejercicio ' + completed + ' / ' + total;
-  if (wrap) wrap.setAttribute('aria-valuenow', pct);
+  // No-op: progress bar removed; retained for scroll listener compatibility
 }
 
 /* ── EJ1 TABS + MODAL ─────────────────────────────────────────── */
@@ -2731,6 +2722,17 @@ function ej2CloseModal() {
 function ej2OverlayClick(e) {
   if (e.target === document.getElementById('ej2-modal-overlay')) ej2CloseModal();
 }
+
+/* ===== FAST NAV LOGIC ===== */
+function closeFastNav() {
+  var menu = document.getElementById('fast-nav-menu');
+  if (menu) menu.classList.remove('show');
+}
+window.addEventListener('click', function(e) {
+  if (!e.target.closest('.fast-nav')) {
+    closeFastNav();
+  }
+});
 </script>
 
 <!-- ===== MODAL: CALCULATED INSIGHTS ===== -->
