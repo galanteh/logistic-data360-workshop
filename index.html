@@ -2028,7 +2028,7 @@ END</code></pre>
   <div class="container">
     <div class="module-badge">🔬 DEEP DIVE — MÓDULO 7</div>
     <div class="step-header">
-      <div class="step-badge" style="background:var(--teal)">7</div>
+      <div class="step-badge" style="background:var(--blue-action)">7</div>
       <div class="step-meta">
         <div class="eyebrow">MÓDULO 7 · ~25 MIN · DEEP DIVE</div>
         <h2>Data Graphs — Historial de Cliente en &lt;100 ms</h2>
@@ -2040,106 +2040,236 @@ END</code></pre>
         <div class="ps-icon">📞</div>
         <h4>Dolor: El Contact Center Tarda 3 Minutos en Reconstruir el Historial</h4>
         <ul>
-          <li>El agente abre el CRM, busca la cuenta, navega a guías, filtra incidencias — 3+ pantallas</li>
-          <li>Con cuentas corporativas (500+ guías), la lista de envíos tarda en cargar</li>
-          <li>No hay una vista pre-materializada del historial completo del cliente</li>
-          <li>Cada llamada recalcula las mismas consultas desde cero</li>
+          <li>El agente abre el CRM, busca la cuenta, navega a las listas relacionadas y filtra envíos.</li>
+          <li>Con cuentas corporativas (como Medicaltech con cientos de envíos), la interfaz tarda en renderizar.</li>
+          <li>No hay una vista pre-materializada; cada llamada recalcula consultas complejas desde cero.</li>
         </ul>
       </div>
       <div class="ps-card solution">
         <div class="ps-icon">🗃️</div>
         <h4>Solución: Data Graph Pre-Materializado</h4>
         <ul>
-          <li>Data 360 pre-materializa el grafo: <strong>UnifiedAccount → Shipments → Incidencias</strong></li>
-          <li>Un solo GET devuelve el perfil completo en JSON en <strong>&lt;100 ms</strong></li>
-          <li>El contact center integra el endpoint en su pantalla de llamada</li>
-          <li>Se actualiza automáticamente con cada nuevo evento de ingesta</li>
+          <li>Data Cloud materializa un objeto JSON profundo desde el Perfil Unificado hacia sus transacciones.</li>
+          <li>Un solo llamado de API (GET) devuelve el historial completo en milisegundos.</li>
+          <li>Construcción 100% visual (Drag &amp; Drop), sin necesidad de escribir código.</li>
         </ul>
       </div>
     </div>
 
-    <h3 style="margin-bottom:16px">🏗️ Configuración del Data Graph</h3>
-    <div class="data-block">
-      <div class="data-block-header">
-        <div class="file-name">data_graph_config.json</div>
-        <button class="copy-btn" onclick="copyData('json-graph', this)">📋 Copiar Config</button>
+    <div class="exercise-card" style="background: white; border: 1px solid #e1e4e8; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 30px;">
+      <h3 style="color: #003468; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 1.2em;">🎯 Objetivo Hands-On — Ejercicio 7: Data Graphs Builder</h3>
+
+      <div style="padding: 10px 14px; background: #f0f7ff; border-left: 4px solid #00a1e0; border-radius: 0 6px 6px 0; margin-bottom: 16px; font-size: 0.9em; color: #003468;">
+        <strong>Objetivo:</strong> Usar la interfaz visual de Data Cloud para construir un grafo de datos que conecte a nuestro cliente unificado (Medicaltech) con todas sus guías de envío, generando un payload instantáneo para el contact center.
       </div>
-      <pre id="json-graph">{
-  <span class="header">"graphName"</span>: <span class="highlight">"LOG_CustomerHistory360"</span>,
-  <span class="header">"rootDMO"</span>: <span class="highlight">"UnifiedAccount"</span>,
-  <span class="header">"nodes"</span>: [
-    {
-      "dmo": <span class="highlight">"ssot__Account__dlm"</span>,
-      "fields": ["RFC__c", "Name", "Segmento__c", "SLA_Rate__c"],
-      "alias": "account"
-    },
-    {
-      "dmo": <span class="highlight">"ssot__Shipment__dlm"</span>,
-      "joinField": "Account_RFC__c",
-      "fields": ["TrackingNumber__c","FechaEnvio","Status","Servicio","PesoFacturable_Kg"],
-      "alias": "shipments",
-      <span class="dup">"limit": 50, "orderBy": "FechaEnvio DESC"</span>
-    },
-    {
-      "dmo": <span class="highlight">"ssot__DeliveryIncident__dlm"</span>,
-      "joinField": "NumGuia__c",
-      "parentAlias": "shipments",
-      "fields": ["IncidentID__c","TipoIncidencia__c","Severidad__c","Resuelto__c"],
-      "alias": "incidencias",
-      "filter": <span class="dup">"Resuelto__c = false"</span>
-    }
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; background-color: #f6f8fa;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">1 · CONFIGURACIÓN DEL GRAFO VISUAL</h5>
+          <ul style="font-size: 0.95em; color: #24292e; padding-left: 20px; margin-bottom: 0;">
+            <li style="margin-bottom: 6px;"><strong>Primary Data Model:</strong> <code>Unified Account L001</code></li>
+            <li style="margin-bottom: 6px;"><strong>Related Objects:</strong> <code>Shipment</code></li>
+            <li style="margin-bottom: 6px;"><strong>Campos a incluir (Shipment):</strong> <code>Id</code>, <code>Shipment Date</code>, <code>Shipment Status</code></li>
+            <li><strong>Data Graph Name:</strong> <code>LOG_CustomerHistory360</code></li>
+          </ul>
+        </div>
+
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">2 · RESULTADO ESPERADO (API PAYLOAD)</h5>
+          <p style="font-size: 0.85em; color: #6a737d; margin-top:0; margin-bottom: 8px;">La plataforma ensamblará automáticamente todo el historial en un JSON de alta velocidad:</p>
+          <pre style="margin: 0; padding: 10px; background: #24292e; border-radius: 6px; font-size: 0.75em; overflow-x: auto; color: #e1e4e8; border: 1px solid #1b1f23;"><code>{
+  "account": { "ssot__Id__c": "1111", ... },
+  "shipments": [
+    { "Id__c": "TRK23001015", "ShipmentStatus__c": "Delayed" }
   ],
-  <span class="header">"refreshMode"</span>: <span class="highlight">"STREAMING"</span>
-}</pre>
-    </div>
-
-    <h3 style="margin:20px 0 16px">📤 Respuesta del Data Graph API</h3>
-    <div class="json-block">
-      <div class="json-block-header">
-        <div class="file-name">📄 response_DBA950215AB1.json</div>
-        <button class="copy-btn" onclick="copyData('json-graph-resp', this)">📋 Copiar Respuesta</button>
+  "_meta": { "responseTimeMs": 62 }
+}</code></pre>
+        </div>
       </div>
-      <pre id="json-graph-resp"><span class="header">// GET /api/v1/profile/UnifiedAccount/DBA950215AB1/graph/LOG_CustomerHistory360</span>
-{
-  <span class="highlight">"account"</span>: {
-    "RFC__c": <span class="dup">"DBA950215AB1"</span>,
-    "Name": "Distribuidora Bajío SA de CV",
-    "Segmento__c": "B2B_Corporate",
-    "SLA_Rate__c": 88.5
-  },
-  <span class="highlight">"shipments"</span>: [
-    {
-      "TrackingNumber__c": "TRK2024091234",
-      "FechaEnvio": "2024-11-10",
-      "Status": <span class="dup">"Demorado"</span>,
-      "Servicio": "Express",
-      "PesoFacturable_Kg": 12.4,
-      <span class="highlight">"incidencias"</span>: [
-        { "IncidentID__c": "INC-2023-00892", "TipoIncidencia__c": "Dirección_Incorrecta",
-          "Severidad__c": "Alta", "Resuelto__c": false }
-      ]
-    },
-    { "TrackingNumber__c": "TRK2024089901", "Status": "Entregado", "incidencias": [] }
-  ],
-  <span class="header">"_meta"</span>: { "responseTimeMs": 87, "totalShipments": 429, "openIncidents": 2 }
-}</pre>
-    </div>
 
-    <div class="goal-box">
-      <div class="goal-icon">🎯</div>
-      <div>
-        <h4>Objetivo Hands-On — Módulo 7</h4>
-        <ol>
-          <li>En Data 360 → <strong>Data Graphs</strong> → New, crear grafo "LOG_CustomerHistory360".</li>
-          <li>Configurar raíz: UnifiedAccount → relacionar Shipments → relacionar DeliveryIncident.</li>
-          <li>Agregar filtro en Incidencias: <code>Resuelto__c = false</code>. Límite de Shipments: 50.</li>
-          <li>Publicar y ejecutar el GET desde Workbench o Postman con el RFC de DBA950215AB1.</li>
-          <li>Medir el <code>responseTimeMs</code> en el campo <code>_meta</code> — debe ser &lt;200 ms.</li>
-        </ol>
+      <div style="text-align: center;">
+        <button class="btn btn-primary" onclick="document.getElementById('modal-data-graphs').style.display='block'" style="background-color: #e8f4fd; color: #005fb2; border: 1px solid #005fb2; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px;">
+          📖 Abrir Guía Detallada — Creación de Data Graphs
+        </button>
       </div>
     </div>
 
-    
+    <!-- MODAL: DATA GRAPHS (MÓDULO 7) -->
+    <div id="modal-data-graphs" class="modal" onclick="if(event.target===this)this.style.display='none'">
+      <div class="modal-content" style="max-width: 900px;">
+        <span class="close-modal" onclick="document.getElementById('modal-data-graphs').style.display='none'" style="position: absolute; top: 16px; right: 20px; font-size: 22px; cursor: pointer; color: #556; line-height: 1;">&times;</span>
+        <h3 style="color: #003468; border-bottom: 2px solid #00a1e0; padding-bottom: 10px; margin-top: 0;">Guía Detallada — Data Graphs (Historial 360)</h3>
+        <div class="modal-body" id="modal-body-data-graphs">
+          <p class="intro-text" style="color: #334; line-height: 1.6;">Esta guía detalla cómo pre-materializar un historial de cliente 360°. Antes de construir el grafo, resolveremos un paso arquitectónico crucial: establecer las relaciones en el modelo de datos.</p>
+
+          <!-- FASE 1: PRE-REQUISITO ARQUITECTÓNICO -->
+          <div style="background:#fffbea; border-left:4px solid #f59e0b; padding:16px; margin:20px 0; border-radius:6px; font-size:14px; color:#5c3d00; line-height:1.6;">
+            <strong style="font-size:15px; display:block; margin-bottom:6px;">🛠️ Fase 1: Teoría y Configuración de Relaciones (Data Model)</strong>
+            Aunque en el Ejercicio 1 mapeamos el campo <code>AccountId</code> en el Data Stream, Data Cloud requiere que las relaciones entre tablas (Llaves Foráneas) se declaren explícitamente en el <strong>Data Model</strong>. Sin este paso, el motor del Data Graph no sabrá que la tabla de <em>Shipments</em> pertenece a la de <em>Accounts</em>, y no nos permitirá unirlas visualmente.
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 1 — Acceso al Data Model</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En la barra de navegación superior, ve a la pestaña <strong>Data Model</strong>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Verás la lista de todos los Data Model Objects (DMOs) mapeados en tu instancia.</p>
+            <img src="images/e7-001.png" alt="Pestaña Data Model con lista de DMOs" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.1: Vista general del modelo de datos canónico</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 2 — Selección del DMO Shipment</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Utiliza el buscador o navega por la lista para encontrar el objeto <strong>Shipment</strong> (cuya categoría es <em>Engagement</em>).</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic sobre el nombre del objeto para abrir su configuración.</p>
+            <img src="images/e7-002.png" alt="Búsqueda del DMO Shipment" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.2: Ubicando la tabla de hechos (Guías de envío)</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 3 — Pestaña de Relaciones</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Dentro del objeto Shipment, cambia de la pestaña <em>Details</em> a la pestaña <strong>Relationships</strong>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en el botón <strong>New</strong> situado a la derecha.</p>
+            <img src="images/e7-003.png" alt="Pestaña Relationships en Shipment" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.3: Acceso a la creación de llaves foráneas en el DMO</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 4 — Configuración de la Relación (Parte 1)</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Se abrirá el modal <em>Edit Relationships</em>. Aquí le diremos a la plataforma cómo se conecta un envío con un cliente.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en <strong>+ New Relationship</strong> si la fila está en blanco.</p>
+            <img src="images/e7-004.png" alt="Modal Edit Relationships vacío" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.4: Modal de configuración de relaciones</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 5 — Configuración de la Relación (Parte 2)</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Configura los parámetros exactamente con estos valores:</p>
+            <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+              <li><strong>Field:</strong> <code>AccountId</code> (El campo custom que creamos al mapear).</li>
+              <li><strong>Cardinality:</strong> <code>N:1</code> (Muchos envíos pertenecen a una misma cuenta).</li>
+              <li><strong>Related Object:</strong> Selecciona <code>Data Cloud</code> y luego <code>Account</code>.</li>
+              <li><strong>Related Field:</strong> <code>Account Id</code> (La llave primaria estándar de la cuenta).</li>
+            </ul>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Asegúrate de que el toggle de <strong>Active</strong> esté encendido y haz clic en <strong>Save &amp; Close</strong>.</p>
+            <img src="images/e7-005.png" alt="Configuración completa de la relación Shipment a Account" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.5: Parámetros de la llave foránea N:1 hacia Account</div>
+          </div>
+
+          <!-- FASE 2: CONSTRUCCIÓN DEL DATA GRAPH -->
+          <div style="background:#f0f5ff; border-left:4px solid #066AFE; padding:16px; margin:30px 0 20px 0; border-radius:6px; font-size:14px; color:#001E5B; line-height:1.6;">
+            <strong style="font-size:15px; display:block; margin-bottom:6px;">🚀 Fase 2: Construcción del Data Graph</strong>
+            Con el modelo de datos correctamente interconectado, ahora sí podemos utilizar la interfaz visual para construir nuestro JSON pre-materializado de alta velocidad.
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 6 — Acceso a Data Graphs</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En la barra de navegación superior, haz clic en la pestaña <strong>Data Graphs</strong>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en el botón <strong>New</strong> situado a la derecha.</p>
+            <img src="images/e7-006.png" alt="Pestaña Data Graphs y botón New" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.6: Acceso al constructor de Data Graphs</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 7 — Método de Construcción</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Selecciona la tarjeta <strong>Start from Scratch</strong> (Construir manualmente añadiendo objetos y campos).</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en <strong>Next</strong>.</p>
+            <img src="images/e7-007.png" alt="Selección de Start from Scratch" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.7: Selección del método de creación visual</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 8 — Propiedades y Objeto Raíz</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Configura los metadatos principales de tu grafo:</p>
+            <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+              <li><strong>Data Graph Name:</strong> <code>LOG Customer History 360</code></li>
+              <li><strong>Data Space:</strong> <code>default</code></li>
+              <li><strong>Primary Data Model Object:</strong> Busca y selecciona <code>Unified Account L001</code> (El perfil unificado que construimos en el Ejercicio 2). Este será el centro de nuestro grafo.</li>
+              <li><strong>Description:</strong> <code>Grafo pre-materializado del Perfil Unificado B2B y sus envíos (Shipments) para acceso sub-100ms.</code></li>
+            </ul>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en <strong>Next</strong>.</p>
+            <img src="images/e7-008.png" alt="Configuración de propiedades del Data Graph" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.8: Definiendo la identidad unificada como el núcleo del grafo</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 9 — El Lienzo Visual del Data Graph</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Al entrar al lienzo, el objeto raíz (<strong>Unified Account L001</strong>) aparecerá en el centro.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. A la derecha, verás la lista de campos de la cuenta unificada. Asegúrate de marcar los campos clave (como <code>Unified Account Id</code> y el Nombre) que deseas que se devuelvan en el JSON.</p>
+            <img src="images/e7-009.png" alt="Lienzo inicial del Data Graph" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.9: Lienzo visual mostrando el objeto raíz y selección de campos</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 10 — Agregar la Tabla Puente de Identidad</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Haz clic en el ícono <strong>(+)</strong> de color azul ubicado junto al nombre <code>Unified Account L001</code>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. En el menú desplegable, selecciona la opción inferior: <strong>Unified Link Account L001</strong>. Esta es la tabla puente que conecta el perfil unificado con las cuentas originales.</p>
+            <img src="images/e7-010.png" alt="Añadiendo Unified Link Account al grafo" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.10: Añadiendo el primer eslabón del grafo (Unified Link Account)</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 11 — Conectar la Cuenta Original (DMO Crudo)</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. El nodo <code>Unified Link Account L001</code> se habrá añadido al árbol.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en el ícono <strong>(+)</strong> junto a ese nuevo nodo.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">3. En el menú desplegable, selecciona <strong>Account</strong>.</p>
+            <img src="images/e7-011.png" alt="Añadiendo Account al grafo" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.11: Segundo eslabón, bajando a la tabla Account</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 12 — Relacionar los Envíos (Shipment)</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. El nodo <code>Account</code> se agregará a la jerarquía.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en el ícono <strong>(+)</strong> junto a <code>Account</code>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">3. En el menú, desplázate hasta encontrar y seleccionar <strong>Shipment</strong> (esta opción solo aparece gracias a la llave foránea que creamos en la Fase 1).</p>
+            <img src="images/e7-012.png" alt="Añadiendo Shipment al grafo" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.12: Completando el árbol conectando la tabla de hechos transaccional (Shipment)</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 13 — Selección de Campos a Pre-materializar</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Haz clic directamente sobre la palabra <strong>Shipment</strong> en el árbol de la izquierda (sin hacer clic en el +).</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. En el panel de la derecha, localiza y marca las casillas de los siguientes campos transaccionales clave:</p>
+            <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+              <li><code>Id</code> (El número de guía)</li>
+              <li><code>Shipment Date</code></li>
+              <li><code>Destination Location</code></li>
+              <li><code>Shipment Status</code></li>
+            </ul>
+            <img src="images/e7-013.png" alt="Primeros campos seleccionados" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.13: Selección inicial de atributos en la tabla de envíos</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 14 — Guardar y Construir el Grafo</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Verifica visualmente que tu árbol izquierdo tenga 4 niveles (Unified Account → Unified Link → Account → Shipment) y que a la derecha estén marcados los campos necesarios.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Una vez validado, haz clic en el botón azul <strong>Save and Build</strong> en la esquina superior derecha.</p>
+            <img src="images/e7-014.png" alt="Lienzo final del Data Graph listo para construir" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.14: Jerarquía completa y selección final de campos antes de compilar</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 15 — Frecuencia de Actualización</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Se abrirá el modal <em>Set Your Data Graph's Refresh Schedule</em>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. En el menú desplegable <strong>Select a Refresh Interval</strong>, elige la opción <strong>Daily</strong> (Diariamente).</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Haz clic en el botón <strong>Save and Build</strong> en la parte inferior del modal.</p>
+            <img src="images/e7-015.png" alt="Configuración del Refresh Schedule" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.15: Definiendo la cadencia de actualización automática del JSON</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 16 — Estado de Procesamiento</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Regresarás automáticamente a la lista principal de Data Graphs.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Localiza tu nuevo grafo <code>LOG Customer History 360</code> y verifica que su <strong>Last Run Status</strong> diga <strong>Processing</strong>.</p>
+            <img src="images/e7-016.png" alt="Data Graph en estado Processing" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 7.16: El grafo inicia su materialización en los servidores de Data Cloud</div>
+
+            <div style="background-color:#d4edda; border-left:4px solid #28a745; padding:15px; margin:20px 0; border-radius:4px">
+              <strong style="color:#155724;">⏳ Tiempo de Procesamiento</strong><br>
+              <span style="color:#155724; font-size:14px;">La plataforma está empaquetando el historial cruzado de todos los perfiles unificados en blobs JSON ultrarrápidos. Este proceso de indexación profunda puede tardar entre 15 y 30 minutos. Avanza con el siguiente módulo mientras se completa.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2160,91 +2290,168 @@ END</code></pre>
         <div class="ps-icon">😤</div>
         <h4>Dolor: El Ejecutivo de Ventas Vuela a Ciegas</h4>
         <ul>
-          <li>Sales Cloud no tiene espacio para almacenar 50,000 guías por cliente</li>
-          <li>El ejecutivo no ve las métricas logísticas en la pantalla de la Cuenta</li>
-          <li>Las incidencias críticas no generan ninguna tarea automática en CRM</li>
-          <li>Operaciones y Comercial trabajan con datos completamente diferentes</li>
+          <li>Sales Cloud no tiene capacidad de almacenamiento para albergar 50,000 guías transaccionales por cliente.</li>
+          <li>El ejecutivo atiende la llamada sin ver las métricas operativas ni el estatus logístico.</li>
+          <li>Las incidencias críticas no generan tareas ni alertas automáticas en el CRM.</li>
         </ul>
       </div>
       <div class="ps-card solution">
         <div class="ps-icon">🔔</div>
-        <h4>Solución: Data Actions + Related Lists</h4>
+        <h4>Solución: Data Actions + Zero Copy UI</h4>
         <ul>
-          <li><strong>Data Action</strong>: dispara un Salesforce Flow cuando una incidencia Crítica se abre</li>
-          <li><strong>Data 360 Related Lists</strong>: muestra las últimas guías e incidencias directamente en el Lightning Record Page de la Cuenta — sin límite de almacenamiento</li>
-          <li>El ejecutivo ve el contexto logístico completo sin salir del CRM</li>
+          <li><strong>Data Action Target:</strong> Dispara un payload directo a un Salesforce Flow cuando entra un registro de Incidencia Crítica.</li>
+          <li><strong>Data 360 Related Lists:</strong> Despliega las últimas guías e incidencias en el Lightning Record Page de la Cuenta leyendo los datos directamente de Data Cloud (Zero Copy), sin consumir almacenamiento de CRM.</li>
         </ul>
       </div>
     </div>
 
-    <h3 style="margin-bottom:16px">⚙️ Configuración de la Data Action</h3>
-    <div class="data-block">
-      <div class="data-block-header">
-        <div class="file-name">data_action_critical_incident.json</div>
-        <button class="copy-btn" onclick="copyData('json-action', this)">📋 Copiar Config</button>
-      </div>
-      <pre id="json-action">{
-  <span class="header">"actionName"</span>: <span class="highlight">"LOG_AlertaIncidenciaCritica"</span>,
-  <span class="header">"triggerDMO"</span>: <span class="highlight">"ssot__DeliveryIncident__dlm"</span>,
-  <span class="header">"triggerCondition"</span>: {
-    "field": "Severidad__c",
-    "operator": "EQUALS",
-    "value": <span class="dup">"Crítica"</span>
-  },
-  <span class="header">"triggerEvent"</span>: <span class="dup">"ON_INSERT"</span>,
-  <span class="header">"actionType"</span>: <span class="highlight">"SALESFORCE_FLOW"</span>,
-  "flowApiName": <span class="highlight">"LOG_CriticalIncidentAlert"</span>,
-  "inputMapping": {
-    "incidentId":    "{{IncidentID__c}}",
-    "accountRFC":    "{{RFC_Remitente__c}}",
-    "incidentType":  "{{TipoIncidencia__c}}",
-    "trackingNum":   "{{NumGuia__c}}",
-    "alertPriority": <span class="dup">"HIGH"</span>
-  }
-}</pre>
-    </div>
+    <div class="exercise-card" style="background: white; border: 1px solid #e1e4e8; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 30px;">
+      <h3 style="color: #003468; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 1.2em;">🎯 Objetivo Hands-On — Ejercicio 8: Alertas en Tiempo Real</h3>
 
-    <h3 style="margin:20px 0 16px">📋 Configuración de Related Lists en Lightning Page</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>📦 Related List: Últimas Guías</h4>
-        <ul style="font-size:14px;color:#4a5a7a;padding-left:18px;margin-top:10px;line-height:1.8">
-          <li>En App Builder → Account Record Page</li>
-          <li>Componente: <strong>Data 360 Related List</strong></li>
-          <li>DMO: <code>ssot__Shipment__dlm</code></li>
-          <li>Relación: <code>Account RFC (Custom) → RFC (Custom)</code></li>
-          <li>Campos: NumGuia, FechaEnvio, Status, Servicio, PesoFacturable_Kg</li>
-          <li>Filtro: últimas 20 guías por fecha descendente</li>
-        </ul>
+      <div style="padding: 10px 14px; background: #f0f7ff; border-left: 4px solid #00a1e0; border-radius: 0 6px 6px 0; margin-bottom: 16px; font-size: 0.9em; color: #003468;">
+        <strong>Objetivo:</strong> Configurar un Data Action que escuche las inserciones en la tabla de Incidencias. Si detecta una incidencia con prioridad "Alta", enviará los datos del problema directamente a la API de Salesforce para detonar un Flow que avise al ejecutivo.
       </div>
-      <div class="card">
-        <h4>⚠️ Related List: Incidencias Abiertas</h4>
-        <ul style="font-size:14px;color:#4a5a7a;padding-left:18px;margin-top:10px;line-height:1.8">
-          <li>Segundo componente en la misma Record Page</li>
-          <li>DMO: <code>ssot__DeliveryIncident__dlm</code></li>
-          <li>Relación via Shipment → Account</li>
-          <li>Filtro: <code>Resuelto__c = false</code></li>
-          <li>Campos: IncidentID, Tipo, Severidad, FechaApertura, NumGuia</li>
-          <li>Color de fila condicional: Crítica = rojo, Alta = naranja</li>
-        </ul>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; background-color: #f6f8fa;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">1 · CONFIGURACIÓN DEL DATA ACTION</h5>
+          <ul style="font-size: 0.95em; color: #24292e; padding-left: 20px; margin-bottom: 0;">
+            <li style="margin-bottom: 6px;"><strong>Target:</strong> <code>Salesforce CRM (Core)</code></li>
+            <li style="margin-bottom: 6px;"><strong>Data Model Object:</strong> <code>Incident</code></li>
+            <li style="margin-bottom: 6px;"><strong>Regla (Filtro):</strong> <code>Incident Priority</code> = <code>'Alta'</code></li>
+            <li><strong>Action Name:</strong> <code>LOG_AlertaIncidencia</code></li>
+          </ul>
+        </div>
+
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">2 · MAPEO DE PAYLOAD HACIA FLOW</h5>
+          <p style="font-size: 0.85em; color: #6a737d; margin-top:0; margin-bottom: 8px;">Mapearemos los atributos de la incidencia para que el Flow sepa de qué guía y cliente se trata:</p>
+          <pre style="margin: 0; padding: 10px; background: #24292e; border-radius: 6px; font-size: 0.75em; overflow-x: auto; color: #e1e4e8; border: 1px solid #1b1f23;"><code>{
+  "EventId": "{{Incident Id}}",
+  "TrackingNumber": "{{NumGuia}}",
+  "IncidentType": "{{Incident Type}}",
+  "AlertPriority": "HIGH"
+}</code></pre>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="btn btn-primary" onclick="document.getElementById('modal-data-actions').style.display='block'" style="background-color: #fff4e5; color: #c25100; border: 1px solid #c25100; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px;">
+          📖 Abrir Guía Detallada — Creación de Data Actions
+        </button>
       </div>
     </div>
 
-    <div class="goal-box">
-      <div class="goal-icon">🎯</div>
-      <div>
-        <h4>Objetivo Hands-On — Módulo 8</h4>
-        <ol>
-          <li>En Data 360 → <strong>Data Actions</strong> → New, crear acción "LOG_AlertaIncidenciaCritica" con el config anterior.</li>
-          <li>En Salesforce Setup → <strong>Flows</strong>, crear Flow "LOG_CriticalIncidentAlert" que cree una Task en la Account con prioridad High.</li>
-          <li>En <strong>Lightning App Builder</strong>, abrir el Account Record Page y agregar dos componentes "Data 360 Related List".</li>
-          <li>Configurar las Related Lists según los parámetros de cada tarjeta.</li>
-          <li>Activar la página y navegar a la Cuenta de DBA950215AB1 — verificar que las guías e incidencias aparecen sin límite de almacenamiento.</li>
-        </ol>
+    <!-- MODAL: DATA ACTIONS (MÓDULO 8) -->
+    <div id="modal-data-actions" class="modal" onclick="if(event.target===this)this.style.display='none'">
+      <div class="modal-content" style="max-width: 900px;">
+        <span class="close-modal" onclick="document.getElementById('modal-data-actions').style.display='none'" style="position: absolute; top: 16px; right: 20px; font-size: 22px; cursor: pointer; color: #556; line-height: 1;">&times;</span>
+        <h3 style="color: #003468; border-bottom: 2px solid #FE9339; padding-bottom: 10px; margin-top: 0;">Guía Detallada — Data Actions (Alertas Operativas)</h3>
+        <div class="modal-body" id="modal-body-data-actions">
+          <p class="intro-text" style="color: #334; line-height: 1.6;">Esta guía detalla cómo crear una alerta operativa en tiempo real. El proceso consta de dos partes: primero configuraremos el "Target" (el canal de comunicación hacia el CRM) y luego crearemos el "Data Action" (la regla lógica que detona el mensaje).</p>
+
+          <!-- FASE 1: DATA ACTION TARGET -->
+          <div style="background:#f0f5ff; border-left:4px solid #066AFE; padding:16px; margin:20px 0; border-radius:6px; font-size:14px; color:#001E5B; line-height:1.6;">
+            <strong style="font-size:15px; display:block; margin-bottom:6px;">📡 Fase 1: Creación del Target (Canal de Destino)</strong>
+            Para que Data Cloud pueda avisarle al CRM que ocurrió una incidencia, publicaremos un <strong>Platform Event</strong> (Evento de Plataforma). El CRM estará suscrito a este evento y, al recibirlo, ejecutará un Flow automáticamente.
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 1 — Acceso a Data Action Targets</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En la barra de navegación superior (es posible que debas hacer clic en <em>More</em>), selecciona la pestaña <strong>Data Action Targets</strong>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en el botón <strong>New</strong> en la esquina superior derecha.</p>
+            <img src="images/e8-001.png" alt="Pestaña Data Action Targets" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 8.1: Inicio de la configuración del canal de destino</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 2 — Método de Creación del Target</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Se abrirá el asistente <em>New Data Action Target</em>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Selecciona la opción <strong>Manual</strong> (Create a Data Action Target from scratch).</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Haz clic en el botón <strong>Next</strong>.</p>
+            <img src="images/e8-002.png" alt="Selección de creación Manual del Target" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 8.2: Eligiendo configurar el target desde cero</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 3 — Propiedades del Target (Platform Event)</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Configura los parámetros de conexión hacia el CRM:</p>
+            <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+              <li><strong>Data Action Target Name:</strong> <code>LOG_AlertaIncidencia</code></li>
+              <li><strong>Data Action Target Type:</strong> Selecciona <code>Salesforce Platform Event</code> (Fundamental para alertas en tiempo real).</li>
+              <li><strong>Salesforce Org:</strong> Selecciona tu instancia actual (ej. <code>EPIC OrgFarm</code>).</li>
+            </ul>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en el botón azul <strong>Save and Publish</strong>.</p>
+            <img src="images/e8-003.png" alt="Configuración de propiedades del Target" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 8.3: Configurando el envío de Eventos de Plataforma al CRM</div>
+          </div>
+
+          <!-- FASE 2: DATA ACTION -->
+          <div style="background:#fffbea; border-left:4px solid #f59e0b; padding:16px; margin:30px 0 20px 0; border-radius:6px; font-size:14px; color:#5c3d00; line-height:1.6;">
+            <strong style="font-size:15px; display:block; margin-bottom:6px;">⚙️ Fase 2: Configuración del Data Action (La Regla Lógica)</strong>
+            Con el "tubo" de comunicación (Target) ya creado, ahora configuraremos "qué" datos van a viajar por ahí y "cuándo" se van a disparar.
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 4 — Acceso a Data Actions</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En la barra de navegación superior, cambia a la pestaña <strong>Data Actions</strong>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en el botón <strong>New</strong> en la esquina superior derecha.</p>
+            <img src="images/e8-004.png" alt="Pestaña Data Actions" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 8.4: Inicio de la configuración de la regla operativa</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 5 — Tipo de Data Action</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. El sistema te preguntará qué tipo de acción deseas crear. Selecciona <strong>Standard Data Action</strong> (basada en objetos regulares de Data Cloud).</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. En el método de creación, selecciona <strong>Manual</strong>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Haz clic en <strong>Next</strong>.</p>
+            <img src="images/e8-005.png" alt="Selección de Standard Data Action" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 8.5: Seleccionando una acción basada en inserción de registros</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 6 — Enlazar el Target</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En la pantalla <em>Choose where to send the payload</em>, selecciona el Target que acabas de crear en la Fase 1 (<strong>LOG_AlertaIncidencia</strong>).</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en <strong>Next</strong>.</p>
+            <img src="images/e8-006.png" alt="Enlazando el Target al Data Action" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 8.6: Conectando la regla con el canal de envío (Platform Event)</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 7 — Selección del Objeto Base (DMO)</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En la pantalla <em>Data Space and Objects</em>, asegúrate de que el Data Space sea <code>default</code> y el Object Type sea <code>Data Model Object</code>.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. En <strong>Primary Object</strong>, busca y selecciona <code>Incident</code> (la tabla donde ingresan nuestras incidencias de entrega).</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Haz clic en <strong>Next</strong>.</p>
+            <img src="images/e8-007.png" alt="Selección del objeto Incident" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 8.7: Definiendo la tabla que será monitoreada en tiempo real</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 8 — Reglas de Evento y Acción</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En <strong>Event Rules</strong>, deja marcadas las casillas <em>Record Created</em> y <em>Record Updated</em> para que la regla se dispare tanto al crear como al modificar una incidencia.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. En <strong>Action Rules</strong>, configura la condición que detonará la alerta:</p>
+            <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+              <li><strong>Object:</strong> <code>Incident</code></li>
+              <li><strong>Attribute:</strong> <code>Incident Priority</code></li>
+              <li><strong>Operator:</strong> <code>Contains</code> (o Equals)</li>
+              <li><strong>Value:</strong> <code>High</code></li>
+            </ul>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Haz clic en <strong>Next</strong>.</p>
+            <img src="images/e8-008.png" alt="Configuración de reglas lógicas" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 8.8: Definiendo el filtro lógico (Prioridad Alta) que dispara el evento</div>
+          </div>
+
+          <div class="modal-step-section">
+            <h5>Pantalla 9 — Guardado y Verificación Final</h5>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Al finalizar la configuración y guardar, llegarás a la pantalla de resumen de tu nueva Data Action (<code>LOG_AlertaIncidencia</code>).</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Verifica en la sección <strong>Configuration</strong> que tu Target (Salesforce Platform Event), las reglas de evento y la condición (Prioridad = High) se muestran correctamente.</p>
+            <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Notarás que el estado general arriba a la izquierda dice <strong>Processing</strong>. En unos minutos cambiará a Active, y desde ese momento, cualquier incidencia alta que ingrese a la plataforma disparará una alerta en tiempo real hacia tu CRM.</p>
+            <img src="images/e8-009.png" alt="Resumen final del Data Action" class="modal-img" onerror="this.style.display='none'">
+            <div class="img-caption">Figura 8.9: Ficha principal de Data Action confirmando las reglas de detonación</div>
+          </div>
+        </div>
       </div>
     </div>
-
-    
   </div>
 </section>
 <!-- ===== MÓDULO 9 — DEEP DIVE ===== -->
