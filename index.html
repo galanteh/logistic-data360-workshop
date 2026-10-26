@@ -686,9 +686,9 @@ body.deep-dive .deep-dive-module{display:block}
       <a href="#ejercicio-5" onclick="closeFastNav()">5️⃣ Ej. 5: Activación a CRM</a>
       <!-- Enlaces Deep Dive (Ocultos por defecto) -->
       <a href="#modulo-6" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">6️⃣ Mod. 6: Data Transforms</a>
-      <a href="#modulo-7" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">7️⃣ Mod. 7: Ingestion API</a>
-      <a href="#modulo-8" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">8️⃣ Mod. 8: Data Graphs</a>
-      <a href="#modulo-9" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">9️⃣ Mod. 9: Data Actions</a>
+      <a href="#modulo-7" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">7️⃣ Mod. 7: Data Graphs</a>
+      <a href="#modulo-8" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">8️⃣ Mod. 8: Data Actions</a>
+      <a href="#modulo-9" onclick="closeFastNav()" class="deep-dive-link" style="display:none;">9️⃣ Mod. 9: Ingestion API</a>
       <!-- --------------------------------------- -->
       <a href="#showcase" onclick="closeFastNav()">🌟 Resultado Final 360°</a>
     </div>
@@ -1803,7 +1803,7 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
         <br>AND
         <br><span class="seg-highlight">U360_Active_Delayed_Incidents</span> &gt;= 2
       </div>
-      <p style="color:rgba(207,233,254,0.8);font-size:14px">→ Resultado con datos sintéticos: <strong>2 cuentas</strong> califican (DINO960315MX1, LOGA950820XY2)</p>
+      <p style="color:rgba(207,233,254,0.8);font-size:14px">→ Resultado con datos sintéticos: <strong>2 cuentas</strong> califican (DBA950215AB1, LOGA950820XY2)</p>
     </div>
 
     <!-- TARJETA EJERCICIO 4 -->
@@ -1819,7 +1819,7 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
             <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 130px;">Segment Name:</span> <code style="background: #e1efff; color: #0366d6; padding: 3px 8px; border-radius: 4px;">Cuentas_B2B_Clave_Incidencias_Criticas</code></div>
             <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 130px;">Segment On:</span> <span style="color: #24292e; font-weight: 600;">UnifiedAccount</span></div>
             <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 130px;">Publish Schedule:</span> <span style="color: #24292e;">Don't Refresh (Manual)</span></div>
-            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 130px;">Resultado Esperado:</span> <span style="color: #28a745; font-weight: bold;">2 cuentas (DINO960315MX1, LOGA950820XY2)</span></div>
+            <div style="font-size: 0.9em;"><span style="color: #6a737d; display: inline-block; width: 130px;">Resultado Esperado:</span> <span style="color: #28a745; font-weight: bold;">2 cuentas (DBA950215AB1, LOGA950820XY2)</span></div>
           </div>
         </div>
 
@@ -1961,95 +1961,65 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
     <div class="step-header">
       <div class="step-badge" style="background:var(--violet)">6</div>
       <div class="step-meta">
-        <div class="eyebrow">MÓDULO 6 · ~25 MIN · DEEP DIVE</div>
-        <h2>Data Transforms Nativo — Peso Volumétrico</h2>
+        <div class="eyebrow">MÓDULO 6 · ~20 MIN · DEEP DIVE</div>
+        <h2>Batch Data Transforms — Zonas Logísticas</h2>
       </div>
     </div>
 
     <div class="ps-grid">
       <div class="ps-card problem">
-        <div class="ps-icon">⚖️</div>
-        <h4>Dolor: Dos Dimensiones, Un Solo Campo</h4>
+        <div class="ps-icon">🗺️</div>
+        <h4>Dolor: Faltan Datos de Agrupación</h4>
         <ul>
-          <li>El CSV de guías trae <code>Peso_Kg</code> (peso real en báscula) pero el costo real de envío usa <strong>peso volumétrico</strong></li>
-          <li>Fórmula: <code>(Largo × Ancho × Alto) / 5000</code> — el peso facturable es el mayor de los dos</li>
-          <li>Hoy esto se calcula manualmente en Excel fuera de Data 360</li>
-          <li>El campo <code>PesoFacturable_Kg</code> no existe en ningún sistema</li>
+          <li>El CSV de guías trae la <code>Ciudad_Destino</code> (ej. Tijuana, Puebla, Monterrey).</li>
+          <li>Sin embargo, para el equipo de operaciones es vital agrupar los envíos por <strong>Zona Logística</strong> (Norte, Centro, Sur) para asignar camiones y rutas.</li>
+          <li>Actualmente, los analistas cruzan esto manualmente en Excel usando un VLOOKUP, lo cual rompe la automatización.</li>
         </ul>
       </div>
       <div class="ps-card solution">
         <div class="ps-icon">🔧</div>
-        <h4>Solución: Data Transforms sin Código</h4>
+        <h4>Solución: Transformación Visual (No-Code)</h4>
         <ul>
-          <li>Data 360 tiene un motor visual de <strong>Batch Transforms</strong> nativo</li>
-          <li>Fórmula CASE + GREATEST aplicada sobre el DMO Shipment</li>
-          <li>Genera el campo <code>PesoFacturable_Kg</code> y la categoría <code>ClasePaquete</code></li>
-          <li>Se ejecuta en batch sobre el historial y en streaming sobre nuevas guías</li>
+          <li>Data Cloud incluye un motor <strong>Visual Builder</strong> para Batch Data Transforms.</li>
+          <li>Usaremos un nodo <strong>Formula</strong> para evaluar la ciudad y derivar la zona correspondiente usando una función CASE.</li>
+          <li>Esto generará un nuevo Data Lake Object (DLO) enriquecido y listo para ser mapeado al modelo canónico, todo en la misma plataforma.</li>
         </ul>
       </div>
     </div>
 
-    <h3 style="margin-bottom:16px">🔢 Fórmula de Peso Volumétrico</h3>
-    <div class="segment-visual" role="img" aria-label="Fórmula de peso volumétrico">
-      <p style="color:var(--cloud-blue);font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:700">FÓRMULA — Peso Facturable del Operador Logístico</p>
-      <div class="seg-formula" style="text-align:left;font-size:15px">
-        <span class="seg-highlight">PesoVolumetrico_Kg</span> = (Largo_cm × Ancho_cm × Alto_cm) / 5000<br>
-        <span class="seg-highlight">PesoFacturable_Kg</span>  = GREATEST(Peso_Kg, PesoVolumetrico_Kg)<br>
-        <span class="seg-highlight">ClasePaquete</span>       = CASE<br>
-        &nbsp;&nbsp;WHEN PesoFacturable_Kg &lt; 5   THEN <span style="color:var(--green)">'Ligero'</span><br>
-        &nbsp;&nbsp;WHEN PesoFacturable_Kg &lt; 30  THEN <span style="color:var(--yellow)">'Medio'</span><br>
-        &nbsp;&nbsp;ELSE <span style="color:var(--pink)">'Carga_Pesada'</span><br>
-        END
+    <div class="exercise-card" style="background: white; border: 1px solid #e1e4e8; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 30px;">
+      <h3 style="color: #003468; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 1.2em;">🎯 Objetivo Hands-On — Ejercicio 6: Data Transform Builder</h3>
+
+      <div style="padding: 10px 14px; background: #f0f7ff; border-left: 4px solid #00a1e0; border-radius: 0 6px 6px 0; margin-bottom: 16px; font-size: 0.9em; color: #003468;">
+        <strong>Objetivo:</strong> Usar el lienzo visual de Data Transforms para leer el DLO original de guías, añadir un nodo de Fórmula que genere el campo <code>Zona_Logistica</code>, y volcar el resultado en un nuevo DLO destino.
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px; background-color: #f6f8fa;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">1 · FLUJO DE NODOS</h5>
+          <ul style="font-size: 0.95em; color: #24292e; padding-left: 20px; margin-bottom: 0;">
+            <li style="margin-bottom: 6px;"><strong>1. Input Node:</strong> <code>Guias_Shipments_Logistica_DLO</code></li>
+            <li style="margin-bottom: 6px;"><strong>2. Transform Node (Formula):</strong> Crear campo nuevo <code>Zona_Logistica</code> (Tipo: Text)</li>
+            <li><strong>3. Output Node:</strong> <code>Guias_Enriquecidas_DLO</code> (Categoría: Engagement)</li>
+          </ul>
+        </div>
+
+        <div style="border: 1px solid #e1e4e8; border-radius: 6px; padding: 15px;">
+          <h5 style="color: #00a1e0; margin-top: 0; margin-bottom: 12px; font-size: 0.85em; letter-spacing: 1px;">2 · FÓRMULA DE TRANSFORMACIÓN</h5>
+          <pre style="margin: 0; padding: 10px; background: #24292e; border-radius: 6px; font-size: 0.75em; overflow-x: auto; color: #e1e4e8; border: 1px solid #1b1f23;"><code>CASE
+  WHEN source.Ciudad_Destino IN ('Monterrey', 'Tijuana', 'Mexicali', 'Ciudad Juárez') THEN 'Norte'
+  WHEN source.Ciudad_Destino IN ('Toluca', 'Puebla', 'Aguascalientes') THEN 'Centro'
+  ELSE 'Otra_Zona'
+END</code></pre>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="btn btn-primary" onclick="document.getElementById('modal-data-transforms').style.display='block'" style="background-color: #e8f4fd; color: #005fb2; border: 1px solid #005fb2; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s;">
+          📖 Abrir Guía Detallada — Data Transform Builder
+        </button>
       </div>
     </div>
-
-    <h3 style="margin:24px 0 16px">📝 SQL para Data Transform</h3>
-    <div class="data-block">
-      <div class="data-block-header">
-        <div class="file-name">transform_peso_facturable.sql</div>
-        <button class="copy-btn" onclick="copyData('sql-transform', this)">📋 Copiar SQL</button>
-      </div>
-      <pre id="sql-transform"><span class="header">-- Data Transform: Enriquecer Shipment con Peso Facturable</span>
-<span class="highlight">SELECT</span>
-    TrackingNumber__c,
-    Account_RFC__c,
-    Peso_Kg,
-    Largo_cm,
-    Ancho_cm,
-    Alto_cm,
-    <span class="highlight">ROUND</span>(
-      (Largo_cm * Ancho_cm * Alto_cm) / 5000.0, 2
-    )                                                AS PesoVolumetrico_Kg,
-    <span class="highlight">GREATEST</span>(
-      Peso_Kg,
-      (Largo_cm * Ancho_cm * Alto_cm) / 5000.0
-    )                                                AS PesoFacturable_Kg,
-    <span class="highlight">CASE</span>
-      WHEN GREATEST(Peso_Kg, (Largo_cm * Ancho_cm * Alto_cm)/5000.0) &lt;  5  THEN <span class="dup">'Ligero'</span>
-      WHEN GREATEST(Peso_Kg, (Largo_cm * Ancho_cm * Alto_cm)/5000.0) &lt; 30  THEN <span class="dup">'Medio'</span>
-      ELSE <span class="dup">'Carga_Pesada'</span>
-    END                                              AS ClasePaquete
-FROM   ssot__Shipment__dlm
-WHERE  Largo_cm IS NOT NULL
-  AND  Ancho_cm IS NOT NULL
-  AND  Alto_cm  IS NOT NULL</pre>
-    </div>
-
-    <div class="goal-box">
-      <div class="goal-icon">🎯</div>
-      <div>
-        <h4>Objetivo Hands-On — Módulo 6</h4>
-        <ol>
-          <li>En Data 360 → <strong>Data Transforms</strong> → New Transform, seleccionar fuente: DMO Shipment.</li>
-          <li>Agregar campos calculados usando el SQL anterior como referencia.</li>
-          <li>Configurar el Transform en modo <strong>Batch</strong> (recalcula el historial completo) y frecuencia: cada 24h.</li>
-          <li>Publicar y verificar en Data Explorer que <code>PesoFacturable_Kg</code> aparece en los registros de Shipment.</li>
-          <li>Confirmar que guías con dimensiones grandes muestran <code>ClasePaquete = Carga_Pesada</code>.</li>
-        </ol>
-      </div>
-    </div>
-
-    
   </div>
 </section>
 
@@ -2058,137 +2028,9 @@ WHERE  Largo_cm IS NOT NULL
   <div class="container">
     <div class="module-badge">🔬 DEEP DIVE — MÓDULO 7</div>
     <div class="step-header">
-      <div class="step-badge" style="background:var(--pink)">7</div>
+      <div class="step-badge" style="background:var(--teal)">7</div>
       <div class="step-meta">
-        <div class="eyebrow">MÓDULO 7 · ~20 MIN · DEEP DIVE</div>
-        <h2>Ingestion API en Streaming — Escaneos de CEDIS en Tiempo Real</h2>
-      </div>
-    </div>
-
-    <div class="ps-grid">
-      <div class="ps-card problem">
-        <div class="ps-icon">📡</div>
-        <h4>Dolor: Escaneos que No Pueden Esperar</h4>
-        <ul>
-          <li>El CEDIS escanea 10,000+ paquetes/hora al llegar y salir</li>
-          <li>La carga manual de CSV ocurre una vez al día — los datos tienen 12h de retraso</li>
-          <li>Una guía "perdida" no se detecta hasta el reporte nocturno</li>
-          <li>El contact center no puede responder "¿dónde está mi paquete ahora?" en tiempo real</li>
-        </ul>
-      </div>
-      <div class="ps-card solution">
-        <div class="ps-icon">⚡</div>
-        <h4>Solución: Ingestion API Nativa</h4>
-        <ul>
-          <li>Data 360 expone un <strong>endpoint HTTPS nativo</strong> para push de eventos JSON</li>
-          <li>Latencia de ingesta: <strong>&lt;5 segundos</strong> hasta disponible en el perfil</li>
-          <li>No requiere middleware, Kafka ni broker externo</li>
-          <li>5 líneas de cURL o Python — cualquier sistema puede enviar eventos</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3 style="margin-bottom:16px">📦 Payload de Escaneo CEDIS</h3>
-    <div class="json-block">
-      <div class="json-block-header">
-        <div class="file-name">📄 scan_hub_event.json</div>
-        <button class="copy-btn" onclick="copyData('json-scan', this)">📋 Copiar JSON</button>
-      </div>
-      <pre id="json-scan"><span class="header">{
-  "data": [
-    {</span>
-      <span class="highlight">"NumGuia"</span>:          <span class="dup">"TRK2024098341"</span>,
-      <span class="highlight">"EventType"</span>:        <span class="dup">"SCAN_HUB_LLEGADA"</span>,
-      <span class="highlight">"HubID"</span>:            <span class="dup">"HUB-MTY-01"</span>,
-      <span class="highlight">"HubCiudad"</span>:        <span class="dup">"Monterrey"</span>,
-      <span class="highlight">"Timestamp"</span>:        <span class="dup">"2024-11-15T14:32:00Z"</span>,
-      <span class="highlight">"Operador"</span>:         <span class="dup">"EMP-4421"</span>,
-      <span class="highlight">"Status_Nuevo"</span>:     <span class="dup">"En_Transito"</span>,
-      <span class="highlight">"RFC_Remitente"</span>:    <span class="dup">"DINO960315MX1"</span>,
-      <span class="highlight">"Temperatura_C"</span>:    <span class="dup">18.5</span>,
-      <span class="highlight">"Anomalia"</span>:         <span class="dup">false</span>
-<span class="header">    }
-  ]
-}</span></pre>
-    </div>
-
-    <h3 style="margin-bottom:16px">🖥️ Envío con cURL y Python</h3>
-    <div class="data-block">
-      <div class="data-block-header">
-        <div class="file-name">ingest_scan.sh  (cURL)</div>
-        <button class="copy-btn" onclick="copyData('curl-ingest', this)">📋 Copiar cURL</button>
-      </div>
-      <pre id="curl-ingest"><span class="header"># 1. Obtener Access Token (Connected App OAuth 2.0)</span>
-TOKEN=$(curl -s -X POST "https://YOUR_ORG.salesforce.com/services/oauth2/token" \
-  -d "grant_type=client_credentials" \
-  -d "client_id=YOUR_CLIENT_ID" \
-  -d "client_secret=YOUR_CLIENT_SECRET" | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
-
-<span class="header"># 2. Enviar evento de escaneo a la Ingestion API de Data 360</span>
-curl -s -X POST \
-  "https://YOUR_ORG.c360a.salesforce.com/api/v1/ingest/sources/<span class="highlight">LOG_CEDIS_SCANS</span>/scaneventos" \
-  -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: application/json" \
-  -d @scan_hub_event.json</pre>
-    </div>
-
-    <div class="data-block">
-      <div class="data-block-header">
-        <div class="file-name">ingest_scan.py  (Python)</div>
-        <button class="copy-btn" onclick="copyData('py-ingest', this)">📋 Copiar Python</button>
-      </div>
-      <pre id="py-ingest"><span class="header">import requests, json</span>
-
-<span class="highlight">ORG_URL</span>    = "https://YOUR_ORG.salesforce.com"
-<span class="highlight">DC_URL</span>     = "https://YOUR_ORG.c360a.salesforce.com"
-CLIENT_ID  = "YOUR_CLIENT_ID"
-CLIENT_SECRET = "YOUR_CLIENT_SECRET"
-
-<span class="header"># 1 — Auth</span>
-token_resp = requests.post(f"{ORG_URL}/services/oauth2/token", data={
-    "grant_type": "client_credentials",
-    "client_id": CLIENT_ID, "client_secret": CLIENT_SECRET,
-})
-access_token = token_resp.json()["access_token"]
-
-<span class="header"># 2 — Push evento</span>
-payload = {"data": [{"NumGuia": "TRK2024098341", "EventType": "SCAN_HUB_LLEGADA",
-    "HubID": "HUB-MTY-01", "Timestamp": "2024-11-15T14:32:00Z",
-    "Status_Nuevo": "En_Transito", "RFC_Remitente": "<span class="dup">DINO960315MX1</span>"}]}
-
-resp = requests.post(
-    f"{DC_URL}/api/v1/ingest/sources/<span class="highlight">LOG_CEDIS_SCANS</span>/scaneventos",
-    headers={"Authorization": f"Bearer {access_token}", "Content-Type": "application/json"},
-    json=payload)
-print(resp.status_code, resp.json())</pre>
-    </div>
-
-    <div class="goal-box">
-      <div class="goal-icon">🎯</div>
-      <div>
-        <h4>Objetivo Hands-On — Módulo 7</h4>
-        <ol>
-          <li>En Data 360 → <strong>Ingestion API</strong> → New, crear fuente "LOG_CEDIS_SCANS" con schema del evento de escaneo.</li>
-          <li>Crear una <strong>Connected App</strong> en Salesforce Setup con OAuth 2.0 Client Credentials.</li>
-          <li>Ejecutar el script Python (o cURL) con los valores reales de tu org.</li>
-          <li>Verificar en el <strong>Data Explorer</strong> que el evento aparece en &lt;30 segundos.</li>
-          <li>Confirmar que el Unified Profile de DINO960315MX1 refleja el nuevo evento de escaneo.</li>
-        </ol>
-      </div>
-    </div>
-
-    
-  </div>
-</section>
-
-<!-- ===== MÓDULO 8 — DEEP DIVE ===== -->
-<section id="modulo-8" data-exercise="8" class="deep-dive-module">
-  <div class="container">
-    <div class="module-badge">🔬 DEEP DIVE — MÓDULO 8</div>
-    <div class="step-header">
-      <div class="step-badge" style="background:var(--teal)">8</div>
-      <div class="step-meta">
-        <div class="eyebrow">MÓDULO 8 · ~25 MIN · DEEP DIVE</div>
+        <div class="eyebrow">MÓDULO 7 · ~25 MIN · DEEP DIVE</div>
         <h2>Data Graphs — Historial de Cliente en &lt;100 ms</h2>
       </div>
     </div>
@@ -2254,14 +2096,14 @@ print(resp.status_code, resp.json())</pre>
     <h3 style="margin:20px 0 16px">📤 Respuesta del Data Graph API</h3>
     <div class="json-block">
       <div class="json-block-header">
-        <div class="file-name">📄 response_DINO960315MX1.json</div>
+        <div class="file-name">📄 response_DBA950215AB1.json</div>
         <button class="copy-btn" onclick="copyData('json-graph-resp', this)">📋 Copiar Respuesta</button>
       </div>
-      <pre id="json-graph-resp"><span class="header">// GET /api/v1/profile/UnifiedAccount/DINO960315MX1/graph/LOG_CustomerHistory360</span>
+      <pre id="json-graph-resp"><span class="header">// GET /api/v1/profile/UnifiedAccount/DBA950215AB1/graph/LOG_CustomerHistory360</span>
 {
   <span class="highlight">"account"</span>: {
-    "RFC__c": <span class="dup">"DINO960315MX1"</span>,
-    "Name": "Distribuidora del Norte SA de CV",
+    "RFC__c": <span class="dup">"DBA950215AB1"</span>,
+    "Name": "Distribuidora Bajío SA de CV",
     "Segmento__c": "B2B_Corporate",
     "SLA_Rate__c": 88.5
   },
@@ -2286,12 +2128,12 @@ print(resp.status_code, resp.json())</pre>
     <div class="goal-box">
       <div class="goal-icon">🎯</div>
       <div>
-        <h4>Objetivo Hands-On — Módulo 8</h4>
+        <h4>Objetivo Hands-On — Módulo 7</h4>
         <ol>
           <li>En Data 360 → <strong>Data Graphs</strong> → New, crear grafo "LOG_CustomerHistory360".</li>
           <li>Configurar raíz: UnifiedAccount → relacionar Shipments → relacionar DeliveryIncident.</li>
           <li>Agregar filtro en Incidencias: <code>Resuelto__c = false</code>. Límite de Shipments: 50.</li>
-          <li>Publicar y ejecutar el GET desde Workbench o Postman con el RFC de DINO960315MX1.</li>
+          <li>Publicar y ejecutar el GET desde Workbench o Postman con el RFC de DBA950215AB1.</li>
           <li>Medir el <code>responseTimeMs</code> en el campo <code>_meta</code> — debe ser &lt;200 ms.</li>
         </ol>
       </div>
@@ -2301,14 +2143,14 @@ print(resp.status_code, resp.json())</pre>
   </div>
 </section>
 
-<!-- ===== MÓDULO 9 — DEEP DIVE ===== -->
-<section id="modulo-9" data-exercise="9" class="deep-dive-module">
+<!-- ===== MÓDULO 8 — DEEP DIVE ===== -->
+<section id="modulo-8" data-exercise="8" class="deep-dive-module">
   <div class="container">
-    <div class="module-badge">🔬 DEEP DIVE — MÓDULO 9</div>
+    <div class="module-badge">🔬 DEEP DIVE — MÓDULO 8</div>
     <div class="step-header">
-      <div class="step-badge" style="background:var(--orange)">9</div>
+      <div class="step-badge" style="background:var(--orange)">8</div>
       <div class="step-meta">
-        <div class="eyebrow">MÓDULO 9 · ~20 MIN · DEEP DIVE</div>
+        <div class="eyebrow">MÓDULO 8 · ~20 MIN · DEEP DIVE</div>
         <h2>Data Actions y Enriquecimiento de CRM</h2>
       </div>
     </div>
@@ -2391,13 +2233,13 @@ print(resp.status_code, resp.json())</pre>
     <div class="goal-box">
       <div class="goal-icon">🎯</div>
       <div>
-        <h4>Objetivo Hands-On — Módulo 9</h4>
+        <h4>Objetivo Hands-On — Módulo 8</h4>
         <ol>
           <li>En Data 360 → <strong>Data Actions</strong> → New, crear acción "LOG_AlertaIncidenciaCritica" con el config anterior.</li>
           <li>En Salesforce Setup → <strong>Flows</strong>, crear Flow "LOG_CriticalIncidentAlert" que cree una Task en la Account con prioridad High.</li>
           <li>En <strong>Lightning App Builder</strong>, abrir el Account Record Page y agregar dos componentes "Data 360 Related List".</li>
           <li>Configurar las Related Lists según los parámetros de cada tarjeta.</li>
-          <li>Activar la página y navegar a la Cuenta de DINO960315MX1 — verificar que las guías e incidencias aparecen sin límite de almacenamiento.</li>
+          <li>Activar la página y navegar a la Cuenta de DBA950215AB1 — verificar que las guías e incidencias aparecen sin límite de almacenamiento.</li>
         </ol>
       </div>
     </div>
@@ -2405,6 +2247,134 @@ print(resp.status_code, resp.json())</pre>
     
   </div>
 </section>
+<!-- ===== MÓDULO 9 — DEEP DIVE ===== -->
+<section id="modulo-9" data-exercise="9" class="deep-dive-module">
+  <div class="container">
+    <div class="module-badge">🔬 DEEP DIVE — MÓDULO 9</div>
+    <div class="step-header">
+      <div class="step-badge" style="background:var(--pink)">9</div>
+      <div class="step-meta">
+        <div class="eyebrow">MÓDULO 9 · ~20 MIN · DEEP DIVE</div>
+        <h2>Ingestion API en Streaming — Escaneos de CEDIS en Tiempo Real</h2>
+      </div>
+    </div>
+
+    <div class="ps-grid">
+      <div class="ps-card problem">
+        <div class="ps-icon">📡</div>
+        <h4>Dolor: Escaneos que No Pueden Esperar</h4>
+        <ul>
+          <li>El CEDIS escanea 10,000+ paquetes/hora al llegar y salir</li>
+          <li>La carga manual de CSV ocurre una vez al día — los datos tienen 12h de retraso</li>
+          <li>Una guía "perdida" no se detecta hasta el reporte nocturno</li>
+          <li>El contact center no puede responder "¿dónde está mi paquete ahora?" en tiempo real</li>
+        </ul>
+      </div>
+      <div class="ps-card solution">
+        <div class="ps-icon">⚡</div>
+        <h4>Solución: Ingestion API Nativa</h4>
+        <ul>
+          <li>Data 360 expone un <strong>endpoint HTTPS nativo</strong> para push de eventos JSON</li>
+          <li>Latencia de ingesta: <strong>&lt;5 segundos</strong> hasta disponible en el perfil</li>
+          <li>No requiere middleware, Kafka ni broker externo</li>
+          <li>5 líneas de cURL o Python — cualquier sistema puede enviar eventos</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px">📦 Payload de Escaneo CEDIS</h3>
+    <div class="json-block">
+      <div class="json-block-header">
+        <div class="file-name">📄 scan_hub_event.json</div>
+        <button class="copy-btn" onclick="copyData('json-scan', this)">📋 Copiar JSON</button>
+      </div>
+      <pre id="json-scan"><span class="header">{
+  "data": [
+    {</span>
+      <span class="highlight">"NumGuia"</span>:          <span class="dup">"TRK2024098341"</span>,
+      <span class="highlight">"EventType"</span>:        <span class="dup">"SCAN_HUB_LLEGADA"</span>,
+      <span class="highlight">"HubID"</span>:            <span class="dup">"HUB-MTY-01"</span>,
+      <span class="highlight">"HubCiudad"</span>:        <span class="dup">"Monterrey"</span>,
+      <span class="highlight">"Timestamp"</span>:        <span class="dup">"2024-11-15T14:32:00Z"</span>,
+      <span class="highlight">"Operador"</span>:         <span class="dup">"EMP-4421"</span>,
+      <span class="highlight">"Status_Nuevo"</span>:     <span class="dup">"En_Transito"</span>,
+      <span class="highlight">"RFC_Remitente"</span>:    <span class="dup">"DBA950215AB1"</span>,
+      <span class="highlight">"Temperatura_C"</span>:    <span class="dup">18.5</span>,
+      <span class="highlight">"Anomalia"</span>:         <span class="dup">false</span>
+<span class="header">    }
+  ]
+}</span></pre>
+    </div>
+
+    <h3 style="margin-bottom:16px">🖥️ Envío con cURL y Python</h3>
+    <div class="data-block">
+      <div class="data-block-header">
+        <div class="file-name">ingest_scan.sh  (cURL)</div>
+        <button class="copy-btn" onclick="copyData('curl-ingest', this)">📋 Copiar cURL</button>
+      </div>
+      <pre id="curl-ingest"><span class="header"># 1. Obtener Access Token (Connected App OAuth 2.0)</span>
+TOKEN=$(curl -s -X POST "https://YOUR_ORG.salesforce.com/services/oauth2/token" \
+  -d "grant_type=client_credentials" \
+  -d "client_id=YOUR_CLIENT_ID" \
+  -d "client_secret=YOUR_CLIENT_SECRET" | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
+
+<span class="header"># 2. Enviar evento de escaneo a la Ingestion API de Data 360</span>
+curl -s -X POST \
+  "https://YOUR_ORG.c360a.salesforce.com/api/v1/ingest/sources/<span class="highlight">LOG_CEDIS_SCANS</span>/scaneventos" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d @scan_hub_event.json</pre>
+    </div>
+
+    <div class="data-block">
+      <div class="data-block-header">
+        <div class="file-name">ingest_scan.py  (Python)</div>
+        <button class="copy-btn" onclick="copyData('py-ingest', this)">📋 Copiar Python</button>
+      </div>
+      <pre id="py-ingest"><span class="header">import requests, json</span>
+
+<span class="highlight">ORG_URL</span>    = "https://YOUR_ORG.salesforce.com"
+<span class="highlight">DC_URL</span>     = "https://YOUR_ORG.c360a.salesforce.com"
+CLIENT_ID  = "YOUR_CLIENT_ID"
+CLIENT_SECRET = "YOUR_CLIENT_SECRET"
+
+<span class="header"># 1 — Auth</span>
+token_resp = requests.post(f"{ORG_URL}/services/oauth2/token", data={
+    "grant_type": "client_credentials",
+    "client_id": CLIENT_ID, "client_secret": CLIENT_SECRET,
+})
+access_token = token_resp.json()["access_token"]
+
+<span class="header"># 2 — Push evento</span>
+payload = {"data": [{"NumGuia": "TRK2024098341", "EventType": "SCAN_HUB_LLEGADA",
+    "HubID": "HUB-MTY-01", "Timestamp": "2024-11-15T14:32:00Z",
+    "Status_Nuevo": "En_Transito", "RFC_Remitente": "<span class="dup">DBA950215AB1</span>"}]}
+
+resp = requests.post(
+    f"{DC_URL}/api/v1/ingest/sources/<span class="highlight">LOG_CEDIS_SCANS</span>/scaneventos",
+    headers={"Authorization": f"Bearer {access_token}", "Content-Type": "application/json"},
+    json=payload)
+print(resp.status_code, resp.json())</pre>
+    </div>
+
+    <div class="goal-box">
+      <div class="goal-icon">🎯</div>
+      <div>
+        <h4>Objetivo Hands-On — Módulo 9</h4>
+        <ol>
+          <li>En Data 360 → <strong>Ingestion API</strong> → New, crear fuente "LOG_CEDIS_SCANS" con schema del evento de escaneo.</li>
+          <li>Crear una <strong>Connected App</strong> en Salesforce Setup con OAuth 2.0 Client Credentials.</li>
+          <li>Ejecutar el script Python (o cURL) con los valores reales de tu org.</li>
+          <li>Verificar en el <strong>Data Explorer</strong> que el evento aparece en &lt;30 segundos.</li>
+          <li>Confirmar que el Unified Profile de DBA950215AB1 refleja el nuevo evento de escaneo.</li>
+        </ol>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
 
 <!-- ===== SHOWCASE 360 ===== -->
 <section id="showcase">
@@ -2439,7 +2409,7 @@ print(resp.status_code, resp.json())</pre>
         </div>
       </div>
       <div style="text-align: center; margin-top: 20px;">
-        <button onclick="document.getElementById('modal-verify-data').style.display='block'" style="padding: 10px 18px; background: #066AFE; color: #fff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">🔍 Auditar Datos con SQL en Data Cloud</button>
+        <button class="btn btn-primary" onclick="document.getElementById('modal-verify-data').style.display='block'" style="background-color: #e8f4fd; color: #005fb2; border: 1px solid #005fb2; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s;">🔍 Auditar Datos con SQL en Data Cloud</button>
       </div>
     </div>
 
@@ -2525,6 +2495,105 @@ print(resp.status_code, resp.json())</pre>
       <img src="images/e1-022.png" alt="Edición de Columnas en Data Explorer" class="modal-img" onerror="this.hidden=true">
       <div class="img-caption">Figura: Agregando la columna RFC a la vista</div>
       <p>4. Haz clic en <strong>Done</strong>. Si ves los identificadores fiscales llenos en la columna RFC, ¡tu arquitectura está perfecta y puedes avanzar al Ejercicio 2!</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL: DATA TRANSFORMS (MÓDULO 6) ===== -->
+<div id="modal-data-transforms" class="modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-content" style="max-width: 900px;">
+    <span class="close-modal" onclick="document.getElementById('modal-data-transforms').style.display='none'" style="position: absolute; top: 16px; right: 20px; font-size: 22px; cursor: pointer; color: #556; line-height: 1;">&times;</span>
+    <h3 style="color: #003468; border-bottom: 2px solid #00a1e0; padding-bottom: 10px; margin-top: 0;">Guía Detallada — Batch Data Transform (Zonas Logísticas)</h3>
+    <div class="modal-body">
+      <p class="intro-text">Esta guía muestra paso a paso y pantalla por pantalla cómo configurar una transformación de datos usando el Visual Builder.</p>
+
+      <!-- FASE 1: INICIO Y ORIGEN DE DATOS -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 1 — Selección del Motor y Datos de Origen</h5>
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En Data Transforms, haz clic en <strong>New</strong>.</p>
+        <img src="images/e6-001.png" alt="Botón New" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">2. Selecciona <strong>Batch Data Transform</strong>.</p>
+        <img src="images/e6-002.jpg" alt="Batch Data Transform" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">3. Selecciona <strong>Data Lake Objects</strong> como origen.</p>
+        <img src="images/e6-003.png" alt="Data Lake Objects" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">4. En el lienzo vacío, haz clic en <strong>Add Input Data</strong>.</p>
+        <img src="images/e6-004.png" alt="Lienzo vacío" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">5. Selecciona el objeto <code>Guias_Shipments_Logistica_DLO</code>.</p>
+        <img src="images/e6-005.png" alt="Selección de DLO de guías" class="modal-img" onerror="this.style.display='none'">
+      </div>
+
+      <!-- FASE 2: NODO TRANSFORM -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 2 — Creación de Fórmula Personalizada</h5>
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Haz clic en el <strong>(+)</strong> junto a tu nodo inicial.</p>
+        <img src="images/e6-006.png" alt="Botón +" class="modal-img" onerror="this.style.display='none'" style="max-width:250px; margin: 10px auto;">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">2. Selecciona la opción <strong>Transform</strong>.</p>
+        <img src="images/e6-007.png" alt="Menú Transform" class="modal-img" onerror="this.style.display='none'" style="max-width:250px; margin: 10px auto;">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">3. Selecciona la columna <code>Ciudad_Destino</code> y en la barra superior haz clic en <strong>fx (Custom Formula)</strong>.</p>
+        <img src="images/e6-008.jpg" alt="Selección Custom Formula" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">4. Se abrirá el panel lateral de fórmulas, por defecto vacío o con una plantilla.</p>
+        <img src="images/e6-009.png" alt="Panel de fórmula inicial" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">5. <strong>Transformation Name:</strong> Escribe <code>Zona_Logistica</code>. Luego, copia y pega la siguiente sentencia en el recuadro blanco para clasificar las ciudades por región operativa:</p>
+        <pre style="background: #1e293b; color: #f8fafc; padding: 12px; border-radius: 6px; font-size: 12px; overflow-x: auto; margin: 10px 0;"><code>case
+  when Ciudad_Destino__c in ('Monterrey', 'Tijuana', 'Mexicali', 'Ciudad Juárez') then 'Norte'
+  when Ciudad_Destino__c in ('Toluca', 'Puebla', 'Aguascalientes') then 'Centro'
+  else 'Otra_Zona'
+end</code></pre>
+        <img src="images/e6-010.png" alt="Fórmula CASE escrita" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">6. Para evitar errores de precisión, asegúrate de que el <strong>Output Type</strong> sea <strong>Text</strong> con longitud <strong>255</strong> y aplica los cambios.</p>
+        <img src="images/e6-011.png" alt="Configuración Text 255" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">7. En la cuadrícula de vista previa, valida que la nueva columna aparezca calculada correctamente.</p>
+        <img src="images/e6-012.jpg" alt="Vista previa de datos" class="modal-img" onerror="this.style.display='none'">
+      </div>
+
+      <!-- FASE 3: NODO OUTPUT -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 3 — Guardado en Nodo Output</h5>
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Haz clic en el <strong>(+)</strong> junto al nodo Transform 0 y selecciona <strong>Output</strong>.</p>
+        <img src="images/e6-013.png" alt="Seleccionar Output" class="modal-img" onerror="this.style.display='none'" style="max-width:250px; margin: 10px auto;">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">2. Aparecerá el panel izquierdo para configurar el nuevo DLO.</p>
+        <img src="images/e6-014.jpg" alt="Panel Output inicial" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">3. Configura el Object Name (<code>Guias_Enriquecidas</code>), Category (<code>Engagement</code>), Primary Key (<code>NumGuia</code>) y Event Time (<code>FechaEnvio</code>) y haz clic en Apply.</p>
+        <img src="images/e6-015.png" alt="Panel Output completado" class="modal-img" onerror="this.style.display='none'">
+      </div>
+
+      <!-- FASE 4: GUARDADO Y EJECUCIÓN -->
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 4 — Ejecución del Proceso</h5>
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Verifica que el lienzo esté libre de errores (sin alertas rojas) y haz clic en <strong>Save</strong> arriba a la derecha.</p>
+        <img src="images/e6-016.png" alt="Lienzo limpio sin errores" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">2. En la ventana modal de guardado, completa los siguientes tres campos exactamente así, y haz clic en <strong>Save</strong>:</p>
+        <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+          <li><strong>Batch Data Transform Name:</strong> <code>Transformacion Zonas Logisticas</code></li>
+          <li><strong>Definition Name:</strong> <code>Transformacion Zonas Logisticas Definition</code> (suele autocompletarse)</li>
+          <li><strong>Description:</strong> <code>Transformación del campo Ciudad_Destino mediante Custom Formula (CASE) para enriquecer las guías B2B con su respectiva Zona Logística.</code></li>
+        </ul>
+        <img src="images/e6-017.png" alt="Modal de guardado" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">3. Una vez guardado, ubica el botón desplegable (con forma de triángulo invertido ▼) ubicado en la esquina superior derecha, justo al lado del botón <em>Save</em>. Haz clic para desplegar el menú y selecciona la opción <strong>Run Now</strong>.</p>
+        <img src="images/e6-019.png" alt="Botón de Run" class="modal-img" onerror="this.style.display='none'">
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">4. En la pantalla de confirmación de ejecución, configura la ventana de datos (All data) si se solicita, y finaliza el proceso.</p>
+        <img src="images/e6-020.png" alt="Pantalla de Run Now" class="modal-img" onerror="this.style.display='none'">
+      </div>
+
     </div>
   </div>
 </div>
