@@ -1,7 +1,7 @@
 """
-Generador de datasets para Workshop Salesforce Data Cloud — Logística.
-Volúmenes corporativos: 600 cuentas · 50,000 guías · ~7,170 incidencias.
-Fechas en formato YYYY-MM-DD (compatible con DMO Shipment.Date tipo Date).
+Dataset generator for Salesforce Data Cloud Workshop — Logistics.
+Enterprise volumes: 600 accounts · 50,000 shipments/waybills · ~7,170 incidents.
+Dates in YYYY-MM-DD format (compatible with DMO Shipment.Date type Date).
 """
 import csv, random, string, os
 from datetime import date, timedelta
@@ -83,10 +83,10 @@ def slug(name):
 def phone():
     return f"55{random.randint(10000000,99999999)}"
 
-# ─── 1. CUENTAS B2B (600 registros, AccountId 1000-1599) ─────────────────────
-print("Generando cuentas...")
+# ─── 1. B2B ACCOUNTS (600 records, AccountId 1000-1599) ───────────────────────
+print("Generating accounts...")
 
-# 10 pares de duplicados intencionales para Identity Resolution
+# 10 intentional duplicate pairs for Identity Resolution
 DUP_PAIRS = [
     ("DBA950215AB1","Distribuidora Bajio SA de CV","contacto@bajio.com"),
     ("DBA950215AB1","Distribuidora Bajío",          "ventas@bajio.com"),
@@ -141,12 +141,12 @@ with open(f"{OUT}/cuentas_b2b_logistica.csv", "w", newline="", encoding="utf-8")
     w = csv.writer(f)
     w.writerow(["AccountId","RFC","RazonSocial","Email","Telefono","Ciudad"])
     w.writerows(acc_rows)
-print(f"  cuentas_b2b_logistica.csv: {len(acc_rows)} filas")
+print(f"  cuentas_b2b_logistica.csv: {len(acc_rows)} rows")
 
 account_ids = [r[0] for r in acc_rows]
 
-# ─── 2. GUÍAS / SHIPMENTS (50,000 registros) ─────────────────────────────────
-print("Generando guías...")
+# ─── 2. SHIPMENTS / WAYBILLS (50,000 records) ─────────────────────────────────
+print("Generating shipments...")
 
 STATUSES = (["Entregado"] * 65 + ["En_Transito"] * 25 + ["Retrasado"] * 10)
 DEST_CITIES = [
@@ -173,17 +173,17 @@ with open(f"{OUT}/guias_shipments_logistica.csv", "w", newline="", encoding="utf
     w.writerows(guia_rows)
 
 guias_size = os.path.getsize(f"{OUT}/guias_shipments_logistica.csv")
-print(f"  guias_shipments_logistica.csv: {len(guia_rows):,} filas · {guias_size/1024/1024:.2f} MB")
+print(f"  guias_shipments_logistica.csv: {len(guia_rows):,} rows · {guias_size/1024/1024:.2f} MB")
 
-# ─── 3. INCIDENCIAS (7,170 registros) ────────────────────────────────────────
-print("Generando incidencias...")
+# ─── 3. INCIDENTS (7,170 records) ─────────────────────────────────────────────
+print("Generating incidents...")
 
 TIPOS      = ["Demora_Ruta","Retencion_Aduana","Direccion_Incorrecta",
               "Paquete_Danado","Cancelacion_Cliente"]
 SEVERIDADES = ["Alta","Media","Baja"]
 SEV_WEIGHTS = [30, 45, 25]
 
-# Sample 7,170 guías at random (without replacement) for incidents
+# Sample 7,170 waybills at random (without replacement) for incidents
 inc_guias = random.sample([r[0] for r in guia_rows], 7170)
 
 inc_rows = []
@@ -200,14 +200,15 @@ with open(f"{OUT}/incidencias_entrega.csv", "w", newline="", encoding="utf-8") a
     w = csv.writer(f)
     w.writerow(["IncidentID","NumGuia","FechaApertura","Severidad","TipoIncidencia"])
     w.writerows(inc_rows)
-print(f"  incidencias_entrega.csv: {len(inc_rows):,} filas")
+print(f"  incidencias_entrega.csv: {len(inc_rows):,} rows")
 
 # ─── Summary ──────────────────────────────────────────────────────────────────
-print("\n=== RESUMEN FINAL ===")
+print("\n=== FINAL SUMMARY ===")
 for fn in ["cuentas_b2b_logistica.csv","guias_shipments_logistica.csv","incidencias_entrega.csv"]:
     path = f"{OUT}/{fn}"
     with open(path, newline="", encoding="utf-8") as f:
         rows = sum(1 for _ in f) - 1  # exclude header
     sz = os.path.getsize(path)
-    print(f"  {fn}: {rows:,} filas · {sz/1024:.1f} KB")
+    print(f"  {fn}: {rows:,} rows · {sz/1024:.1f} KB")
 print("DONE")
+
