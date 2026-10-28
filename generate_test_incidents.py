@@ -1,35 +1,28 @@
 import csv
-import uuid
 import os
+import time
 from datetime import datetime, timezone
 
-def generate_test_csv(filename="data/ej8_record_tests.csv"):
-    """
-    Generates a test CSV file with incident records for Data Cloud ingestion.
-    The second record contains Priority = 'High' to trigger the Data Action.
-    """
-    
-    # Ensure the directory exists
+def generate_test_incidents(filename="data/ej8_record_tests.csv"):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
-    
-    # Define the expected headers for the Incident Data Stream
-    headers = ["Incident_Id", "NumGuia", "Priority", "Internal_Organization", "Reported_Date"]
-    
-    # Create 3 dummy records. The second one is the trigger (Priority = High).
+    headers = ["IncidentID", "NumGuia", "FechaApertura", "Severidad", "TipoIncidencia"]
+    now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    ts = int(time.time())
+
     records = [
-        [str(uuid.uuid4()), "TRK-2026A", "Low",    "MTY-HUB",  datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")],
-        [str(uuid.uuid4()), "TRK-2026B", "High",   "CDMX-HUB", datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")], # <- The Trigger!
-        [str(uuid.uuid4()), "TRK-2026C", "Medium", "GDL-HUB",  datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")]
+        [f"INC-{ts}-01", f"TRK-{ts}-FIRE", now_iso, "High", "Route_Delay"],
+        [f"INC-{ts}-02", f"TRK-{ts}-NORM", now_iso, "Low", "Wrong_Address"],
+        [f"INC-{ts}-03", f"TRK-{ts}-CRIT", now_iso, "High", "Damaged_Package"]
     ]
-    
-    # Write to CSV
-    with open(filename, mode='w', newline='') as file:
-        writer = csv.writer(file)
+
+    with open(filename, mode="w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
         writer.writerow(headers)
         writer.writerows(records)
-    
-    print(f"✅ Successfully generated file '{filename}' with 3 test records.")
-    print("-> Please upload this CSV to your Data Cloud Data Stream and click 'Refresh'.")
+
+    print(f"✅ Generated {len(records)} NEW test records in '{filename}':")
+    for r in records:
+        print(f"   • {r[0]} | Guía: {r[1]} | Severity: {r[3]} | Type: {r[4]}")
 
 if __name__ == "__main__":
-    generate_test_csv()
+    generate_test_incidents()
