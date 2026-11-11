@@ -1,0 +1,56 @@
+openapi: 3.0.3
+info:
+  title: LOG CEDIS SCANS — Ingestion API
+  description: Schema de eventos de escaneo en tiempo real para centros de distribucion (CEDIS)
+  version: "1.0"
+paths:
+  /scaneventos:
+    post:
+      summary: Ingesta de evento de escaneo CEDIS
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScanEvento'
+components:
+  schemas:
+    ScanEvento:
+      type: object
+      required:
+        - NumGuia
+        - EventType
+        - Timestamp
+      properties:
+        NumGuia:
+          type: string
+          description: Numero de guia unico del paquete
+        EventType:
+          type: string
+          description: Tipo de evento (ej. SCAN_HUB_LLEGADA, SCAN_HUB_SALIDA)
+        HubID:
+          type: string
+          description: Identificador del hub o CEDIS (ej. HUB-MTY-01)
+        HubCiudad:
+          type: string
+          description: Ciudad del hub de distribucion
+        Timestamp:
+          type: string
+          format: date-time
+          description: Fecha y hora del escaneo en formato ISO 8601 (UTC)
+        Operador:
+          type: string
+          description: Codigo del operador que realizo el escaneo
+        Status_Nuevo:
+          type: string
+          description: Estado de la guia tras el escaneo
+        RFC_Remitente:
+          type: string
+          description: RFC fiscal del remitente
+        Temperatura_C:
+          type: number
+          format: float
+          description: Temperatura en grados Celsius registrada en el CEDIS
+        Anomalia:
+          type: boolean
+          description: Indica si se detecto una anomalia en este escaneo

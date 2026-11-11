@@ -2564,7 +2564,7 @@ END</code></pre>
     <div class="step-header">
       <div class="step-badge" style="background:var(--pink)">10</div>
       <div class="step-meta">
-        <div class="eyebrow">MÓDULO 10 · ~20 MIN · DEEP DIVE</div>
+        <div class="eyebrow">MÓDULO 10 · ~25 MIN · DEEP DIVE</div>
         <h2>Ingestion API en Streaming — Escaneos de CEDIS en Tiempo Real</h2>
       </div>
     </div>
@@ -2584,104 +2584,75 @@ END</code></pre>
         <div class="ps-icon">⚡</div>
         <h4>Solución: Ingestion API Nativa</h4>
         <ul>
-          <li>Data 360 expone un <strong>endpoint HTTPS nativo</strong> para push de eventos JSON</li>
-          <li>Latencia de ingesta: <strong>&lt;5 segundos</strong> hasta disponible en el perfil</li>
+          <li>Data Cloud expone un <strong>endpoint HTTPS nativo</strong> para push de eventos JSON</li>
+          <li>Latencia de ingesta: <strong>&lt;5 segundos</strong> hasta disponible en el perfil unificado</li>
           <li>No requiere middleware, Kafka ni broker externo</li>
-          <li>5 líneas de cURL o Python — cualquier sistema puede enviar eventos</li>
+          <li>Autenticación segura servidor a servidor con <strong>JWT Bearer (OAuth 2.0)</strong></li>
         </ul>
       </div>
     </div>
 
-    <h3 style="margin-bottom:16px">📦 Payload de Escaneo CEDIS</h3>
-    <div class="json-block">
-      <div class="json-block-header">
-        <div class="file-name">📄 scan_hub_event.json</div>
-        <button class="copy-btn" onclick="copyData('json-scan', this)">📋 Copiar JSON</button>
+    <div class="exercise-card" style="background: white; border: 1px solid #e1e4e8; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 30px;">
+      <h3 style="color: #003468; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 1.2em;">🎯 Ejercicio 10 — Streaming HTTP Push con Ingestion API</h3>
+
+      <div style="padding: 10px 14px; background: #f0f7ff; border-left: 4px solid #00a1e0; border-radius: 0 6px 6px 0; margin-bottom: 20px; font-size: 0.9em; color: #003468;">
+        <strong>Objetivo:</strong> Configurar la Ingestion API con autenticación JWT, registrar el conector <code>LOG_CEDIS_SCANS</code> y ejecutar un script Python que inyecte escaneos de paquetes en tiempo real directamente al perfil unificado en Data Cloud.
       </div>
-      <pre id="json-scan"><span class="header">{
-  "data": [
-    {</span>
-      <span class="highlight">"NumGuia"</span>:          <span class="dup">"TRK2024098341"</span>,
-      <span class="highlight">"EventType"</span>:        <span class="dup">"SCAN_HUB_LLEGADA"</span>,
-      <span class="highlight">"HubID"</span>:            <span class="dup">"HUB-MTY-01"</span>,
-      <span class="highlight">"HubCiudad"</span>:        <span class="dup">"Monterrey"</span>,
-      <span class="highlight">"Timestamp"</span>:        <span class="dup">"2024-11-15T14:32:00Z"</span>,
-      <span class="highlight">"Operador"</span>:         <span class="dup">"EMP-4421"</span>,
-      <span class="highlight">"Status_Nuevo"</span>:     <span class="dup">"En_Transito"</span>,
-      <span class="highlight">"RFC_Remitente"</span>:    <span class="dup">"DBA950215AB1"</span>,
-      <span class="highlight">"Temperatura_C"</span>:    <span class="dup">18.5</span>,
-      <span class="highlight">"Anomalia"</span>:         <span class="dup">false</span>
-<span class="header">    }
-  ]
-}</span></pre>
+
+      <div style="overflow-x: auto; margin-bottom: 20px;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.875em;">
+          <thead>
+            <tr style="background: #f0f5ff;">
+              <th style="padding: 8px 12px; border: 1px solid #dce8f7; color: #001E5B; text-align: left; font-weight: 700;">Dimensión</th>
+              <th style="padding: 8px 12px; border: 1px solid #dce8f7; color: #00a1e0; text-align: left; font-weight: 700;">Streaming HTTP Push</th>
+              <th style="padding: 8px 12px; border: 1px solid #dce8f7; color: #666; text-align: left; font-weight: 700;">Batch CSV (Módulos 6-8)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #334; font-weight: 600;">Latencia</td>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #006400;"><strong>&lt; 5 segundos</strong></td>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #666;">12 – 24 horas</td>
+            </tr>
+            <tr style="background: #fafbfc;">
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #334; font-weight: 600;">Mecanismo</td>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #334;">POST JSON al endpoint TSE</td>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #666;">Carga de archivo + Deploy</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #334; font-weight: 600;">Caso de uso</td>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #334;">Eventos continuos (IoT, escaneos)</td>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #666;">Cargas masivas históricas</td>
+            </tr>
+            <tr style="background: #fafbfc;">
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #334; font-weight: 600;">Autenticación</td>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #334;">JWT Bearer (OAuth 2.0)</td>
+              <td style="padding: 8px 12px; border: 1px solid #e8ecf5; color: #666;">Sesión UI / Connected App</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;">
+        <div style="background: #f0f5ff; border-radius: 6px; padding: 12px 14px; border-left: 3px solid #066AFE;">
+          <div style="font-size: 11px; font-weight: 700; color: #066AFE; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Connector Name</div>
+          <code style="font-size: 13px; color: #001E5B; font-weight: 700;">LOG_CEDIS_SCANS</code>
+        </div>
+        <div style="background: #f0f5ff; border-radius: 6px; padding: 12px 14px; border-left: 3px solid #066AFE;">
+          <div style="font-size: 11px; font-weight: 700; color: #066AFE; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Object Name</div>
+          <code style="font-size: 13px; color: #001E5B; font-weight: 700;">scaneventos</code>
+        </div>
+        <div style="background: #f0f5ff; border-radius: 6px; padding: 12px 14px; border-left: 3px solid #066AFE;">
+          <div style="font-size: 11px; font-weight: 700; color: #066AFE; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Categoría</div>
+          <code style="font-size: 13px; color: #001E5B; font-weight: 700;">Engagement</code>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" onclick="document.getElementById('modal-ingestion-api').style.display='block'" style="background-color: #005fb2; color: #fff; border: none; padding: 10px 22px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9em; transition: background 0.2s;">
+        Abrir Guía Detallada — Ingestion API y Streaming
+      </button>
     </div>
 
-    <h3 style="margin-bottom:16px">🖥️ Envío con cURL y Python</h3>
-    <div class="data-block">
-      <div class="data-block-header">
-        <div class="file-name">ingest_scan.sh  (cURL)</div>
-        <button class="copy-btn" onclick="copyData('curl-ingest', this)">📋 Copiar cURL</button>
-      </div>
-      <pre id="curl-ingest"><span class="header"># 1. Obtener Access Token (Connected App OAuth 2.0)</span>
-TOKEN=$(curl -s -X POST "https://YOUR_ORG.salesforce.com/services/oauth2/token" \
-  -d "grant_type=client_credentials" \
-  -d "client_id=YOUR_CLIENT_ID" \
-  -d "client_secret=YOUR_CLIENT_SECRET" | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
-
-<span class="header"># 2. Enviar evento de escaneo a la Ingestion API de Data 360</span>
-curl -s -X POST \
-  "https://YOUR_ORG.c360a.salesforce.com/api/v1/ingest/sources/<span class="highlight">LOG_CEDIS_SCANS</span>/scaneventos" \
-  -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: application/json" \
-  -d @scan_hub_event.json</pre>
-    </div>
-
-    <div class="data-block">
-      <div class="data-block-header">
-        <div class="file-name">ingest_scan.py  (Python)</div>
-        <button class="copy-btn" onclick="copyData('py-ingest', this)">📋 Copiar Python</button>
-      </div>
-      <pre id="py-ingest"><span class="header">import requests, json</span>
-
-<span class="highlight">ORG_URL</span>    = "https://YOUR_ORG.salesforce.com"
-<span class="highlight">DC_URL</span>     = "https://YOUR_ORG.c360a.salesforce.com"
-CLIENT_ID  = "YOUR_CLIENT_ID"
-CLIENT_SECRET = "YOUR_CLIENT_SECRET"
-
-<span class="header"># 1 — Auth</span>
-token_resp = requests.post(f"{ORG_URL}/services/oauth2/token", data={
-    "grant_type": "client_credentials",
-    "client_id": CLIENT_ID, "client_secret": CLIENT_SECRET,
-})
-access_token = token_resp.json()["access_token"]
-
-<span class="header"># 2 — Push evento</span>
-payload = {"data": [{"NumGuia": "TRK2024098341", "EventType": "SCAN_HUB_LLEGADA",
-    "HubID": "HUB-MTY-01", "Timestamp": "2024-11-15T14:32:00Z",
-    "Status_Nuevo": "En_Transito", "RFC_Remitente": "<span class="dup">DBA950215AB1</span>"}]}
-
-resp = requests.post(
-    f"{DC_URL}/api/v1/ingest/sources/<span class="highlight">LOG_CEDIS_SCANS</span>/scaneventos",
-    headers={"Authorization": f"Bearer {access_token}", "Content-Type": "application/json"},
-    json=payload)
-print(resp.status_code, resp.json())</pre>
-    </div>
-
-    <div class="goal-box">
-      <div class="goal-icon">🎯</div>
-      <div>
-        <h4>Objetivo Hands-On — Módulo 10</h4>
-        <ol>
-          <li>En Data 360 → <strong>Ingestion API</strong> → New, crear fuente "LOG_CEDIS_SCANS" con schema del evento de escaneo.</li>
-          <li>Crear una <strong>Connected App</strong> en Salesforce Setup con OAuth 2.0 Client Credentials.</li>
-          <li>Ejecutar el script Python (o cURL) con los valores reales de tu org.</li>
-          <li>Verificar en el <strong>Data Explorer</strong> que el evento aparece en &lt;30 segundos.</li>
-          <li>Confirmar que el Unified Profile de DBA950215AB1 refleja el nuevo evento de escaneo.</li>
-        </ol>
-      </div>
-    </div>
-
-    
   </div>
 </section>
 
@@ -3967,6 +3938,250 @@ WHERE link.SourceRecordId__c = '1111'</code></pre>
     <div class="modal-body" id="modal-body-console">
       <p class="intro-text" style="color: #334; line-height: 1.6;">Imágenes y paso a paso en construcción...</p>
     </div>
+  </div>
+</div>
+
+<!-- MODAL: INGESTION API — MÓDULO 10 -->
+<div id="modal-ingestion-api" class="modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-content" style="max-width: 960px;">
+    <span class="close-modal" onclick="document.getElementById('modal-ingestion-api').style.display='none'" style="position: absolute; top: 16px; right: 20px; font-size: 22px; cursor: pointer; color: #556; line-height: 1;">&times;</span>
+    <h3 style="color: #003468; border-bottom: 2px solid var(--pink); padding-bottom: 10px; margin-top: 0;">Ingestion API en Streaming — Guía Paso a Paso</h3>
+    <p class="intro-text" style="color: #4a5568; line-height: 1.65; margin-bottom: 24px;">Configuraremos la Ingestion API de Data Cloud usando autenticación <strong>JWT Bearer (OAuth 2.0)</strong> y ejecutaremos un script Python que inyecta escaneos de paquetes en tiempo real. Al finalizar, verás eventos llegando al Data Explorer en menos de 5 segundos.</p>
+
+    <!-- FASE 1 — YAML -->
+    <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+      <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 1 — El Esquema OpenAPI (YAML)</h5>
+      <div class="alert-info" style="background-color: #e8f4fd; border-left: 4px solid #00a1e0; padding: 10px; margin-bottom: 15px; color: #003468; font-size: 13px;">
+        <strong>Nota de Arquitectura:</strong> Data Cloud exige un archivo <strong>OpenAPI 3.0</strong> para validar la estructura de cada evento antes de aceptarlo. Este esquema define los campos, tipos de dato y cuáles son obligatorios. Es tu contrato de datos entre el sistema externo y Data Cloud.
+      </div>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">Para evitar errores de formato (indentación) durante el taller, hemos preparado el archivo de esquema oficial de LogisticForce.</p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">1. Haz clic en el botón de abajo para descargar el archivo a tu computadora:</p>
+      <div style="margin: 12px 0 20px 0; display: inline-block;">
+        <a class="dl-card-btn-primary" href="data/log_cedis_scans.yaml" download>
+          ⬇ Descargar log_cedis_scans.yaml
+        </a>
+      </div>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Ten este archivo a la mano, lo subiremos en la siguiente fase para inicializar nuestra API de streaming.</p>
+      <p style="font-size: 13px; color: #556; line-height: 1.6; margin-top: 15px; border-top: 1px dashed #cbd5e1; padding-top: 10px;"><em>El esquema contiene los campos: <code>NumGuia</code>, <code>EventType</code> y <code>Timestamp</code> (marcados como obligatorios), además de campos opcionales como <code>HubID</code>, <code>Operador</code>, <code>Temperatura_C</code> y banderas de anomalía.</em></p>
+    </div>
+
+    <!-- FASE 2 — AUTENTICACIÓN JWT (ECA) -->
+    <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+      <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 2 — Autenticación OAuth 2.0 (External Client App)</h5>
+      <div class="alert-info" style="background-color: #e8f4fd; border-left: 4px solid #00a1e0; padding: 10px; margin-bottom: 15px; color: #003468; font-size: 13px;">
+        <strong>Nota de Arquitectura:</strong> Las orgs modernas de Salesforce usan <strong>External Client Apps (ECA)</strong> en lugar del antiguo App Manager. Es el mismo protocolo JWT Bearer — solo cambia dónde se registran las credenciales. El script Python no necesita ninguna modificación.
+      </div>
+
+      <p style="font-size: 14px; line-height: 1.85; color: #334;"><strong>Paso 2.1 — Crear la External Client App:</strong></p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Ve a <strong>Setup</strong> → en el buscador rápido escribe <code>External Client</code> → selecciona <strong>External Client Apps</strong>.</li>
+        <li>Haz clic en <strong>New External Client App</strong>.</li>
+        <li>En la sección <strong>Basic Information</strong>, completa:
+          <ul style="margin-top: 4px;">
+            <li><strong>External Client App Name:</strong> <code>LOG CEDIS Streaming Integration</code></li>
+            <li><strong>API Name:</strong> <code>LOG_CEDIS_Streaming_Integration</code></li>
+            <li><strong>Contact Email:</strong> Tu email de administrador</li>
+          </ul>
+        </li>
+        <li>En la sección <strong>OAuth Settings</strong>, activa <strong>Enable OAuth</strong>.</li>
+        <li>En <strong>Callback URL</strong>, ingresa <code>https://login.salesforce.com/services/oauth2/callback</code>.</li>
+        <li>En <strong>OAuth Scopes</strong>, agrega:
+          <ul style="margin-top: 4px;">
+            <li><code>cdp_ingest_api</code> — Manage Data Cloud Ingestion API data</li>
+            <li><code>api</code> — Access and manage your Salesforce data</li>
+          </ul>
+        </li>
+        <li><strong>Generar el Certificado Digital (Local):</strong> Abre la terminal de tu computadora y ejecuta el siguiente comando para crear un par de llaves asimétricas:<br>
+          <code style="font-size: 12px; background: #1e2433; color: #e2e8f0; padding: 6px 10px; border-radius: 4px; display: inline-block; margin: 10px 0;">openssl req -x509 -nodes -newkey rsa:2048 -keyout private_key.pem -out certificate.crt -days 365</code><br>
+          <span style="font-size: 13.5px; color: #4a5568; display: block; margin-top: 4px;">La terminal te hará una serie de preguntas para conformar la identidad del certificado. Presiona <strong>Enter</strong> después de escribir cada uno de estos valores de prueba:</span>
+          <ul style="font-size: 13px; color: #334; margin-top: 8px; margin-bottom: 12px; background: #f8fafc; padding: 12px 14px 12px 35px; border-radius: 6px; border: 1px solid #e2e8f0; font-family: monospace;">
+            <li>Country Name (2 letter code) [AU]: <strong style="color: #066AFE;">MX</strong></li>
+            <li>State or Province Name (full name) [Some-State]: <strong style="color: #066AFE;">CDMX</strong></li>
+            <li>Locality Name (eg, city) []: <strong style="color: #066AFE;">CDMX</strong></li>
+            <li>Organization Name (eg, company): <strong style="color: #066AFE;">Salesforce</strong></li>
+            <li>Organizational Unit Name (eg, section) []: <strong style="color: #066AFE;">MX</strong></li>
+            <li>Common Name (e.g. server FQDN or YOUR name) []: <strong style="color: #066AFE;">localhost</strong></li>
+            <li>Email Address []: <strong style="color: #066AFE;">(tu correo o presiona Enter para dejar vacío)</strong></li>
+          </ul>
+          <span style="font-size: 14px; color: #334; display: block;">Esto generará dos archivos en tu carpeta actual: <code>private_key.pem</code> (que usará Python para firmar) y <code>certificate.crt</code> (la llave pública).<br><br><strong>En Salesforce:</strong> Activa la casilla <strong>Use Digital Signatures</strong> (o Upload Certificate) y sube el archivo <strong>certificate.crt</strong>.</span>
+        </li>
+        <li>En la sección <strong>Client Credentials Flow / Policies</strong>, busca el campo <strong>Permitted Users</strong> y selecciona <code>Admin approved users are pre-authorized</code>.</li>
+        <li>Haz clic en <strong>Save</strong>. En la pantalla de confirmación, localiza y copia el valor de <strong>Consumer Key</strong> — lo necesitarás en el script Python (campo <code>CONSUMER_KEY</code>).</li>
+      </ol>
+
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 14px;"><strong>Paso 2.2 — Autorizar el perfil administrador:</strong></p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Desde la página de detalle de tu ECA recién creada, busca la sección <strong>Profiles</strong> (o <strong>Manage Profiles</strong>).</li>
+        <li>Haz clic en <strong>Manage Profiles</strong> y selecciona el perfil <code>System Administrator</code>.</li>
+        <li>Guarda los cambios. La ECA está lista para autenticar el script Python con JWT Bearer.</li>
+      </ol>
+
+      <div class="alert-info" style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-top: 14px; color: #856404; font-size: 13px;">
+        <strong>Dato clave:</strong> Guarda en un lugar seguro tres valores: el <strong>Consumer Key</strong> de la ECA, la ruta al archivo <strong>private_key.pem</strong>, y tu <strong>username de Salesforce</strong>. Los tres se configuran en la sección <code>CONFIGURACIÓN</code> del script Python de la Fase 5.
+      </div>
+    </div>
+
+    <!-- FASE 3 — REGISTRO INGESTION API -->
+    <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+      <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 3 — Registro de la Ingestion API</h5>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">Con la seguridad ya configurada en el CRM, ahora abriremos el puerto de recepción nativo en Data Cloud.</p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">1. En Salesforce, ve a <strong>Setup</strong> → busca <code>Data Cloud Setup</code> → sección <strong>Ingestion API</strong>.</p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en <strong>New</strong> y completa los campos del conector:</p>
+      <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li><strong>Connector Name:</strong> <code>LOG_CEDIS_SCANS</code></li>
+        <li><strong>Description:</strong> <code>Receptor de eventos de escaneo en tiempo real provenientes de los CEDIS.</code></li>
+      </ul>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">3. En la sección <strong>Schema</strong>, haz clic en <strong>Upload Schema</strong> y selecciona el archivo <code>log_cedis_scans.yaml</code> descargado en la Fase 1.</p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">4. Confirma que el sistema detecta correctamente el objeto <code>scaneventos</code> y haz clic en <strong>Save</strong>.</p>
+      <div class="alert-info" style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-top: 12px; color: #856404; font-size: 13px;">
+        <strong>Importante:</strong> Una vez guardado el conector, Data Cloud te mostrará el <strong>Tenant-Specific Endpoint (TSE)</strong>. Cópialo — lo necesitarás en el script Python de la Fase 5. Tiene la forma: <code>abc123xyz.c360a.salesforce.com</code>
+      </div>
+    </div>
+
+    <!-- FASE 4 — DATA STREAM Y MAPEO -->
+    <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+      <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 4 — Creación del Data Stream y Mapeo</h5>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En Data Cloud, ve a <strong>Data Streams</strong> → <strong>New</strong> → selecciona la fuente <strong>Ingestion API</strong>.</p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Selecciona el conector <code>LOG_CEDIS_SCANS</code> y el objeto <code>scaneventos</code>. Haz clic en <strong>Next</strong>.</p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Configura los parámetros del Data Stream:</p>
+      <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li><strong>Data Stream Name:</strong> <code>LOG_CEDIS_ScanEventos</code></li>
+        <li><strong>Category:</strong> <code>Engagement</code></li>
+        <li><strong>Primary Key:</strong> <code>NumGuia</code></li>
+        <li><strong>Event Time:</strong> <code>Timestamp</code></li>
+      </ul>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">4. En la sección de <strong>Data Mapping</strong>, mapea los campos hacia el DMO de telemetría o al DMO existente de <em>Shipment</em>:</p>
+      <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li><code>NumGuia</code> → <code>ssot__ShipmentIdentifier__c</code> (Primary Key)</li>
+        <li><code>Timestamp</code> → <code>ssot__EventTime__c</code></li>
+        <li><code>Status_Nuevo</code> → <code>ssot__ShipmentStatus__c</code></li>
+        <li><code>RFC_Remitente</code> → <code>ssot__AccountSourceId__c</code> (para el link de identidad)</li>
+      </ul>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">5. Haz clic en <strong>Save &amp; Deploy</strong>. El Data Stream quedará activo y listo para recibir eventos vía HTTP POST.</p>
+    </div>
+
+    <!-- FASE 5 — SCRIPT PYTHON -->
+    <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+      <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 5 — El Script de Streaming (Python)</h5>
+      <div class="alert-info" style="background-color: #e8f4fd; border-left: 4px solid #00a1e0; padding: 10px; margin-bottom: 15px; color: #003468; font-size: 13px;">
+        <strong>Requisito previo:</strong> Instala las dependencias con <code>pip install PyJWT requests cryptography</code> antes de ejecutar el script.
+      </div>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Abre tu editor de texto y crea el archivo <code>streaming_cedis.py</code>.</p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Reemplaza los valores de la sección <strong>CONFIGURACIÓN</strong> con los datos de tu org (Consumer Key, TSE, Username y ruta al archivo <code>private_key.pem</code>).</p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Copia y pega el script completo:</p>
+      <div style="background: #1e2433; border-radius: 8px; margin: 12px 0; overflow: hidden;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #2a3147; border-bottom: 1px solid #3a4160;">
+          <span style="font-size: 12px; color: #a0aec0; font-family: monospace;">streaming_cedis.py</span>
+          <button class="copy-btn" onclick="copyData('py-streaming', this)" style="font-size: 11px; padding: 4px 10px; background: #066AFE; color: white; border: none; border-radius: 4px; cursor: pointer;">Copiar Python</button>
+        </div>
+        <pre id="py-streaming" style="margin: 0; padding: 16px; color: #e2e8f0; font-size: 12px; line-height: 1.7; overflow-x: auto; font-family: 'Courier New', monospace;">import jwt, requests, random, time, datetime
+
+# ================================================================
+# CONFIGURACIÓN — Rellena con los valores de tu Connected App
+# ================================================================
+SF_LOGIN_URL  = "https://login.salesforce.com"
+TSE           = "YOUR_TENANT_SPECIFIC_ENDPOINT"   # ej: abc123.c360a.salesforce.com
+CONSUMER_KEY  = "YOUR_CONSUMER_KEY"               # Consumer Key de la Connected App
+PRIVATE_KEY   = "private_key.pem"                 # Ruta al archivo .pem generado con OpenSSL
+SF_USERNAME   = "YOUR_USERNAME@example.com"       # Tu usuario administrador
+
+ENDPOINT = f"https://{TSE}/api/v1/ingest/sources/LOG_CEDIS_SCANS/scaneventos"
+
+# Datos de prueba
+CIUDADES  = ["Monterrey", "CDMX", "Guadalajara", "Tijuana", "Puebla", "Merida"]
+HUBS      = ["HUB-MTY-01", "HUB-CDMX-02", "HUB-GDL-03", "HUB-TIJ-04", "HUB-PUE-05", "HUB-MID-06"]
+OPERARIOS = ["EMP-4421", "EMP-3308", "EMP-5571", "EMP-2291", "EMP-6612"]
+EVENTOS   = ["SCAN_HUB_LLEGADA", "SCAN_HUB_SALIDA", "SCAN_EN_RUTA", "SCAN_ENTREGADO", "SCAN_RETENIDO"]
+RFCS      = ["DBA950215AB1", "TRK881201XX0", "PKG760315YZ9", "MED450922KL1", "AUT330510MN3"]
+ESTADOS   = ["En_Transito", "Entregado", "Retenido", "En_Clasificacion", "Retorno"]
+
+def get_jwt_token():
+    with open(PRIVATE_KEY, "r") as f:
+        private_key = f.read()
+    claim = {
+        "iss": CONSUMER_KEY,
+        "sub": SF_USERNAME,
+        "aud": SF_LOGIN_URL,
+        "exp": int(time.time()) + 180    # max 3 min — Salesforce rechaza exp > 3 min
+    }
+    encoded_jwt = jwt.encode(claim, private_key, algorithm="RS256")
+    resp = requests.post(f"{SF_LOGIN_URL}/services/oauth2/token", data={
+        "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+        "assertion": encoded_jwt
+    })
+    resp.raise_for_status()
+    return resp.json()["access_token"]
+
+def gen_escaneo():
+    idx = random.randint(0, len(HUBS) - 1)
+    ts  = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return {
+        "NumGuia":       f"TRK{random.randint(2024000000, 2024999999)}",
+        "EventType":     random.choice(EVENTOS),
+        "HubID":         HUBS[idx],
+        "HubCiudad":     CIUDADES[idx] if idx &lt; len(CIUDADES) else random.choice(CIUDADES),
+        "Timestamp":     ts,
+        "Operador":      random.choice(OPERARIOS),
+        "Status_Nuevo":  random.choice(ESTADOS),
+        "RFC_Remitente": random.choice(RFCS),
+        "Temperatura_C": round(random.uniform(2.0, 38.0), 1),
+        "Anomalia":      random.random() &lt; 0.05
+    }
+
+def enviar(evento, token):
+    return requests.post(
+        ENDPOINT,
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        json={"data": [evento]},
+        timeout=10
+    )
+
+print("Iniciando streaming CEDIS -> Salesforce Data Cloud...")
+token = get_jwt_token()
+print("JWT autenticado.\n")
+
+n = 0
+while True:
+    try:
+        evento = gen_escaneo()
+        resp   = enviar(evento, token)
+
+        if resp.status_code == 401:          # token expirado: renovar y reintentar
+            token = get_jwt_token()
+            resp  = enviar(evento, token)
+
+        n += 1
+        ts = datetime.datetime.now().strftime("%H:%M:%S")
+        print(f"[{ts}] #{n:04d}  {evento['NumGuia']}  {evento['EventType']:<22}  HTTP {resp.status_code}")
+        time.sleep(3)
+
+    except KeyboardInterrupt:
+        print(f"\nStreaming detenido. Total enviados: {n}")
+        break
+    except Exception as e:
+        print(f"  Error: {e}")
+        time.sleep(5)</pre>
+      </div>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">4. Ejecuta el script desde la terminal: <code>python3 streaming_cedis.py</code></p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">Verás en la consola una línea por cada evento enviado con la hora, número de guía, tipo de evento y el código de respuesta HTTP (<code>200</code> indica éxito).</p>
+    </div>
+
+    <!-- FASE 6 — VERIFICACIÓN -->
+    <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+      <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 6 — Verificación en Tiempo Real</h5>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">Con el script corriendo en tu terminal, abre Data Cloud en paralelo y sigue estos pasos:</p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Ve a <strong>Data Explorer</strong> → busca el objeto <code>scaneventos</code> (bajo el Data Stream <code>LOG_CEDIS_ScanEventos</code>).</li>
+        <li>Haz clic en <strong>Query</strong> y ejecuta: <code>SELECT * FROM scaneventos ORDER BY Timestamp DESC LIMIT 20</code></li>
+        <li>Verás los registros de escaneo llegando en tiempo real. Cada 3 segundos debería aparecer una fila nueva.</li>
+        <li>Filtra por <code>Anomalia = true</code> para ver únicamente los eventos con anomalía detectada (~5% del total).</li>
+        <li>Opcionalmente, ve al <strong>Unified Profile</strong> de uno de los RFC enviados (ej. <code>DBA950215AB1</code>) y verifica que el tab <strong>Engagement</strong> muestra los eventos de escaneo recién inyectados.</li>
+      </ol>
+      <div class="alert-info" style="background-color: #d4edda; border-left: 4px solid #28a745; padding: 10px; margin-top: 14px; color: #155724; font-size: 13px;">
+        <strong>Validación exitosa:</strong> Si ves registros en el Data Explorer con <code>HTTP 200</code> en la consola del script, el circuito de streaming está completamente operativo. Data Cloud está ingiriendo eventos del CEDIS en menos de 5 segundos de latencia.
+      </div>
+    </div>
+
   </div>
 </div>
 </body>
