@@ -35,17 +35,24 @@ Desbloquea integraciones avanzadas y respuestas en sub-segundos:
 ```text
 logistic-data360-workshop/
 ├── data/
-│   ├── cuentas_b2b_logistica.csv      # Mock B2B con duplicados intencionales (Identity Res)
-│   ├── guias_shipments_logistica.csv  # 50k registros transaccionales
-│   ├── incidencias_entrega.csv        # Eventos operacionales para métricas de riesgo
-│   ├── log_cedis_scans.yaml           # Esquema OpenAPI 3.0 para la Ingestion API
-│   └── streaming_cedis.py             # Script Python (JWT Token Exchange) para Módulo 10
-├── images/                            # Assets, diagramas y evidencias del paso a paso
-├── index.html                         # Interfaz interactiva SPA del taller
-├── generar_mock_data.py               # Generador Python para regenerar/ampliar datos
-├── requirements.txt                   # Dependencias Python
-├── composer.json                      # Configuración de Buildpack para Heroku
-└── index.php                          # Enrutador estático para Heroku
+│   ├── ejercicio_1_ingesta/
+│   │   ├── cuentas_b2b_logistica.csv      # Mock B2B con duplicados intencionales
+│   │   ├── guias_shipments_logistica.csv  # 50k registros transaccionales
+│   │   └── incidencias_entrega.csv        # Eventos operacionales
+│   ├── modulo_9_flujos/
+│   │   └── ej8_record_tests.csv           # Lote de prueba para disparar Flow
+│   └── modulo_10_streaming/
+│       ├── log_cedis_scans.yaml           # Esquema OpenAPI 3.0 Ingestion API
+│       ├── streaming_cedis.py             # Script Python (JWT Token Exchange)
+│       └── config.ini                     # Plantilla de variables de entorno
+├── images/                                # Assets, diagramas y capturas UI
+├── scripts/
+│   ├── generate_mock_data.py              # Generador Python de datos B2B/B2C
+│   └── generate_test_incidents.py         # Generador de anomalías logísticas
+├── index.html                             # Interfaz interactiva SPA del taller
+├── requirements.txt                       # Dependencias Python para scripts
+├── composer.json                          # Configuración de Buildpack para Heroku
+└── index.php                              # Enrutador estático para Heroku
 ```
 
 ## 💻 Ejecución Local
@@ -69,7 +76,7 @@ source venv/bin/activate
 pip install PyJWT requests cryptography
 
 # Ejecutar el script (requiere configurar Consumer Key y private_key.pem previos)
-python3 data/streaming_cedis.py
+python3 data/modulo_10_streaming/streaming_cedis.py
 ```
 
 ## ☁️ Despliegue en Heroku

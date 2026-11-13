@@ -1012,7 +1012,7 @@ body.deep-dive .deep-dive-module{display:block}
             <span class="dl-field-tag">Ciudad</span>
           </div>
           <div class="dl-card-actions">
-            <a class="dl-card-btn-primary" href="data/cuentas_b2b_logistica.csv" download>
+            <a class="dl-card-btn-primary" href="data/ejercicio_1_ingesta/cuentas_b2b_logistica.csv" download>
               ⬇ Descargar CSV
             </a>
             <button class="dl-card-btn-secondary" onclick="togglePreview('prev-cuentas', this)">
@@ -1059,7 +1059,7 @@ body.deep-dive .deep-dive-module{display:block}
             <span class="dl-field-tag">Ciudad_Destino</span>
           </div>
           <div class="dl-card-actions">
-            <a class="dl-card-btn-primary" href="data/guias_shipments_logistica.csv" download>
+            <a class="dl-card-btn-primary" href="data/ejercicio_1_ingesta/guias_shipments_logistica.csv" download>
               ⬇ Descargar CSV
             </a>
             <button class="dl-card-btn-secondary" onclick="togglePreview('prev-guias', this)">
@@ -1106,7 +1106,7 @@ TRK23001003,1002,2024-01-18,Entregado,Ciudad Juárez
             <span class="dl-field-tag">TipoIncidencia</span>
           </div>
           <div class="dl-card-actions">
-            <a class="dl-card-btn-primary" href="data/incidencias_entrega.csv" download>
+            <a class="dl-card-btn-primary" href="data/ejercicio_1_ingesta/incidencias_entrega.csv" download>
               ⬇ Descargar CSV
             </a>
             <button class="dl-card-btn-secondary" onclick="togglePreview('prev-incidencias', this)">
@@ -2966,9 +2966,9 @@ function togglePreview(id, btn) {
 function downloadAll(e) {
   e.preventDefault();
   const files = [
-    'data/cuentas_b2b_logistica.csv',
-    'data/guias_shipments_logistica.csv',
-    'data/incidencias_entrega.csv',
+    'data/ejercicio_1_ingesta/cuentas_b2b_logistica.csv',
+    'data/ejercicio_1_ingesta/guias_shipments_logistica.csv',
+    'data/ejercicio_1_ingesta/incidencias_entrega.csv',
   ];
   files.forEach((path, i) => {
     setTimeout(() => {
@@ -3632,7 +3632,7 @@ WHERE link.SourceRecordId__c = '1111'</code></pre>
         <img src="images/e9-031.png" alt="Botón Update File en el Data Stream" class="modal-img" onerror="this.style.display='none'">
         <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">3. Baje el archivo <strong>ej8_record_tests.csv</strong> que esta en el botón de descarga a continuación. Este archivo CSV contiene 3 incidencias de prueba que se sumaran al DMO y por lo tanto activará todo el flujo construido de alarmas, terminará llamando en automatico al Flujo y este creará una Tarea.</p>
         <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 15px;">
-          <a class="dl-card-btn-primary" href="data/ej8_record_tests.csv" download="">
+          <a class="dl-card-btn-primary" href="data/modulo_9_flujos/ej8_record_tests.csv" download="">
               ⬇ Descargar Pruebas CSV
           </a>
         </p>
@@ -3995,7 +3995,7 @@ WHERE link.SourceRecordId__c = '1111'</code></pre>
       <p style="font-size: 14px; line-height: 1.85; color: #334;">Para evitar errores de formato (indentación) durante el taller, hemos preparado el archivo de esquema oficial de LogisticForce.</p>
       <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">1. Haz clic en el botón de abajo para descargar el archivo a tu computadora:</p>
       <div style="margin: 12px 0 20px 0; display: inline-block;">
-        <a class="dl-card-btn-primary" href="data/log_cedis_scans.yaml" download>
+        <a class="dl-card-btn-primary" href="data/modulo_10_streaming/log_cedis_scans.yaml" download>
           ⬇ Descargar log_cedis_scans.yaml
         </a>
       </div>
@@ -4297,10 +4297,10 @@ pip install PyJWT requests cryptography</code></pre>
           <strong>Descargar el script de Ingesta:</strong> Este script utiliza tu llave privada para obtener un Token Core (Paso 1) y luego lo canjea por un Token CDP en el endpoint <code>/a360/token</code> (Paso 2) para poder enviar datos continuamente. Guárdalo en la misma carpeta que tu llave.
           <br><br>
           <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
-            <a href="data/streaming_cedis.py" download="streaming_cedis.py" style="background-color: #005fb2; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
+            <a href="data/modulo_10_streaming/streaming_cedis.py" download="streaming_cedis.py" style="background-color: #005fb2; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
               📥 Descargar streaming_cedis.py
             </a>
-            <a href="data/config.ini" download="config.ini" style="background-color: #f8fafc; color: #005fb2; border: 1px solid #005fb2; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
+            <a href="data/modulo_10_streaming/config.ini" download="config.ini" style="background-color: #f8fafc; color: #005fb2; border: 1px solid #005fb2; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
               ⚙️ Descargar config.ini
             </a>
           </div>

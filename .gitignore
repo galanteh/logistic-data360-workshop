@@ -68,3 +68,10 @@ yarn-error.log*
 .temp/
 .tmp/
 private_key.pem
+private_key.pem
+certificate.crt
+venv_cedis/
+.claude/
+memory/
+test_pe.apex
+server.py
