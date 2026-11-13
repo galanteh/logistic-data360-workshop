@@ -4305,6 +4305,17 @@ pip install PyJWT requests cryptography</code></pre>
             </a>
           </div>
 
+          <div style="background-color: #fffbea; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 6px; margin-top: 15px;">
+            <strong style="color: #5c3d00; display: block; margin-bottom: 8px;">⚙️ Configuración Obligatoria:</strong>
+            <p style="font-size: 13px; color: #5c3d00; margin: 0 0 8px 0; line-height: 1.5;">Antes de ejecutar el script, abre el archivo descargado <code>config.ini</code> en un editor de texto e ingresa los valores reales de tu organización. El script fallará si no reemplazas los textos <code>INGRESA_TU...</code>.</p>
+            <ul style="font-size: 13px; color: #5c3d00; margin: 0; padding-left: 18px; line-height: 1.5;">
+              <li><strong>TSE:</strong> Cópialo de la Fase 3 (sin "https://").</li>
+              <li><strong>CONSUMER_KEY:</strong> Cópialo de la Fase 2 (Detalles de la External Client App).</li>
+              <li><strong>SF_USERNAME:</strong> Tu correo/usuario con el que inicias sesión en esta organización.</li>
+              <li>Asegúrate de que <code>config.ini</code>, <code>streaming_cedis.py</code> y <code>private_key.pem</code> estén juntos en la misma carpeta.</li>
+            </ul>
+          </div>
+
           <details style="margin-top: 15px; background: #f9f9f9; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
             <summary style="cursor: pointer; color: #005fb2; font-weight: bold;">Haz clic aquí si prefieres ver y copiar el código fuente</summary>
             <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; overflow-x: auto; margin-top: 10px; font-size: 12px; font-family: monospace;"><code>import jwt, requests, random, time, datetime, configparser, sys
