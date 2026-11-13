@@ -1,1 +1,1 @@
-web: python3 server.py
+web: vendor/bin/heroku-php-apache2
