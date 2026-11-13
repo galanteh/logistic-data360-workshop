@@ -4317,6 +4317,25 @@ pip install PyJWT requests cryptography</code></pre>
           </div>
 
           <details style="margin-top: 15px; background: #f9f9f9; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+            <summary style="cursor: pointer; color: #005fb2; font-weight: bold;">Haz clic aquí si prefieres ver y copiar el código de config.ini</summary>
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; overflow-x: auto; margin-top: 10px; font-size: 12px; font-family: monospace;"><code>[SALESFORCE]
+# URL de login (usa test.salesforce.com para sandboxes)
+SF_LOGIN_URL = https://login.salesforce.com
+
+# Endpoint específico de tu tenant (Data Cloud Setup -&gt; Ingestion API)
+TSE = INGRESA_TU_TENANT_SPECIFIC_ENDPOINT
+
+# Consumer Key de tu External Client App
+CONSUMER_KEY = INGRESA_TU_CONSUMER_KEY
+
+# Usuario administrador con el que pre-autorizaste la App
+SF_USERNAME = INGRESA_TU_USUARIO_DE_SALESFORCE
+
+# Ruta al archivo de la llave privada
+PRIVATE_KEY_PATH = private_key.pem</code></pre>
+          </details>
+
+          <details style="margin-top: 15px; background: #f9f9f9; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
             <summary style="cursor: pointer; color: #005fb2; font-weight: bold;">Haz clic aquí si prefieres ver y copiar el código fuente</summary>
             <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; overflow-x: auto; margin-top: 10px; font-size: 12px; font-family: monospace;"><code>import jwt, requests, random, time, datetime, configparser, sys
 
