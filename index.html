@@ -699,8 +699,8 @@ body.deep-dive .deep-dive-module{display:block}
     <div style="display:flex;align-items:center;gap:6px">
       <span class="dur-label">⏱</span>
       <div class="duration-toggle" role="group" aria-label="Duración del workshop">
-        <button class="dur-btn active" id="btn-core" onclick="setDuration('core')" aria-pressed="true">Core 3h</button>
-        <button class="dur-btn" id="btn-deep" onclick="setDuration('deep')" aria-pressed="false">Deep Dive 5h</button>
+        <button class="dur-btn active" id="btn-core" onclick="setDuration('core')" aria-pressed="true">Especialista 3h</button>
+        <button class="dur-btn" id="btn-deep" onclick="setDuration('deep')" aria-pressed="false">Arquitecto 5h</button>
       </div>
     </div>
   </div>
@@ -722,6 +722,9 @@ body.deep-dive .deep-dive-module{display:block}
         <div class="hero-cta">
           <a href="#ejercicio-1" class="btn-primary">Comenzar Ejercicios ↓</a>
           <a href="#arquitectura" class="btn-outline">Ver Arquitectura</a>
+          <button onclick="document.getElementById('modal-branding').style.display='block'" class="btn-outline">
+            🎨 Paso 0: Personalizar Logo (Branding)
+          </button>
         </div>
       </div>
       <div class="hero-visual">
@@ -1958,11 +1961,11 @@ INC-2023-00004,TRK23024861,2023-09-26T15:35:37Z,Alta,Cancelacion_Cliente</pre>
 <!-- ===== MÓDULO 6 — DEEP DIVE ===== -->
 <section id="modulo-6" data-exercise="6" class="deep-dive-module">
   <div class="container">
-    <div class="module-badge">🔬 DEEP DIVE — MÓDULO 6</div>
+    <div class="module-badge">🔬 ARQUITECTO — MÓDULO 6</div>
     <div class="step-header">
       <div class="step-badge" style="background:var(--violet)">6</div>
       <div class="step-meta">
-        <div class="eyebrow">MÓDULO 6 · ~20 MIN · DEEP DIVE</div>
+        <div class="eyebrow">MÓDULO 6 · ~20 MIN · ARQUITECTO</div>
         <h2>Batch Data Transforms — Zonas Logísticas</h2>
       </div>
     </div>
@@ -2027,11 +2030,11 @@ END</code></pre>
 <!-- ===== MÓDULO 7 — DEEP DIVE ===== -->
 <section id="modulo-7" data-exercise="7" class="deep-dive-module">
   <div class="container">
-    <div class="module-badge">🔬 DEEP DIVE — MÓDULO 7</div>
+    <div class="module-badge">🔬 ARQUITECTO — MÓDULO 7</div>
     <div class="step-header">
       <div class="step-badge" style="background:var(--blue-action)">7</div>
       <div class="step-meta">
-        <div class="eyebrow">MÓDULO 7 · ~25 MIN · DEEP DIVE</div>
+        <div class="eyebrow">MÓDULO 7 · ~25 MIN · ARQUITECTO</div>
         <h2>Data Graphs — Historial de Cliente en &lt;100 ms</h2>
       </div>
     </div>
@@ -2277,11 +2280,11 @@ END</code></pre>
 <!-- ===== MÓDULO 8 — DEEP DIVE ===== -->
 <section id="modulo-8" data-exercise="8" class="deep-dive-module">
   <div class="container">
-    <div class="module-badge">🔬 DEEP DIVE — MÓDULO 8</div>
+    <div class="module-badge">🔬 ARQUITECTO — MÓDULO 8</div>
     <div class="step-header">
       <div class="step-badge" style="background:var(--orange)">8</div>
       <div class="step-meta">
-        <div class="eyebrow">MÓDULO 8 · ~20 MIN · DEEP DIVE</div>
+        <div class="eyebrow">MÓDULO 8 · ~20 MIN · ARQUITECTO</div>
         <h2>Data Actions y Enriquecimiento de CRM</h2>
       </div>
     </div>
@@ -2458,11 +2461,11 @@ END</code></pre>
 <!-- ===== MÓDULO 9 — DEEP DIVE ===== -->
 <section id="modulo-9" data-exercise="9" class="deep-dive-module">
   <div class="container">
-    <div class="module-badge">🔬 DEEP DIVE — MÓDULO 9</div>
+    <div class="module-badge">🔬 ARQUITECTO — MÓDULO 9</div>
     <div class="step-header">
       <div class="step-badge" style="background:var(--teal)">9</div>
       <div class="step-meta">
-        <div class="eyebrow">MÓDULO 9 · ~25 MIN · DEEP DIVE</div>
+        <div class="eyebrow">MÓDULO 9 · ~25 MIN · ARQUITECTO</div>
         <h2>Detonando una Incidencia Crítica</h2>
       </div>
     </div>
@@ -2560,11 +2563,11 @@ END</code></pre>
 <!-- ===== MÓDULO 10 — DEEP DIVE ===== -->
 <section id="modulo-10" data-exercise="10" class="deep-dive-module">
   <div class="container">
-    <div class="module-badge">🔬 DEEP DIVE — MÓDULO 10</div>
+    <div class="module-badge">🔬 ARQUITECTO — MÓDULO 10</div>
     <div class="step-header">
       <div class="step-badge" style="background:var(--pink)">10</div>
       <div class="step-meta">
-        <div class="eyebrow">MÓDULO 10 · ~25 MIN · DEEP DIVE</div>
+        <div class="eyebrow">MÓDULO 10 · ~25 MIN · ARQUITECTO</div>
         <h2>Ingestion API en Streaming — Escaneos de CEDIS en Tiempo Real</h2>
       </div>
     </div>
@@ -2996,7 +2999,7 @@ function setDuration(mode) {
     btnDeep.classList.add('active');
     btnDeep.setAttribute('aria-pressed', 'true');
     deepDiveLinks.forEach(link => link.style.display = 'block');
-    showToast('🔬 Modo Deep Dive (5h) — Módulos 6 al 9 desbloqueados');
+    showToast('🔬 Modo Arquitecto (5h) — Módulos 6 al 10 desbloqueados');
   } else {
     body.classList.remove('deep-dive');
     btnDeep.classList.remove('active');
@@ -3004,7 +3007,7 @@ function setDuration(mode) {
     btnCore.classList.add('active');
     btnCore.setAttribute('aria-pressed', 'true');
     deepDiveLinks.forEach(link => link.style.display = 'none');
-    showToast('⏱ Modo Core (3h) — Ejercicios 1 al 5');
+    showToast('⏱ Modo Especialista (3h) — Ejercicios 1 al 5');
   }
   updateExerciseCount();
 }
@@ -3948,6 +3951,41 @@ WHERE link.SourceRecordId__c = '1111'</code></pre>
     <h3 style="color: #003468; border-bottom: 2px solid var(--pink); padding-bottom: 10px; margin-top: 0;">Ingestion API en Streaming — Guía Paso a Paso</h3>
     <p class="intro-text" style="color: #4a5568; line-height: 1.65; margin-bottom: 24px;">Configuraremos la Ingestion API de Data Cloud usando autenticación <strong>JWT Bearer (OAuth 2.0)</strong> y ejecutaremos un script Python que inyecta escaneos de paquetes en tiempo real. Al finalizar, verás eventos llegando al Data Explorer en menos de 5 segundos.</p>
 
+    <!-- FASE 0 — PRERREQUISITO EMAIL -->
+    <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+      <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #fff8e6; border-left: 3px solid #ffc107; border-radius: 0 8px 8px 0;">Fase 0 — Prerrequisito: Configurar tu Correo Real (Verificación 2FA)</h5>
+      <div class="alert-info" style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 15px; color: #856404; font-size: 13px;">
+        <strong>¿Por qué es obligatorio antes de empezar?</strong> Las organizaciones temporales de prueba (<em>OrgFarm / Scratch Orgs</em>) crean al usuario administrador con una dirección ficticia (<code>epic....@orgfarm.salesforce.com</code>) que no existe. Para poder recibir el código de verificación al revelar el <strong>Consumer Key</strong>, primero debemos desactivar la verificación contra el correo anterior y registrar tu email real.
+      </div>
+
+      <p style="font-size: 14px; line-height: 1.85; color: #334;"><strong>Paso 0.1 — Desactivar verificación contra el correo anterior:</strong></p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>En <strong>Setup</strong>, escribe <code>Identity</code> en el buscador rápido (<em>Quick Find</em>) y selecciona <strong>Identity Verification</strong>.</li>
+        <li>Desplázate hasta la sección <strong>General</strong>, <strong>desmarca</strong> la casilla <code>Require identity verification for email address changes</code> y haz clic en <strong>Save</strong> al final de la página.</li>
+      </ol>
+      <img src="images/e10-000.png" alt="Desactivar Require identity verification for email address changes" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.0: Desactivación del chequeo de correo anterior en Identity Verification</div>
+
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 16px;"><strong>Paso 0.2 — Actualizar el correo del usuario administrador:</strong></p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>En el buscador rápido de <strong>Setup</strong>, escribe <code>Users</code>, entra a <strong>Users</strong> y haz clic en <strong>Edit</strong> junto a tu usuario administrador (<code>EPIC, OrgFarm</code>).</li>
+      </ol>
+      <img src="images/e10-001.png" alt="Lista de usuarios en Setup" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.1: Selección del usuario administrador para edición</div>
+
+      <ol start="2" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>En el campo <strong>Email</strong>, reemplaza la dirección <code>@orgfarm.salesforce.com</code> por tu correo electrónico real y haz clic en <strong>Save</strong>. <em>(Importante: no modifiques el campo <strong>Username</strong>, ya que ese identificador sigue siendo tu usuario de acceso y lo necesitarás en el script de Python).</em></li>
+      </ol>
+      <img src="images/e10-002.png" alt="Edición de campo Email en User Edit" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.2: Actualización del campo Email manteniendo el Username original</div>
+
+      <ol start="3" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Haz clic en <strong>OK / Aceptar</strong> en la ventana emergente de confirmación, abre tu bandeja de entrada real y haz clic en el enlace de verificación enviado por Salesforce.</li>
+      </ol>
+      <img src="images/e10-003.png" alt="Confirmación de envío de correo de verificación" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.3: Confirmación de envío de enlace de validación al nuevo correo</div>
+    </div>
+
     <!-- FASE 1 — YAML -->
     <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
       <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 1 — El Esquema OpenAPI (YAML)</h5>
@@ -3962,35 +4000,58 @@ WHERE link.SourceRecordId__c = '1111'</code></pre>
         </a>
       </div>
       <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Ten este archivo a la mano, lo subiremos en la siguiente fase para inicializar nuestra API de streaming.</p>
-      <p style="font-size: 13px; color: #556; line-height: 1.6; margin-top: 15px; border-top: 1px dashed #cbd5e1; padding-top: 10px;"><em>El esquema contiene los campos: <code>NumGuia</code>, <code>EventType</code> y <code>Timestamp</code> (marcados como obligatorios), además de campos opcionales como <code>HubID</code>, <code>Operador</code>, <code>Temperatura_C</code> y banderas de anomalía.</em></p>
+      <p style="font-size: 13px; color: #556; line-height: 1.6; margin-top: 15px; border-top: 1px dashed #cbd5e1; padding-top: 10px;"><em>El esquema define el objeto <code>scaneventos</code> con 10 campos: <code>NumGuia</code>, <code>EventType</code>, <code>HubID</code>, <code>HubCiudad</code>, <code>Timestamp</code> (DateTime), <code>Operador</code>, <code>Status_Nuevo</code>, <code>RFC_Remitente</code>, <code>Temperatura_C</code> (Number) y <code>Anomalia</code> (Boolean).</em></p>
     </div>
 
     <!-- FASE 2 — AUTENTICACIÓN JWT (ECA) -->
     <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
       <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 2 — Autenticación OAuth 2.0 (External Client App)</h5>
       <div class="alert-info" style="background-color: #e8f4fd; border-left: 4px solid #00a1e0; padding: 10px; margin-bottom: 15px; color: #003468; font-size: 13px;">
-        <strong>Nota de Arquitectura:</strong> Las orgs modernas de Salesforce usan <strong>External Client Apps (ECA)</strong> en lugar del antiguo App Manager. Es el mismo protocolo JWT Bearer — solo cambia dónde se registran las credenciales. El script Python no necesita ninguna modificación.
+        <strong>Nota de Arquitectura:</strong> Las organizaciones modernas de Salesforce utilizan <strong>External Client Apps (ECA)</strong> en lugar del antiguo App Manager. El protocolo servidor-a-servidor sigue siendo <strong>JWT Bearer</strong>, pero la configuración de flujos, certificado y políticas se gestiona desde el <em>External Client App Manager</em>.
       </div>
 
-      <p style="font-size: 14px; line-height: 1.85; color: #334;"><strong>Paso 2.1 — Crear la External Client App:</strong></p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;"><strong>Paso 2.1 — Acceder al External Client App Manager:</strong></p>
       <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
-        <li>Ve a <strong>Setup</strong> → en el buscador rápido escribe <code>External Client</code> → selecciona <strong>External Client Apps</strong>.</li>
-        <li>Haz clic en <strong>New External Client App</strong>.</li>
-        <li>En la sección <strong>Basic Information</strong>, completa:
+        <li>En la esquina superior derecha de Salesforce, haz clic en el ícono del engranaje (⚙️) y selecciona <strong>Setup</strong>.</li>
+      </ol>
+      <img src="images/e10-004.png" alt="Menú de Setup en Salesforce" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.4: Acceso a Setup desde el menú principal</div>
+      <ol start="2" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>En el buscador rápido (<em>Quick Find</em>) de la izquierda, escribe <code>External Client</code>, selecciona <strong>External Client App Manager</strong> y haz clic en el botón <strong>New External Client App</strong>.</li>
+      </ol>
+
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 16px;"><strong>Paso 2.2 — Información Básica (Basic Information):</strong></p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Completa los cuatro campos obligatorios de la sección <strong>Basic Information</strong>:
           <ul style="margin-top: 4px;">
             <li><strong>External Client App Name:</strong> <code>LOG CEDIS Streaming Integration</code></li>
             <li><strong>API Name:</strong> <code>LOG_CEDIS_Streaming_Integration</code></li>
             <li><strong>Contact Email:</strong> Tu email de administrador</li>
+            <li><strong>Distribution State:</strong> Selecciona <code>Local</code> (indica que la integración es de uso exclusivo en esta organización y no se empaquetará para terceros).</li>
           </ul>
         </li>
-        <li>En la sección <strong>OAuth Settings</strong>, activa <strong>Enable OAuth</strong>.</li>
-        <li>En <strong>Callback URL</strong>, ingresa <code>https://login.salesforce.com/services/oauth2/callback</code>.</li>
-        <li>En <strong>OAuth Scopes</strong>, agrega:
+      </ol>
+      <img src="images/e10-005.png" alt="Basic Information en External Client App Manager" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.5: Configuración de Basic Information con Distribution State en Local</div>
+
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 16px;"><strong>Paso 2.3 — Configurar OAuth y Scopes (API Settings):</strong></p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Despliega la sección <strong>API (Enable OAuth Settings)</strong> y marca la casilla <strong>Enable OAuth</strong>.</li>
+        <li>En <strong>App Settings → Callback URL</strong>, ingresa: <code>https://login.salesforce.com/services/oauth2/callback</code></li>
+        <li>En <strong>OAuth Scopes</strong>, busca en la lista izquierda y mueve a la columna derecha (Selected OAuth Scopes) estos <strong>tres</strong> permisos obligatorios:
           <ul style="margin-top: 4px;">
-            <li><code>cdp_ingest_api</code> — Manage Data Cloud Ingestion API data</li>
-            <li><code>api</code> — Access and manage your Salesforce data</li>
+            <li><code>Manage Data Cloud Ingestion API data (cdp_ingest_api)</code></li>
+            <li><code>Manage user data via APIs (api)</code></li>
+            <li><code>Perform requests at any time (refresh_token, offline_access)</code></li>
           </ul>
         </li>
+      </ol>
+      <img src="images/e10-006.png" alt="Configuración de Callback URL y OAuth Scopes" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.6: Habilitación de OAuth, Callback URL y selección de scopes de Data Cloud</div>
+
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 16px;"><strong>Paso 2.4 — Generar Certificado Digital y Activar JWT Bearer Flow:</strong></p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Justo debajo de <em>App Settings</em> (y arriba de <em>Security</em>), ubica el bloque <strong>Flow Enablement</strong> y marca la casilla <strong>Enable JWT Bearer Flow</strong>. Al hacerlo se desplegará la opción <strong>Certificate Upload</strong>.</li>
         <li><strong>Generar el Certificado Digital (Local):</strong> Abre la terminal de tu computadora y ejecuta el siguiente comando para crear un par de llaves asimétricas:<br>
           <code style="font-size: 12px; background: #1e2433; color: #e2e8f0; padding: 6px 10px; border-radius: 4px; display: inline-block; margin: 10px 0;">openssl req -x509 -nodes -newkey rsa:2048 -keyout private_key.pem -out certificate.crt -days 365</code><br>
           <span style="font-size: 13.5px; color: #4a5568; display: block; margin-top: 4px;">La terminal te hará una serie de preguntas para conformar la identidad del certificado. Presiona <strong>Enter</strong> después de escribir cada uno de estos valores de prueba:</span>
@@ -4003,91 +4064,255 @@ WHERE link.SourceRecordId__c = '1111'</code></pre>
             <li>Common Name (e.g. server FQDN or YOUR name) []: <strong style="color: #066AFE;">localhost</strong></li>
             <li>Email Address []: <strong style="color: #066AFE;">(tu correo o presiona Enter para dejar vacío)</strong></li>
           </ul>
-          <span style="font-size: 14px; color: #334; display: block;">Esto generará dos archivos en tu carpeta actual: <code>private_key.pem</code> (que usará Python para firmar) y <code>certificate.crt</code> (la llave pública).<br><br><strong>En Salesforce:</strong> Activa la casilla <strong>Use Digital Signatures</strong> (o Upload Certificate) y sube el archivo <strong>certificate.crt</strong>.</span>
+          <span style="font-size: 14px; color: #334; display: block;">Esto generará dos archivos en tu carpeta actual: <code>private_key.pem</code> (que usará Python para firmar) y <code>certificate.crt</code> (la llave pública).</span>
         </li>
-        <li>En la sección <strong>Client Credentials Flow / Policies</strong>, busca el campo <strong>Permitted Users</strong> y selecciona <code>Admin approved users are pre-authorized</code>.</li>
-        <li>Haz clic en <strong>Save</strong>. En la pantalla de confirmación, localiza y copia el valor de <strong>Consumer Key</strong> — lo necesitarás en el script Python (campo <code>CONSUMER_KEY</code>).</li>
+        <li>Regresa a Salesforce, haz clic en <strong>Upload Files</strong> dentro de <strong>Certificate Upload</strong> y selecciona el archivo <code>certificate.crt</code>. Deja la tarjeta <em>Security</em> inferior sin modificaciones.</li>
       </ol>
+      <img src="images/e10-007.png" alt="Flow Enablement con Enable JWT Bearer Flow y Certificate Upload" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.7: Activación de JWT Bearer Flow y carga del certificado público certificate.crt</div>
 
-      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 14px;"><strong>Paso 2.2 — Autorizar el perfil administrador:</strong></p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 16px;"><strong>Paso 2.5 — Crear la External Client App:</strong></p>
       <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
-        <li>Desde la página de detalle de tu ECA recién creada, busca la sección <strong>Profiles</strong> (o <strong>Manage Profiles</strong>).</li>
-        <li>Haz clic en <strong>Manage Profiles</strong> y selecciona el perfil <code>System Administrator</code>.</li>
-        <li>Guarda los cambios. La ECA está lista para autenticar el script Python con JWT Bearer.</li>
+        <li>Desplázate hasta el final del formulario (sin modificar las secciones inferiores de SAML, Canvas o Mobile) y haz clic en el botón azul <strong>Create</strong>.</li>
       </ol>
+      <img src="images/e10-008.png" alt="Botón Create al final de External Client App Manager" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.8: Confirmación y creación de la External Client App</div>
+      <ol start="2" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Salesforce abrirá la vista de administración de <code>LOG CEDIS Streaming Integration</code>. Observa que por defecto muestra <em>App Authorization: All users can self-authorize</em>, lo cual ajustaremos en el siguiente paso.</li>
+      </ol>
+      <img src="images/e10-009.png" alt="Vista de detalle Manage External Client Apps" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.9: Ficha de administración de la External Client App recién creada</div>
+
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 16px;"><strong>Paso 2.6 — Pre-autorizar al Perfil Administrador (Pestaña Policies):</strong></p>
+      <div class="alert-info" style="background-color: #e8f4fd; border-left: 4px solid #00a1e0; padding: 10px; margin: 8px 0 12px; color: #003468; font-size: 13px;">
+        <strong>¿Por qué es obligatorio?</strong> El script de Python se conecta sin navegador (<em>headless</em>) y no puede hacer clic en "Permitir". Pre-autorizar al perfil administrador evita el error <code>400 invalid_grant</code> al autenticar vía JWT.
+      </div>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>En la vista de administración de <code>LOG CEDIS Streaming Integration</code>, asegúrate de estar en la pestaña <strong>Policies</strong> y haz clic en el botón <strong>Edit</strong> a la derecha.</li>
+      </ol>
+      <img src="images/e10-010.png" alt="Pestaña Policies y botón Edit" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.10: Acceso a la edición de políticas de la External Client App</div>
+
+      <ol start="2" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Dentro de <strong>OAuth Policies → Plugin Policies</strong>, cambia el desplegable <strong>Permitted Users</strong> a <code>Admin approved users are pre-authorized</code>.</li>
+      </ol>
+      <img src="images/e10-011.png" alt="Permitted Users en Admin approved users are pre-authorized" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.11: Selección de política de usuarios pre-autorizados por administrador</div>
+
+      <ol start="3" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Despliega la sección superior <strong>App Policies</strong>, deja <em>Start Page</em> en <code>None</code> y mueve el perfil <code>System Administrator</code> a la columna <strong>Selected Profiles</strong>.</li>
+      </ol>
+      <img src="images/e10-012.png" alt="Selección del perfil System Administrator en App Policies" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.12: Asignación del perfil System Administrator en App Policies</div>
+
+      <ol start="4" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Haz clic en <strong>Save</strong> al final de la página y verifica el mensaje verde de confirmación.</li>
+      </ol>
+      <img src="images/e10-013.png" alt="Mensaje de confirmación Success al guardar políticas" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.13: Políticas guardadas correctamente</div>
+
+      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 16px;"><strong>Paso 2.7 — Obtener el Consumer Key (Pestaña Settings):</strong></p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Comprueba en la cabecera que <em>App Authorization</em> ahora indica <code>Admin approved users are pre-authorized</code> y haz clic en la pestaña <strong>Settings</strong>.</li>
+      </ol>
+      <img src="images/e10-014.png" alt="Pestaña Settings con App Authorization actualizada" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.14: Cambio a la pestaña Settings tras autorizar el perfil</div>
+
+      <ol start="2" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Despliega la sección <strong>OAuth Settings</strong> y haz clic en el botón <strong>Consumer Key and Secret</strong>.</li>
+      </ol>
+      <img src="images/e10-015.png" alt="Botón Consumer Key and Secret en OAuth Settings" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.15: Acceso a Consumer Key and Secret</div>
+
+      <ol start="3" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Ingresa el código de verificación de 6 dígitos enviado a tu correo real y haz clic en <strong>Verify</strong>.</li>
+      </ol>
+      <img src="images/e10-016.png" alt="Pantalla Verify Your Identity con código de verificación" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.16: Verificación de identidad mediante correo electrónico</div>
+
+      <ol start="4" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>En la pantalla <em>Consumer Details</em>, haz clic en <strong>Copy</strong> junto a <strong>Consumer Key</strong> y guárdalo para la Fase 5.</li>
+      </ol>
+      <img src="images/e10-017.png" alt="Consumer Details con Consumer Key" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.17: Copia del Consumer Key para el script de Python</div>
 
       <div class="alert-info" style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-top: 14px; color: #856404; font-size: 13px;">
-        <strong>Dato clave:</strong> Guarda en un lugar seguro tres valores: el <strong>Consumer Key</strong> de la ECA, la ruta al archivo <strong>private_key.pem</strong>, y tu <strong>username de Salesforce</strong>. Los tres se configuran en la sección <code>CONFIGURACIÓN</code> del script Python de la Fase 5.
+        <strong>Dato clave:</strong> Guarda tres valores para la Fase 5: el <strong>Consumer Key</strong> de la ECA, la ruta al archivo <strong>private_key.pem</strong>, y tu <strong>username de Salesforce</strong>.
       </div>
     </div>
 
     <!-- FASE 3 — REGISTRO INGESTION API -->
     <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
       <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 3 — Registro de la Ingestion API</h5>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">Con la seguridad ya configurada en el CRM, ahora abriremos el puerto de recepción nativo en Data Cloud.</p>
-      <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">1. En Salesforce, ve a <strong>Setup</strong> → busca <code>Data Cloud Setup</code> → sección <strong>Ingestion API</strong>.</p>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Haz clic en <strong>New</strong> y completa los campos del conector:</p>
-      <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
-        <li><strong>Connector Name:</strong> <code>LOG_CEDIS_SCANS</code></li>
-        <li><strong>Description:</strong> <code>Receptor de eventos de escaneo en tiempo real provenientes de los CEDIS.</code></li>
-      </ul>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">3. En la sección <strong>Schema</strong>, haz clic en <strong>Upload Schema</strong> y selecciona el archivo <code>log_cedis_scans.yaml</code> descargado en la Fase 1.</p>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">4. Confirma que el sistema detecta correctamente el objeto <code>scaneventos</code> y haz clic en <strong>Save</strong>.</p>
+      <p style="font-size: 14px; line-height: 1.85; color: #334;">Con la seguridad OAuth configurada, abriremos el puerto de recepción nativo en Data Cloud.</p>
+
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>En la esquina superior derecha, haz clic en el ícono del engranaje (⚙️) y selecciona <strong>Data Cloud Setup</strong> (es una opción independiente de <em>Setup</em>).</li>
+      </ol>
+      <img src="images/e10-018.png" alt="Menú de engranaje seleccionando Data Cloud Setup" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.18: Acceso a Data Cloud Setup desde el menú principal</div>
+
+      <ol start="2" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>En el buscador rápido (<em>Quick Find</em>) de la izquierda, escribe <code>api</code>, selecciona <strong>Ingestion API</strong> y haz clic en el botón <strong>New</strong> arriba a la derecha.</li>
+      </ol>
+      <img src="images/e10-019.png" alt="Sección Ingestion API en Data Cloud Setup" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.19: Creación de un nuevo conector en Ingestion API</div>
+
+      <ol start="3" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>En la ventana emergente <em>Connect an Ingestion API Source</em>, completa los dos campos y haz clic en <strong>Save</strong>:
+          <ul style="margin-top: 4px;">
+            <li><strong>Connector Name:</strong> <code>LOG_CEDIS_SCANS</code></li>
+            <li><strong>Alias:</strong> <code>API</code></li>
+          </ul>
+        </li>
+      </ol>
+      <img src="images/e10-020.png" alt="Modal Connect an Ingestion API Source con Connector Name y Alias" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.20: Configuración de Connector Name y Alias del origen</div>
+
+      <ol start="4" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>Dentro de la ficha del conector recién creado, desplázate a la sección <strong>Schema</strong>, haz clic en <strong>Upload Files</strong> (o arrastra el archivo) y selecciona <code>log_cedis_scans.yaml</code> descargado en la Fase 1.</li>
+        <li>En la vista previa (<em>Preview Schema</em>), verifica que Data Cloud detecta correctamente el objeto <code>scaneventos</code> y sus <strong>10 campos</strong> con sus tipos de dato, y haz clic en <strong>Save</strong>.</li>
+      </ol>
+      <img src="images/e10-021.png" alt="Preview Schema mostrando el objeto scaneventos y sus 10 campos" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.21: Validación del esquema OpenAPI y sus 10 campos en Preview Schema</div>
+
       <div class="alert-info" style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-top: 12px; color: #856404; font-size: 13px;">
-        <strong>Importante:</strong> Una vez guardado el conector, Data Cloud te mostrará el <strong>Tenant-Specific Endpoint (TSE)</strong>. Cópialo — lo necesitarás en el script Python de la Fase 5. Tiene la forma: <code>abc123xyz.c360a.salesforce.com</code>
+        <strong>Importante:</strong> Una vez guardado el esquema, copia el valor de <strong>Tenant-Specific Endpoint</strong> que aparece en la cabecera del conector (ej. <code>abc123xyz.c360a.salesforce.com</code>). Lo necesitarás en el script Python de la Fase 5.
       </div>
+      <img src="images/e10-022.png" alt="Integration Guide mostrando el Tenant Specific Endpoint" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.22: Copia del Tenant-Specific Endpoint en la sección Integration Guide</div>
     </div>
 
     <!-- FASE 4 — DATA STREAM Y MAPEO -->
     <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
       <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 4 — Creación del Data Stream y Mapeo</h5>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">1. En Data Cloud, ve a <strong>Data Streams</strong> → <strong>New</strong> → selecciona la fuente <strong>Ingestion API</strong>.</p>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Selecciona el conector <code>LOG_CEDIS_SCANS</code> y el objeto <code>scaneventos</code>. Haz clic en <strong>Next</strong>.</p>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Configura los parámetros del Data Stream:</p>
-      <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
-        <li><strong>Data Stream Name:</strong> <code>LOG_CEDIS_ScanEventos</code></li>
-        <li><strong>Category:</strong> <code>Engagement</code></li>
-        <li><strong>Primary Key:</strong> <code>NumGuia</code></li>
-        <li><strong>Event Time:</strong> <code>Timestamp</code></li>
-      </ul>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">4. En la sección de <strong>Data Mapping</strong>, mapea los campos hacia el DMO de telemetría o al DMO existente de <em>Shipment</em>:</p>
-      <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
-        <li><code>NumGuia</code> → <code>ssot__ShipmentIdentifier__c</code> (Primary Key)</li>
-        <li><code>Timestamp</code> → <code>ssot__EventTime__c</code></li>
-        <li><code>Status_Nuevo</code> → <code>ssot__ShipmentStatus__c</code></li>
-        <li><code>RFC_Remitente</code> → <code>ssot__AccountSourceId__c</code> (para el link de identidad)</li>
-      </ul>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">5. Haz clic en <strong>Save &amp; Deploy</strong>. El Data Stream quedará activo y listo para recibir eventos vía HTTP POST.</p>
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
+        <li>Abre la aplicación <strong>Data Cloud</strong> desde el App Launcher, ve a la pestaña <strong>Data Streams</strong> y haz clic en <strong>New</strong> arriba a la derecha.</li>
+      </ol>
+      <img src="images/e10-023.png" alt="Pestaña Data Streams y botón New en Data Cloud" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.23: Creación de un nuevo Data Stream en Data Cloud</div>
+
+      <ol start="2" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>En <em>Connected Sources</em>, selecciona la tarjeta <strong>Ingestion API</strong> y haz clic en <strong>Next</strong>.</li>
+      </ol>
+      <img src="images/e10-024.png" alt="Selección de Ingestion API como fuente en New Data Stream" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.24: Selección de Ingestion API en Connected Sources</div>
+
+      <ol start="3" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>En el desplegable <strong>Ingestion API</strong>, selecciona <code>LOG_CEDIS_SCANS</code>, marca el objeto <code>scaneventos</code> (10 atributos) y haz clic en <strong>Next</strong>.</li>
+      </ol>
+      <img src="images/e10-025.png" alt="Selección del conector LOG_CEDIS_SCANS y objeto scaneventos" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.25: Selección del origen LOG_CEDIS_SCANS y el objeto scaneventos</div>
+
+      <ol start="4" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>Configura los tres parámetros clave de <code>scaneventos Details</code> y haz clic en <strong>Next</strong>:
+          <ul style="margin-top: 4px;">
+            <li><strong>Category:</strong> <code>Engagement</code></li>
+            <li><strong>Primary Key:</strong> <code>NumGuia</code></li>
+            <li><strong>Event Time Field:</strong> <code>Timestamp</code></li>
+          </ul>
+        </li>
+      </ol>
+      <img src="images/e10-026.png" alt="Configuración de Category Engagement, Primary Key NumGuia y Event Time Timestamp" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.26: Definición de categoría, clave primaria y campo temporal del stream</div>
+
+      <ol start="5" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>En la pantalla de resumen, verifica que <strong>Data Space</strong> sea <code>default</code> y que en la pestaña <em>Engagement (1)</em> aparezca el stream generado automáticamente como <code>API-scaneventos</code> (combinación del Alias <code>API</code> y el objeto <code>scaneventos</code>). Haz clic en <strong>Deploy</strong>.</li>
+      </ol>
+      <img src="images/e10-027.png" alt="Resumen de despliegue del Data Stream API-scaneventos" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.27: Confirmación y despliegue del Data Stream API-scaneventos</div>
+
+      <ol start="6" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>En la ficha del Data Stream <code>API-scaneventos</code> activo, haz clic en el botón <strong>New Formula Field</strong> en la barra superior derecha. Esto es obligatorio porque el campo destino <code>Shipment Date</code> exige tipo <code>Date</code> puro (Date Partition), mientras que <code>Timestamp</code> llega como <code>DateTime</code>.</li>
+      </ol>
+      <img src="images/e10-028.png" alt="Ficha del Data Stream API-scaneventos activo con botón New Formula Field" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.28: Data Stream API-scaneventos activo en Data Cloud</div>
+
+      <ol start="7" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>Configura el campo fórmula exactamente así y haz clic en <strong>Save</strong>:
+          <ul style="margin-top: 4px;">
+            <li><strong>Field Label:</strong> <code>Scan Date</code></li>
+            <li><strong>Field API Name:</strong> <code>Scan_Date</code></li>
+            <li><strong>Formula Return Type:</strong> <code>Date</code></li>
+            <li><strong>Transformation Formula:</strong> <code>PARSEDATE(LEFT(sourceField['Timestamp'], 10), 'yyyy-MM-dd')</code></li>
+          </ul>
+        </li>
+      </ol>
+      <img src="images/e10-029.png" alt="Modal New Formula Field con Scan Date y fórmula PARSEDATE" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.29: Creación del campo fórmula Scan Date para compatibilidad de fechas</div>
+
+      <ol start="8" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>Abre la tarjeta <strong>Data Mapping</strong> a la derecha y haz clic en <strong>Start</strong>. Verás el lienzo en blanco.</li>
+      </ol>
+      <img src="images/e10-030.png" alt="Lienzo inicial de Data Mapping en blanco" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.30: Lienzo inicial de Data Mapping</div>
+
+      <ol start="9" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>Haz clic en el botón azul <strong>Select Objects</strong>, busca <code>Shipment</code> en la barra superior, marca la casilla correspondiente y haz clic en <strong>Done</strong>.</li>
+      </ol>
+      <img src="images/e10-031.png" alt="Buscador Select Objects con el DMO Shipment seleccionado" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.31: Selección del DMO Shipment como destino</div>
+
+      <ol start="10" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>En la columna derecha (Shipment), haz clic en <strong>&gt; Unmapped</strong> para desplegar todos los campos y traza estas 5 uniones:
+          <ul style="margin-top: 4px;">
+            <li><code>NumGuia</code> → <strong>Id</strong> (Primary Key)</li>
+            <li><code>NumGuia</code> → <strong>Carrier Tracking Number</strong></li>
+            <li><code>Scan Date</code> → <strong>Shipment Date</strong></li>
+            <li><code>Status_Nuevo</code> → <strong>Shipment Status</strong></li>
+            <li><code>Timestamp</code> → <strong>Actual Delivery Date Time</strong></li>
+          </ul>
+          Finaliza haciendo clic en <strong>Save &amp; Close</strong>. <em>(Nota: Data Cloud exige que la partición de Shipment sea un campo DateTime, por eso usamos Actual Delivery Date Time para el Timestamp).</em>
+        </li>
+      </ol>
+      <img src="images/e10-032.png" alt="Lienzo de Data Mapping conectando Timestamp con Actual Delivery Date Time" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.32: Mapeo completado cumpliendo el requisito de Date Partition con Actual Delivery Date Time</div>
+
+      <ol start="11" style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>Verificarás que la sección Data Mapping ahora indica <strong>7/16</strong> campos mapeados con un botón <strong>Review</strong>. Los datos están listos para ingerirse.</li>
+      </ol>
+      <img src="images/e10-033.png" alt="Data Stream indicando 7 de 16 campos mapeados" class="modal-img" onerror="this.style.display='none'">
+      <div class="img-caption">Figura 10.33: Confirmación de guardado del Data Mapping (7 campos mapeados)</div>
     </div>
 
     <!-- FASE 5 — SCRIPT PYTHON -->
     <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
-      <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 5 — El Script de Streaming (Python)</h5>
-      <div class="alert-info" style="background-color: #e8f4fd; border-left: 4px solid #00a1e0; padding: 10px; margin-bottom: 15px; color: #003468; font-size: 13px;">
-        <strong>Requisito previo:</strong> Instala las dependencias con <code>pip install PyJWT requests cryptography</code> antes de ejecutar el script.
-      </div>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Abre tu editor de texto y crea el archivo <code>streaming_cedis.py</code>.</p>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">2. Reemplaza los valores de la sección <strong>CONFIGURACIÓN</strong> con los datos de tu org (Consumer Key, TSE, Username y ruta al archivo <code>private_key.pem</code>).</p>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">3. Copia y pega el script completo:</p>
-      <div style="background: #1e2433; border-radius: 8px; margin: 12px 0; overflow: hidden;">
-        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; background: #2a3147; border-bottom: 1px solid #3a4160;">
-          <span style="font-size: 12px; color: #a0aec0; font-family: monospace;">streaming_cedis.py</span>
-          <button class="copy-btn" onclick="copyData('py-streaming', this)" style="font-size: 11px; padding: 4px 10px; background: #066AFE; color: white; border: none; border-radius: 4px; cursor: pointer;">Copiar Python</button>
-        </div>
-        <pre id="py-streaming" style="margin: 0; padding: 16px; color: #e2e8f0; font-size: 12px; line-height: 1.7; overflow-x: auto; font-family: 'Courier New', monospace;">import jwt, requests, random, time, datetime
+      <h3 style="margin-top: 30px; border-bottom: 2px solid #005fb2; padding-bottom: 5px;">Fase 5 — Preparar el Entorno y Ejecutar el Streaming</h3>
+
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>
+          <strong>Configurar el entorno virtual:</strong> Por seguridad, Python en Mac/Linux bloquea instalaciones globales. Abre tu terminal, navega a la carpeta donde guardaste tu archivo <code>private_key.pem</code> y ejecuta estos comandos uno por uno para crear una "burbuja" aislada:
+          <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; overflow-x: auto; margin-top: 10px; font-family: monospace;"><code># 1. Crear entorno virtual
+python3 -m venv venv_cedis
+
+# 2. Activar el entorno
+source venv_cedis/bin/activate
+# (Si usas Windows: venv_cedis\Scripts\activate)
+
+# 3. Instalar librerías requeridas
+pip install PyJWT requests cryptography</code></pre>
+        </li>
+
+        <li style="margin-top: 20px;">
+          <strong>Descargar el script de Ingesta:</strong> Este script utiliza tu llave privada para obtener un Token Core (Paso 1) y luego lo canjea por un Token CDP en el endpoint <code>/a360/token</code> (Paso 2) para poder enviar datos continuamente. Guárdalo en la misma carpeta que tu llave.
+          <br><br>
+          <a href="downloads/streaming_cedis.py" download="streaming_cedis.py" style="display: inline-block; background-color: #005fb2; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">📥 Descargar streaming_cedis.py</a>
+
+          <details style="margin-top: 15px; background: #f9f9f9; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+            <summary style="cursor: pointer; color: #005fb2; font-weight: bold;">Haz clic aquí si prefieres ver y copiar el código fuente</summary>
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; overflow-x: auto; margin-top: 10px; font-size: 12px; font-family: monospace;"><code>import jwt, requests, random, time, datetime
 
 # ================================================================
-# CONFIGURACIÓN — Rellena con los valores de tu Connected App
+# CONFIGURACIÓN — Valores de tu org (REEMPLAZAR CON TUS DATOS)
 # ================================================================
 SF_LOGIN_URL  = "https://login.salesforce.com"
-TSE           = "YOUR_TENANT_SPECIFIC_ENDPOINT"   # ej: abc123.c360a.salesforce.com
-CONSUMER_KEY  = "YOUR_CONSUMER_KEY"               # Consumer Key de la Connected App
-PRIVATE_KEY   = "private_key.pem"                 # Ruta al archivo .pem generado con OpenSSL
-SF_USERNAME   = "YOUR_USERNAME@example.com"       # Tu usuario administrador
+TSE           = "INGRESA_TU_TENANT_SPECIFIC_ENDPOINT"
+CONSUMER_KEY  = "INGRESA_TU_CONSUMER_KEY"
+PRIVATE_KEY   = "private_key.pem"
+SF_USERNAME   = "INGRESA_TU_USUARIO_DE_SALESFORCE"
 
 ENDPOINT = f"https://{TSE}/api/v1/ingest/sources/LOG_CEDIS_SCANS/scaneventos"
 
-# Datos de prueba
 CIUDADES  = ["Monterrey", "CDMX", "Guadalajara", "Tijuana", "Puebla", "Merida"]
 HUBS      = ["HUB-MTY-01", "HUB-CDMX-02", "HUB-GDL-03", "HUB-TIJ-04", "HUB-PUE-05", "HUB-MID-06"]
 OPERARIOS = ["EMP-4421", "EMP-3308", "EMP-5571", "EMP-2291", "EMP-6612"]
@@ -4095,14 +4320,15 @@ EVENTOS   = ["SCAN_HUB_LLEGADA", "SCAN_HUB_SALIDA", "SCAN_EN_RUTA", "SCAN_ENTREG
 RFCS      = ["DBA950215AB1", "TRK881201XX0", "PKG760315YZ9", "MED450922KL1", "AUT330510MN3"]
 ESTADOS   = ["En_Transito", "Entregado", "Retenido", "En_Clasificacion", "Retorno"]
 
-def get_jwt_token():
+# ── Paso 1: Obtener Core Token via JWT ──────────────────────────
+def get_core_token():
     with open(PRIVATE_KEY, "r") as f:
         private_key = f.read()
     claim = {
         "iss": CONSUMER_KEY,
         "sub": SF_USERNAME,
         "aud": SF_LOGIN_URL,
-        "exp": int(time.time()) + 180    # max 3 min — Salesforce rechaza exp > 3 min
+        "exp": int(time.time()) + 180
     }
     encoded_jwt = jwt.encode(claim, private_key, algorithm="RS256")
     resp = requests.post(f"{SF_LOGIN_URL}/services/oauth2/token", data={
@@ -4110,11 +4336,28 @@ def get_jwt_token():
         "assertion": encoded_jwt
     })
     resp.raise_for_status()
+    data = resp.json()
+    return data["access_token"], data["instance_url"]
+
+# ── Paso 2: Intercambiar por Token CDP ──────────────────────────
+def get_cdp_token(core_token, instance_url):
+    url = f"{instance_url}/services/a360/token"
+    params = {
+        "grant_type": "urn:salesforce:grant-type:external:cdp",
+        "subject_token": core_token,
+        "subject_token_type": "urn:ietf:params:oauth:token-type:access_token",
+        "client_id": CONSUMER_KEY
+    }
+    resp = requests.post(url, data=params)
+    if resp.status_code != 200:
+        print(f"\nError en Token Exchange: {resp.text}")
+        resp.raise_for_status()
     return resp.json()["access_token"]
 
 def gen_escaneo():
     idx = random.randint(0, len(HUBS) - 1)
-    ts  = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    # Formato ISO-8601 estricto requerido por Data Cloud (.000Z)
+    ts  = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
     return {
         "NumGuia":       f"TRK{random.randint(2024000000, 2024999999)}",
         "EventType":     random.choice(EVENTOS),
@@ -4128,27 +4371,34 @@ def gen_escaneo():
         "Anomalia":      random.random() &lt; 0.05
     }
 
-def enviar(evento, token):
-    return requests.post(
+# ── Paso 3: Enviar Datos ────────────────────────────────────────
+def enviar(evento, cdp_token):
+    resp = requests.post(
         ENDPOINT,
-        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        headers={"Authorization": f"Bearer {cdp_token}", "Content-Type": "application/json", "Accept": "application/json"},
         json={"data": [evento]},
         timeout=10
     )
+    if resp.status_code == 400:
+        print(f"\nError 400 en Ingestion API. Body: {resp.text}")
+    return resp
 
 print("Iniciando streaming CEDIS -> Salesforce Data Cloud...")
-token = get_jwt_token()
-print("JWT autenticado.\n")
+core_token, instance_url = get_core_token()
+print(f"✓ [Paso 1] Core Token (JWT) obtenido. Dominio: {instance_url}")
+cdp_token = get_cdp_token(core_token, instance_url)
+print("✓ [Paso 2] Intercambio CDP completado en /a360/token.\n")
 
 n = 0
 while True:
     try:
         evento = gen_escaneo()
-        resp   = enviar(evento, token)
+        resp   = enviar(evento, cdp_token)
 
-        if resp.status_code == 401:          # token expirado: renovar y reintentar
-            token = get_jwt_token()
-            resp  = enviar(evento, token)
+        if resp.status_code == 401:
+            core_token, instance_url = get_core_token()
+            cdp_token = get_cdp_token(core_token, instance_url)
+            resp  = enviar(evento, cdp_token)
 
         n += 1
         ts = datetime.datetime.now().strftime("%H:%M:%S")
@@ -4160,29 +4410,122 @@ while True:
         break
     except Exception as e:
         print(f"  Error: {e}")
-        time.sleep(5)</pre>
-      </div>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">4. Ejecuta el script desde la terminal: <code>python3 streaming_cedis.py</code></p>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">Verás en la consola una línea por cada evento enviado con la hora, número de guía, tipo de evento y el código de respuesta HTTP (<code>200</code> indica éxito).</p>
-    </div>
+        time.sleep(5)</code></pre>
+          </details>
+        </li>
 
-    <!-- FASE 6 — VERIFICACIÓN -->
-    <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
-      <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Fase 6 — Verificación en Tiempo Real</h5>
-      <p style="font-size: 14px; line-height: 1.85; color: #334;">Con el script corriendo en tu terminal, abre Data Cloud en paralelo y sigue estos pasos:</p>
-      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px;">
-        <li>Ve a <strong>Data Explorer</strong> → busca el objeto <code>scaneventos</code> (bajo el Data Stream <code>LOG_CEDIS_ScanEventos</code>).</li>
-        <li>Haz clic en <strong>Query</strong> y ejecuta: <code>SELECT * FROM scaneventos ORDER BY Timestamp DESC LIMIT 20</code></li>
-        <li>Verás los registros de escaneo llegando en tiempo real. Cada 3 segundos debería aparecer una fila nueva.</li>
-        <li>Filtra por <code>Anomalia = true</code> para ver únicamente los eventos con anomalía detectada (~5% del total).</li>
-        <li>Opcionalmente, ve al <strong>Unified Profile</strong> de uno de los RFC enviados (ej. <code>DBA950215AB1</code>) y verifica que el tab <strong>Engagement</strong> muestra los eventos de escaneo recién inyectados.</li>
+        <li style="margin-top: 20px;">
+          <strong>Ejecutar el Streaming:</strong> Con el entorno virtual aún activo y los valores reemplazados en el archivo, arranca el script:
+          <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; overflow-x: auto; margin-top: 10px; font-family: monospace;"><code>python3 streaming_cedis.py</code></pre>
+          Deberías ver cómo se autentica exitosamente en los Pasos 1 y 2, y comienza a arrojar mensajes <strong>HTTP 202</strong>, lo que significa que Salesforce Data Cloud está aceptando e ingiriendo los escaneos en tiempo real.
+          <div style="margin-top: 15px; text-align: center;">
+            <img src="images/e10-034.png" alt="Terminal mostrando HTTP 202" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <p style="font-size: 12px; color: #666; margin-top: 5px; font-style: italic;">La terminal confirmará los dos pasos de token y comenzará a registrar respuestas HTTP 202 de Data Cloud.</p>
+          </div>
+        </li>
       </ol>
-      <div class="alert-info" style="background-color: #d4edda; border-left: 4px solid #28a745; padding: 10px; margin-top: 14px; color: #155724; font-size: 13px;">
-        <strong>Validación exitosa:</strong> Si ves registros en el Data Explorer con <code>HTTP 200</code> en la consola del script, el circuito de streaming está completamente operativo. Data Cloud está ingiriendo eventos del CEDIS en menos de 5 segundos de latencia.
+
+      <h3 style="margin-top: 40px; border-bottom: 2px solid #005fb2; padding-bottom: 5px;">Fase 6 — Verificando la Ingesta en Data Cloud</h3>
+
+      <ol style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 10px;">
+        <li>Regresa a tu Org de Salesforce y navega a la pestaña <strong>Data Streams</strong> dentro de la aplicación Data Cloud.</li>
+        <li>Haz clic en tu Data Stream <strong>API-scaneventos</strong> (o el nombre que le hayas asignado).</li>
+        <li>Verifica que el estado general sea <em>Active</em> y observa el campo <strong>Total Records</strong>. Después de unos minutos, verás cómo los registros procesados comienzan a aumentar reflejando tu ingesta en tiempo real.</li>
+      </ol>
+
+      <div style="margin-top: 15px; text-align: center;">
+        <img src="images/e10-035.png" alt="Data Stream procesando registros" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <p style="font-size: 12px; color: #666; margin-top: 5px; font-style: italic;">El Data Stream recibiendo e indexando los datos del conector de Ingestion API.</p>
       </div>
+
+        <li style="margin-top: 20px;">
+          <strong>Verificar los datos crudos en el Data Explorer:</strong> Para comprobar que los campos se están ingiriendo correctamente:
+          <ul style="margin-top: 4px;">
+            <li>Navega a la pestaña <strong>Data Explorer</strong>.</li>
+            <li>En <em>Data Space</em> selecciona <strong>default</strong>.</li>
+            <li>En <em>Object Type</em> selecciona <strong>Data Lake Object</strong>.</li>
+            <li>En <em>Object</em> busca y selecciona tu objeto <strong>API-scaneventos</strong>.</li>
+          </ul>
+          Haz clic en el ícono de refrescar. Verás la tabla con los datos crudos exactamente como los enviaste desde Python (NumGuia, HubCiudad, EventType, etc.).
+        </li>
+
+        <div style="margin-top: 15px; text-align: center;">
+          <img src="images/e10-036.png" alt="Data Explorer mostrando el Data Lake Object" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+          <p style="font-size: 12px; color: #666; margin-top: 5px; font-style: italic;">Vista de los datos crudos aterrizando en el Data Lake Object (DLO).</p>
+        </div>
+
+        <li style="margin-top: 20px;">
+          <strong>Verificar los datos armonizados:</strong> Si ya completaste el mapeo de datos, puedes ver cómo estos escaneos se transforman al modelo estándar de Salesforce:
+          <ul style="margin-top: 4px;">
+            <li>En la misma pestaña de Data Explorer, cambia <em>Object Type</em> a <strong>Data Model Object</strong>.</li>
+            <li>En <em>Object</em> selecciona <strong>Shipment</strong> (o el objeto que hayas mapeado).</li>
+          </ul>
+        </li>
+
+        <div style="margin-top: 15px; text-align: center;">
+          <img src="images/e10-037.png" alt="Data Explorer mostrando el Data Model Object" style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+          <p style="font-size: 12px; color: #666; margin-top: 5px; font-style: italic;">Vista final de los datos armonizados en el Data Model Object (DMO) Shipment.</p>
+        </div>
+      </ol>
     </div>
 
   </div>
 </div>
+<!-- MODAL BRANDING — FASE 0 -->
+<div id="modal-branding" class="modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-content" style="max-width: 900px;">
+    <span class="close-modal" onclick="document.getElementById('modal-branding').style.display='none'" style="position: absolute; top: 16px; right: 20px; font-size: 22px; cursor: pointer; color: #556; line-height: 1;">&times;</span>
+    <h3 style="color: #001E5B; border-bottom: 2px solid #005fb2; padding-bottom: 10px; margin-top: 0;">Fase 0 — Preparación: Branding del Taller</h3>
+    <div class="modal-body">
+
+      <p class="intro-text" style="color: #334; line-height: 1.6;">
+        Para asegurar una experiencia inmersiva, comenzaremos vistiendo nuestra organización de Salesforce con la identidad corporativa de "LogisticForce", la empresa ficticia que protagoniza este taller.
+      </p>
+
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Paso 1 — Descarga de Assets</h5>
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">Guarda el logo de la compañía en tu computadora haciendo clic derecho sobre la imagen deseada y seleccionando "Guardar imagen como...". Puedes elegir el formato que prefieras:</p>
+
+        <div style="display: flex; gap: 24px; flex-wrap: wrap; margin: 15px 0 5px 0; align-items: flex-start; justify-content: center;">
+          <div style="text-align: center; background: #fff; border: 1px solid #dce8fb; padding: 12px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+            <img src="images/LogisticForce_logo.png" alt="Logo LogisticForce PNG" style="max-width: 180px; display: block; margin-bottom: 8px;">
+            <p style="font-size: 11px; font-weight: bold; color: #005fb2; margin: 0; text-transform: uppercase;">Formato PNG (Recomendado)</p>
+          </div>
+          <div style="text-align: center; background: #fff; border: 1px solid #dce8fb; padding: 12px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+            <img src="images/LogisticForce_logo.jpeg" alt="Logo LogisticForce JPEG alta calidad" style="max-width: 180px; display: block; margin-bottom: 8px;">
+            <p style="font-size: 11px; font-weight: bold; color: #005fb2; margin: 0; text-transform: uppercase;">Formato JPEG (Alta calidad)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-step-section" style="margin-top: 20px; padding: 16px 18px; background: #fafbfc; border-radius: 8px; border: 1px solid #e0e8f5;">
+        <h5 style="font-size: 14px; font-weight: 800; color: #001E5B; margin: 0 0 12px; padding: 8px 14px; background: #f0f5ff; border-left: 3px solid #066AFE; border-radius: 0 8px 8px 0;">Paso 2 — Aplicar el Tema en Salesforce</h5>
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">1. Ingresa a tu organización de Salesforce. En la esquina superior derecha, haz clic en el ícono del engranaje (⚙️) y selecciona <strong>Setup</strong>.</p>
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 8px;">2. En la barra de búsqueda rápida (<em>Quick Find</em>) de la izquierda, escribe <code>Themes</code> y selecciona <strong>Themes and Branding</strong>.</p>
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 8px;">3. Haz clic en el botón <strong>New Theme</strong> en la parte superior central de la página.</p>
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 8px;">4. Completa el formulario con los siguientes parámetros corporativos:</p>
+        <ul style="font-size: 14px; line-height: 1.85; color: #334; margin-top: 4px; margin-bottom: 12px;">
+          <li><strong>Theme Name:</strong> <code>LogisticForce</code> (el <em>API Name</em> se generará automáticamente).</li>
+          <li><strong>Brand Image:</strong> Sube el logo que descargaste en el paso anterior.</li>
+          <li><strong>Brand Color:</strong> Establece el color azul corporativo usando el código Hex <code>#005fb2</code>.</li>
+        </ul>
+
+        <p style="font-size: 14px; line-height: 1.85; color: #334;">5. Haz clic en <strong>Save</strong> para guardar la plantilla, y posteriormente haz clic en el botón <strong>Activate</strong> para aplicar los cambios a toda la organización.</p>
+
+        <div style="background-color: #e8f4fd; border-left: 4px solid #00a1e0; padding: 12px 16px; margin-top: 16px; border-radius: 0 6px 6px 0;">
+          <p style="font-size: 13px; color: #003468; margin: 0; font-style: italic;">
+            <strong>✨ ¡Listo!</strong> A partir de ahora, verás el logo de LogisticForce en la esquina superior izquierda de tu pantalla durante todos los ejercicios del taller.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
