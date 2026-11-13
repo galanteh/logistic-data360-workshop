@@ -4296,20 +4296,43 @@ pip install PyJWT requests cryptography</code></pre>
         <li style="margin-top: 20px;">
           <strong>Descargar el script de Ingesta:</strong> Este script utiliza tu llave privada para obtener un Token Core (Paso 1) y luego lo canjea por un Token CDP en el endpoint <code>/a360/token</code> (Paso 2) para poder enviar datos continuamente. Guárdalo en la misma carpeta que tu llave.
           <br><br>
-          <a href="downloads/streaming_cedis.py" download="streaming_cedis.py" style="display: inline-block; background-color: #005fb2; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">📥 Descargar streaming_cedis.py</a>
+          <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+            <a href="data/streaming_cedis.py" download="streaming_cedis.py" style="background-color: #005fb2; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
+              📥 Descargar streaming_cedis.py
+            </a>
+            <a href="data/config.ini" download="config.ini" style="background-color: #f8fafc; color: #005fb2; border: 1px solid #005fb2; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
+              ⚙️ Descargar config.ini
+            </a>
+          </div>
 
           <details style="margin-top: 15px; background: #f9f9f9; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
             <summary style="cursor: pointer; color: #005fb2; font-weight: bold;">Haz clic aquí si prefieres ver y copiar el código fuente</summary>
-            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; overflow-x: auto; margin-top: 10px; font-size: 12px; font-family: monospace;"><code>import jwt, requests, random, time, datetime
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 8px; overflow-x: auto; margin-top: 10px; font-size: 12px; font-family: monospace;"><code>import jwt, requests, random, time, datetime, configparser, sys
 
 # ================================================================
-# CONFIGURACIÓN — Valores de tu org (REEMPLAZAR CON TUS DATOS)
+# CONFIGURACIÓN — Lectura desde config.ini
 # ================================================================
-SF_LOGIN_URL  = "https://login.salesforce.com"
-TSE           = "INGRESA_TU_TENANT_SPECIFIC_ENDPOINT"
-CONSUMER_KEY  = "INGRESA_TU_CONSUMER_KEY"
-PRIVATE_KEY   = "private_key.pem"
-SF_USERNAME   = "INGRESA_TU_USUARIO_DE_SALESFORCE"
+config = configparser.ConfigParser()
+if not config.read('config.ini'):
+    print("❌ Error: No se encontró el archivo 'config.ini' en la carpeta actual.")
+    print("Por favor, descárgalo del taller y complétalo.")
+    sys.exit(1)
+
+try:
+    SF_LOGIN_URL  = config['SALESFORCE']['SF_LOGIN_URL']
+    TSE           = config['SALESFORCE']['TSE']
+    CONSUMER_KEY  = config['SALESFORCE']['CONSUMER_KEY']
+    PRIVATE_KEY   = config['SALESFORCE']['PRIVATE_KEY_PATH']
+    SF_USERNAME   = config['SALESFORCE']['SF_USERNAME']
+except KeyError as e:
+    print(f"❌ Error: Falta el parámetro {e} en tu archivo config.ini.")
+    sys.exit(1)
+
+if "INGRESA" in TSE or "INGRESA" in CONSUMER_KEY:
+    print("❌ Error: Todavía tienes valores genéricos ('INGRESA_TU...') en tu config.ini.")
+    print("Actualiza el archivo con los datos reales de tu organización antes de ejecutar.")
+    sys.exit(1)
+
 
 ENDPOINT = f"https://{TSE}/api/v1/ingest/sources/LOG_CEDIS_SCANS/scaneventos"
 
@@ -4322,8 +4345,13 @@ ESTADOS   = ["En_Transito", "Entregado", "Retenido", "En_Clasificacion", "Retorn
 
 # ── Paso 1: Obtener Core Token via JWT ──────────────────────────
 def get_core_token():
-    with open(PRIVATE_KEY, "r") as f:
-        private_key = f.read()
+    try:
+        with open(PRIVATE_KEY, "r") as f:
+            private_key = f.read()
+    except FileNotFoundError:
+        print(f"❌ Error: No se encontró el archivo de llave privada '{PRIVATE_KEY}'.")
+        sys.exit(1)
+
     claim = {
         "iss": CONSUMER_KEY,
         "sub": SF_USERNAME,
@@ -4335,7 +4363,13 @@ def get_core_token():
         "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
         "assertion": encoded_jwt
     })
-    resp.raise_for_status()
+
+    if resp.status_code != 200:
+        print(f"\n❌ Error al obtener Core Token (Paso 1).")
+        print(f"Detalle: {resp.text}")
+        print("Revisa tu CONSUMER_KEY, SF_USERNAME y que el usuario esté pre-autorizado.")
+        sys.exit(1)
+
     data = resp.json()
     return data["access_token"], data["instance_url"]
 
@@ -4350,7 +4384,7 @@ def get_cdp_token(core_token, instance_url):
     }
     resp = requests.post(url, data=params)
     if resp.status_code != 200:
-        print(f"\nError en Token Exchange: {resp.text}")
+        print(f"\n❌ Error en Token Exchange (Paso 2): {resp.text}")
         resp.raise_for_status()
     return resp.json()["access_token"]
 
@@ -4380,7 +4414,7 @@ def enviar(evento, cdp_token):
         timeout=10
     )
     if resp.status_code == 400:
-        print(f"\nError 400 en Ingestion API. Body: {resp.text}")
+        print(f"\n❌ Error 400 en Ingestion API. Body: {resp.text}")
     return resp
 
 print("Iniciando streaming CEDIS -> Salesforce Data Cloud...")
@@ -4406,10 +4440,10 @@ while True:
         time.sleep(3)
 
     except KeyboardInterrupt:
-        print(f"\nStreaming detenido. Total enviados: {n}")
+        print(f"\nStreaming detenido manualmente. Total enviados: {n}")
         break
     except Exception as e:
-        print(f"  Error: {e}")
+        print(f"  Error general: {e}")
         time.sleep(5)</code></pre>
           </details>
         </li>

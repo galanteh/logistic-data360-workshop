@@ -38,8 +38,7 @@ logistic-data360-workshop/
 │   ├── cuentas_b2b_logistica.csv      # Mock B2B con duplicados intencionales (Identity Res)
 │   ├── guias_shipments_logistica.csv  # 50k registros transaccionales
 │   ├── incidencias_entrega.csv        # Eventos operacionales para métricas de riesgo
-│   └── log_cedis_scans.yaml           # Esquema OpenAPI 3.0 para la Ingestion API
-├── downloads/
+│   ├── log_cedis_scans.yaml           # Esquema OpenAPI 3.0 para la Ingestion API
 │   └── streaming_cedis.py             # Script Python (JWT Token Exchange) para Módulo 10
 ├── images/                            # Assets, diagramas y evidencias del paso a paso
 ├── index.html                         # Interfaz interactiva SPA del taller
@@ -70,7 +69,7 @@ source venv/bin/activate
 pip install PyJWT requests cryptography
 
 # Ejecutar el script (requiere configurar Consumer Key y private_key.pem previos)
-python3 downloads/streaming_cedis.py
+python3 data/streaming_cedis.py
 ```
 
 ## ☁️ Despliegue en Heroku
