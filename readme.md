@@ -50,7 +50,6 @@ logistic-data360-workshop/
 │   ├── generate_mock_data.py              # Generador Python de datos B2B/B2C
 │   └── generate_test_incidents.py         # Generador de anomalías logísticas
 ├── index.html                             # Interfaz interactiva SPA del taller
-├── requirements.txt                       # Dependencias Python para scripts
 ├── composer.json                          # Configuración de Buildpack para Heroku
 └── index.php                              # Enrutador estático para Heroku
 ```
